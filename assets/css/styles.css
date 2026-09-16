@@ -193,6 +193,8 @@ a:hover{text-decoration-color:var(--coral);text-decoration-thickness:2px}
 .t-soft{background:var(--gold);color:var(--black)}   /* soft / medium */
 .t-soc{background:var(--coral);color:var(--black)}   /* social shaping*/
 .t-oth{background:var(--white);color:var(--black)}   /* other / mixed */
+.t-m5{background:var(--white);color:var(--black);   /* craft and writing */
+  box-shadow:inset 0 -4px 0 var(--coral)}
 
 .uncertain{background:var(--gold-wash);font-style:italic;padding:0 3px}
 mark{background:var(--gold-wash);color:var(--black);padding:0 1px}

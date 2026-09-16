@@ -5,8 +5,9 @@ A static, dependency-free reference site with two tables:
 1. **Thinkers on technology, media and literacy** — 81 authors, with dates, fields, key works,
    what each work argues, the author's view of technology, and a theoretical placement
    (determinist · soft/medium theory · social shaping · other/mixed).
-2. **Organizational research methods** — 29 sources, with what each argues and what it
-   contributed to field research.
+2. **Organizational research methods** — 67 sources, with what each argues and what it
+   contributed to field research. It covers the reading list of a doctoral field-methods
+   seminar: method texts, editorial statements, and the published papers assigned as exemplars.
 
 The two tables live on separate tabs rather than one long scrolling page. A nav bar at the top
 switches between them — the active table is the one filled in gold — and each table ends with
@@ -104,6 +105,9 @@ A thinkers entry (`assets/js/data-thinkers.js`):
 | `a` | what the work argues |
 | `v` | view of technology and media |
 | `c` | camp code: `det`, `soft`, `soc`, `oth` — drives the filter buttons and tag colour |
+
+The methods table uses one further code, `m5`, for craft-and-writing sources; it has no filter
+button, only a tag style.
 | `cl` | camp label shown on the tag |
 | `cn` | note on the theoretical placement |
 
