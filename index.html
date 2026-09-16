@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thinkers &amp; Methods — technology, media, literacy and organizational research</title>
+<meta name="description" content="Two reference tables: thinkers on technology, media and literacy, and key sources on organizational research methods.">
+<meta name="color-scheme" content="light">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='14'>&#128218;</text></svg>">
+</head>
+<body>
+
+<a class="skip-link" href="#panel-thinkers">Skip to the table</a>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <h1>Thinkers &amp; Methods</h1>
+    <p class="tagline">Two reference tables: writers on technology, media and literacy, and the methodological sources behind organizational field research.</p>
+    <div class="tabs" role="tablist" aria-label="Choose a table">
+      <button class="tab" role="tab" id="tab-thinkers"
+              aria-controls="panel-thinkers" aria-selected="true" data-tab="thinkers">
+        Thinkers on technology &amp; media
+        <span class="tab-n" id="tabn-thinkers"></span>
+      </button>
+      <button class="tab" role="tab" id="tab-methods"
+              aria-controls="panel-methods" aria-selected="false" data-tab="methods" tabindex="-1">
+        Organizational research methods
+        <span class="tab-n" id="tabn-methods"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ Table 1 ============ -->
+  <section class="panel" id="panel-thinkers" role="tabpanel" aria-labelledby="tab-thinkers" tabindex="0">
+    <div class="panel-intro">
+      <h2>Thinkers on technology, media and literacy</h2>
+      <p>Each entry gives dates, fields, the key work, what that work argues, the author's view of technology,
+         and where the position sits between determinism and social shaping.</p>
+    </div>
+
+    <div class="controls">
+      <input type="search" id="q" placeholder="Search name, field, idea, or book" aria-label="Search the thinkers table" autocomplete="off">
+      <div class="filters" role="group" aria-label="Filter by theoretical camp">
+        <button data-camp="all" aria-pressed="true">All</button>
+        <button data-camp="det" aria-pressed="false">Determinist</button>
+        <button data-camp="soft" aria-pressed="false">Soft / medium theory</button>
+        <button data-camp="soc" aria-pressed="false">Social shaping</button>
+        <button data-camp="oth" aria-pressed="false">Other / mixed</button>
+      </div>
+      <span class="sep" aria-hidden="true"></span>
+      <div class="sorts" role="group" aria-label="Sort order">
+        <button data-sort="az" aria-pressed="true">A–Z</button>
+        <button data-sort="chrono" aria-pressed="false">Chronological</button>
+      </div>
+    </div>
+    <div class="count" id="count" role="status"></div>
+
+    <div class="scroller" tabindex="0" role="region" aria-label="Thinkers table, scrolls horizontally">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Dates</th>
+            <th scope="col">Fields</th>
+            <th scope="col">Key work on technology or media</th>
+            <th scope="col">What the work argues</th>
+            <th scope="col">View of technology and media</th>
+            <th scope="col">Theoretical placement</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ Table 2 ============ -->
+  <section class="panel" id="panel-methods" role="tabpanel" aria-labelledby="tab-methods" tabindex="0" hidden>
+    <div class="panel-intro">
+      <h2>Organizational research methods</h2>
+      <p>The sources a methods section cites: what each argues, what it contributed to field research,
+         and the kind of intervention it makes.</p>
+    </div>
+
+    <div class="controls">
+      <input type="search" id="q2" placeholder="Search author, concept, or argument" aria-label="Search the methods table" autocomplete="off">
+      <div class="sorts" role="group" aria-label="Sort order">
+        <button data-sort2="az" aria-pressed="true">A–Z</button>
+        <button data-sort2="year" aria-pressed="false">By year of key work</button>
+      </div>
+    </div>
+    <div class="count" id="count2" role="status"></div>
+
+    <div class="scroller" tabindex="0" role="region" aria-label="Methods table, scrolls horizontally">
+      <table id="tbl2">
+        <thead>
+          <tr>
+            <th scope="col">Author or authors</th>
+            <th scope="col">Dates</th>
+            <th scope="col">Role and field</th>
+            <th scope="col">Key work</th>
+            <th scope="col">What it argues</th>
+            <th scope="col">Contribution to organizational research and field methods</th>
+            <th scope="col">Type of intervention</th>
+          </tr>
+        </thead>
+        <tbody id="tbody2"></tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<button id="toTop" type="button">↑ Top</button>
+
+<footer>
+  <div class="footer-inner">
+    <h2>About these tables</h2>
+    <ul>
+      <li>Names link to Wikipedia where an article exists, and otherwise to a search; titles link to Google Books or a search.</li>
+      <li>Pronunciations are given in IPA and are approximate for names with contested or regional readings.</li>
+      <li>Entries marked <span class="uncertain">dates not established</span> are living or lesser-documented authors whose birth years are not reliably recorded here.</li>
+      <li>Theoretical placements are interpretive summaries, not the authors' own self-descriptions.</li>
+    </ul>
+  </div>
+</footer>
+
+<script src="assets/js/links.js"></script>
+<script src="assets/js/data-thinkers.js"></script>
+<script src="assets/js/data-methods.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

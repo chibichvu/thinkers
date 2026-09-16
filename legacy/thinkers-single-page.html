@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thinkers on Technology, Media and Literacy</title>
+<style>
+  :root{
+    --paper:#FBFAF7;
+    --ink:#1C2530;
+    --ink-soft:#4A5764;
+    --rule:#D8D4CA;
+    --det:#3B3A86;
+    --det-bg:#E7E6F4;
+    --soft:#8A5A12;
+    --soft-bg:#F6EBD8;
+    --soc:#1F6152;
+    --soc-bg:#DEEDE7;
+    --oth:#6A5A5A;
+    --oth-bg:#ECE6E4;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:Georgia,"Iowan Old Style","Times New Roman",serif;
+    line-height:1.5;
+  }
+  header{padding:28px 20px 14px;max-width:900px}
+  h1{font-size:1.45rem;font-weight:normal;margin:0 0 8px;letter-spacing:.2px}
+  header p{margin:0 0 10px;color:var(--ink-soft);font-size:.92rem;max-width:68ch}
+  .controls{padding:0 20px 14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  input[type=search]{
+    font:inherit;font-size:.92rem;padding:8px 11px;border:1px solid var(--rule);
+    border-radius:3px;background:#fff;color:var(--ink);min-width:230px;flex:1 1 230px;max-width:340px;
+  }
+  input[type=search]:focus,button:focus{outline:2px solid var(--det);outline-offset:1px}
+  button{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    font-size:.78rem;padding:7px 11px;border:1px solid var(--rule);background:#fff;
+    color:var(--ink-soft);border-radius:3px;cursor:pointer;
+  }
+  button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .sep{width:1px;height:22px;background:var(--rule);margin:0 4px}
+  tr.group td{
+    background:var(--ink);color:var(--paper);padding:7px 12px;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    font-size:.76rem;letter-spacing:.3px;position:sticky;left:0;
+  }
+  .count{font-size:.82rem;color:var(--ink-soft);padding:0 20px 10px}
+  .scroller{overflow-x:auto;-webkit-overflow-scrolling:touch;border-top:1px solid var(--rule)}
+  table{border-collapse:collapse;min-width:1180px;width:100%;font-size:.86rem}
+  thead th{
+    position:sticky;top:0;z-index:2;background:var(--paper);
+    text-align:left;font-weight:bold;font-size:.78rem;color:var(--ink-soft);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    padding:10px 12px;border-bottom:2px solid var(--ink);white-space:nowrap;
+  }
+  td{padding:12px;border-bottom:1px solid var(--rule);vertical-align:top}
+  tbody tr:nth-child(even){background:#F5F3EE}
+  td.name{font-size:.95rem;min-width:190px}
+  .ipa{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:.72rem;color:var(--ink-soft);margin-top:4px;line-height:1.35}
+  td.years{white-space:nowrap;color:var(--ink-soft);font-size:.82rem;min-width:96px}
+  td.fields{min-width:150px;color:var(--ink-soft);font-size:.82rem}
+  td.works{min-width:210px}
+  td.about{min-width:300px}
+  td.view{min-width:290px}
+  td.camp{min-width:210px}
+  a{color:var(--ink);text-decoration:underline;text-decoration-color:#B9B3A5;text-underline-offset:2px}
+  a:hover{text-decoration-color:var(--ink)}
+  .works-list{margin:0;padding:0;list-style:none}
+  .works-list li{margin-bottom:5px;font-style:italic}
+  .works-list li span{font-style:normal;color:var(--ink-soft)}
+  .tag{
+    display:inline-block;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    font-size:.7rem;padding:2px 7px;border-radius:2px;margin-bottom:6px;
+  }
+  .t-det{background:var(--det-bg);color:var(--det)}
+  .t-soft{background:var(--soft-bg);color:var(--soft)}
+  .t-soc{background:var(--soc-bg);color:var(--soc)}
+  .t-oth{background:var(--oth-bg);color:var(--oth)}
+  .camp p{margin:0;font-size:.82rem;color:var(--ink-soft)}
+  .uncertain{color:#8A5A12}
+  section.methods{border-top:3px solid var(--ink);margin-top:30px}
+  section.methods h2.sec{font-size:1.25rem;font-weight:normal;margin:24px 20px 8px;max-width:900px}
+  section.methods > p.lede{margin:0 20px 14px;color:var(--ink-soft);font-size:.92rem;max-width:68ch}
+  .jump{padding:0 20px 14px;font-size:.84rem}
+  .jump a{margin-right:14px;color:var(--ink-soft)}
+  #tbl2{min-width:1180px}
+  .t-m5{background:#E4E9EF;color:#33506E}
+  footer{padding:20px;font-size:.8rem;color:var(--ink-soft);max-width:78ch}
+  footer h2{font-size:.9rem;margin:16px 0 6px;color:var(--ink)}
+  footer ul{padding-left:18px;margin:0}
+  footer li{margin-bottom:4px}
+  @media (max-width:600px){
+    header{padding:20px 14px 10px}
+    .controls,.count{padding-left:14px;padding-right:14px}
+  }
+</style>
+</head>
+<body>
+
+<nav class="jump">
+  <a href="#t1">Table 1 · thinkers on technology, media and literacy</a>
+  <a href="#t2">Table 2 · organizational research methods</a>
+</nav>
+
+<div class="controls">
+  <input type="search" id="q" placeholder="Search name, field, idea, or book" aria-label="Search the table">
+  <button data-camp="all" aria-pressed="true">All</button>
+  <button data-camp="det" aria-pressed="false">Determinist</button>
+  <button data-camp="soft" aria-pressed="false">Soft / medium theory</button>
+  <button data-camp="soc" aria-pressed="false">Social shaping</button>
+  <button data-camp="oth" aria-pressed="false">Other / mixed</button>
+  <span class="sep"></span>
+  <button data-sort="az" aria-pressed="true">A–Z</button>
+  <button data-sort="chrono" aria-pressed="false">Chronological</button>
+</div>
+<div class="count" id="count"></div>
+
+<div class="scroller">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Dates</th>
+        <th>Fields</th>
+        <th>Key work on technology or media</th>
+        <th>What the work argues</th>
+        <th>View of technology and media</th>
+        <th>Theoretical placement</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</div>
+
+
+<section class="methods" id="t2">
+  <h2 class="sec">Organizational research methods</h2>
+
+  <div class="controls">
+    <input type="search" id="q2" placeholder="Search author, concept, or argument" aria-label="Search the methods table">
+    <button data-sort2="az" aria-pressed="true">A–Z</button>
+    <button data-sort2="year" aria-pressed="false">By year of key work</button>
+  </div>
+  <div class="count" id="count2"></div>
+
+  <div class="scroller">
+    <table id="tbl2">
+      <thead>
+        <tr>
+          <th>Author or authors</th>
+          <th>Dates</th>
+          <th>Role and field</th>
+          <th>Key work</th>
+          <th>What it argues</th>
+          <th>Contribution to organizational research and field methods</th>
+          <th>Type of intervention</th>
+        </tr>
+      </thead>
+      <tbody id="tbody2"></tbody>
+    </table>
+  </div>
+</section>
+
+
+<script>
+const G = (q) => "https://www.google.com/search?q=" + encodeURIComponent(q);
+const B = (q) => "https://www.google.com/search?tbm=bks&q=" + encodeURIComponent(q);
+const W = (s) => "https://en.wikipedia.org/wiki/" + s;
+
+const data = [
+{n:"Isaac Asimov",sy:1920,p:"/ˈaɪzək ˈæzɪmɒv/",u:W("Isaac_Asimov"),y:"1920–1992",f:"Science fiction, science writing, biochemistry",
+ w:[["I, Robot","1950",B("I, Robot Asimov")],["The Foundation Trilogy","1951–53",B("Foundation Asimov")]],
+ a:"The robot stories set out the Three Laws of Robotics and treat intelligent machines as a design and ethics problem rather than a horror story, while the Foundation books imagine social science as a predictive technology.",
+ v:"Broadly optimistic about machines and hostile to what he called the Frankenstein complex, holding that the danger lies in how societies govern technology rather than in the technology itself.",
+ c:"oth",cl:"Instrumentalist",cn:"Treats technology as a neutral capability whose outcome depends on human rules, the position both determinists and constructivists define themselves against."},
+
+{n:"Pierre Bourdieu",sy:1930,p:"/pjɛʁ buʁˈdjø/",u:W("Pierre_Bourdieu"),y:"1930–2002",f:"Sociology, anthropology, cultural theory",
+ w:[["On Television","1996",B("On Television Bourdieu")],["Distinction","1979",B("Distinction Bourdieu")]],
+ a:"Media are analysed as a field with its own competitive logic, in which ratings pressure and the race for the scoop quietly censor what can be said, while cultural taste is shown to reproduce class position.",
+ v:"Technology and media matter through the institutional fields and forms of capital that organise them, not through any effect of the device as such.",
+ c:"soc",cl:"Social shaping",cn:"Field theory and habitus explain media effects as structured social practice; useful for critiquing medium theory from a sociological angle."},
+
+{n:"danah boyd",sy:1977,p:"/ˈdeɪnə bɔɪd/",u:W("Danah_boyd"),y:"b. 1977",f:"Ethnography, social media studies, data and society",
+ w:[["It's Complicated: The Social Lives of Networked Teens","2014",B("It's Complicated boyd networked teens")],["Critical Questions for Big Data","2012",G("boyd Crawford Critical Questions for Big Data 2012")]],
+ a:"Years of fieldwork with American teenagers show online sociality as a response to shrinking physical freedom, and networked publics are defined by persistence, searchability, replicability and invisible audiences; the essay with Kate Crawford questions the assumption that larger datasets yield more objective knowledge.",
+ v:"Technology amplifies social dynamics that already exist rather than creating them, which is why panics about teenagers and screens usually misdiagnose the problem.",
+ c:"soc",cl:"Networked publics",cn:"She styles her name in lower case, which is a deliberate authorial choice rather than a typographical slip in this table."},
+
+{n:"Thomas Carlyle",sy:1795,p:"/ˈtɒməs kɑːˈlaɪl/",u:W("Thomas_Carlyle"),y:"1795–1881",f:"History, essays, social criticism",
+ w:[["Signs of the Times","1829",B("Signs of the Times Carlyle")]],
+ a:"The essay names the period the Mechanical Age and argues that machinery has spread from industry into politics, education and even the inner life, so that people come to think and feel mechanically.",
+ v:"Deeply pessimistic: mechanisation erodes spontaneity, faith and moral character, and the gain in efficiency is paid for in spiritual loss.",
+ c:"det",cl:"Early cultural determinism",cn:"An ancestor of the humanist critique later carried by Mumford, Ellul and Postman; the machine is treated as a total cultural condition."},
+
+{n:"Daniel Chandler",sy:null,ay:1995,p:"/ˈdænjəl ˈtʃɑːndlə/",u:G("Daniel Chandler semiotician Aberystwyth"),y:"<span class='uncertain'>dates not established</span>",f:"Semiotics, media and communication studies",
+ w:[["Technological or Media Determinism","1995",G("Chandler Technological or Media Determinism")],["Semiotics: The Basics","2002",B("Semiotics The Basics Chandler")]],
+ a:"The 1995 essay is the standard teaching map of the determinism debate, sorting the literature into hard and soft versions, reductionism, reification, autonomy and normative variants.",
+ v:"Sceptical of strong determinism while insisting the position is more subtle and more widely held than its critics allow; media shape perception without dictating outcomes.",
+ c:"oth",cl:"Meta-theoretical",cn:"Supplies the vocabulary most students use for this table's final column, including the hard/soft distinction itself."},
+
+{n:"Winston Churchill",sy:1874,p:"/ˈwɪnstən ˈtʃɜːtʃɪl/",u:W("Winston_Churchill"),y:"1874–1965",f:"Politics, history, essays",
+ w:[["Fifty Years Hence","1931",G("Churchill Fifty Years Hence 1931 essay")],["Remarks on rebuilding the Commons","1943",G("We shape our buildings and afterwards our buildings shape us")]],
+ a:"The 1931 essay forecasts nuclear energy, synthetic food and engineered biology, while the 1943 remark on the Commons chamber gives the debate its most quoted formulation of built environments shaping their users.",
+ v:"Awed and uneasy in equal measure, seeing technical power outrunning the political wisdom needed to hold it.",
+ c:"oth",cl:"Quoted source",cn:"The buildings line is routinely cited as a compact statement of soft determinism, which is why he appears on reading lists at all."},
+
+{n:"Michael Clanchy",sy:1936,p:"/ˈmaɪkəl ˈklæntʃi/",u:W("Michael_Clanchy"),y:"1936–2021",f:"Medieval history, history of literacy",
+ w:[["From Memory to Written Record: England 1066–1307","1979",B("From Memory to Written Record Clanchy")]],
+ a:"The book traces how English society learned to trust documents over memory and witness, a slow administrative and legal shift measured in charters, seals and record-keeping habits.",
+ v:"Literacy spreads because institutions need it and people are gradually persuaded to rely on it, not because writing exerts an automatic force.",
+ c:"soc",cl:"Social shaping of literacy",cn:"A leading empirical check on Havelock, Goody and Ong; the change is institutional and uneven rather than cognitive and sudden."},
+
+{n:"Kate Crawford",sy:1976,ay:2021,p:"/keɪt ˈkrɔːfəd/",u:W("Kate_Crawford"),y:"b. 1976",f:"AI research, media studies, science and technology studies",
+ w:[["Atlas of AI","2021",B("Atlas of AI Kate Crawford")],["Anatomy of an AI System","2018",G("Anatomy of an AI System Crawford Joler")]],
+ a:"Artificial intelligence is traced back through lithium mines, water and energy consumption, low-paid data labelling and scraped training images, so that a voice assistant is revealed to rest on a planetary supply chain; the dataset essays show classification schemes carrying political judgments about race, gender and worth.",
+ v:"AI is an extractive industry and a registry of power rather than a disembodied intelligence, and its costs are material before they are ethical.",
+ c:"soc",cl:"Materialist critique of AI",cn:"Extends the social shaping tradition into machine learning, where the artefact is a supply chain and a dataset rather than a machine."},
+
+{n:"Nigel Cross",sy:1942,ay:1974,p:"/ˈnaɪdʒəl krɒs/",u:W("Nigel_Cross"),y:"b. 1942",f:"Design research, design studies",
+ w:[["Man-Made Futures","1974",B("Man-Made Futures Cross Elliott Roy")],["Designerly Ways of Knowing","2006",B("Designerly Ways of Knowing Cross")]],
+ a:"The Open University reader gathers critical writing on design and technological choice, while the later work argues that designers reason in a distinct problem-solving mode of their own.",
+ v:"Technology arrives through design decisions, so the values embedded in artefacts are negotiable at the drawing board.",
+ c:"soc",cl:"Design as social choice",cn:"Represents the design-studies wing of the anti-determinist argument, where alternatives are demonstrated rather than theorised."},
+
+{n:"Michel de Certeau",sy:1925,p:"/miʃɛl də sɛʁˈto/",u:W("Michel_de_Certeau"),y:"1925–1986",f:"History, cultural theory, philosophy",
+ w:[["The Practice of Everyday Life","1980",B("The Practice of Everyday Life de Certeau")]],
+ a:"Ordinary users are shown improvising within systems they did not build, using tactics against the strategies of institutions, with reading treated as a form of poaching rather than passive reception.",
+ v:"Consumers are quietly productive, so the power of a technology or a text is never settled by its designers alone.",
+ c:"soc",cl:"Consumption as production",cn:"The theoretical root of active-audience and participatory-culture arguments against media effects determinism."},
+
+{n:"Elizabeth Eisenstein",sy:1923,p:"/ɪˈlɪzəbəθ ˈaɪzənstaɪn/",u:W("Elizabeth_Eisenstein"),y:"1923–2016",f:"History, book history, communication history",
+ w:[["The Printing Press as an Agent of Change","1979",B("The Printing Press as an Agent of Change Eisenstein")]],
+ a:"Printing is credited with fixity, standardisation and wide dissemination, and through them with the Reformation, the Renaissance and the scientific revolution taking the shape they did.",
+ v:"The press is an agent of change in its own right, though she resists calling any single outcome inevitable.",
+ c:"soft",cl:"Soft print determinism",cn:"The classic target for constructivist rebuttal, most notably Adrian Johns's argument in The Nature of the Book that fixity was an achievement, not a property."},
+
+{n:"David Elliott",sy:null,ay:1976,p:"/ˈdeɪvɪd ˈɛliət/",u:G("David Elliott Open University technology policy renewable energy"),y:"<span class='uncertain'>dates not established</span>",f:"Technology policy, energy studies",
+ w:[["The Control of Technology","1976",B("The Control of Technology Elliott")]],
+ a:"Written with Ruth Elliott, the book asks who decides what gets built, and argues for democratic and worker involvement in technological choice, with alternative energy as a worked example.",
+ v:"Technology is politically directed and can be redirected, so the useful question is control rather than impact.",
+ c:"soc",cl:"Democratic control of technology",cn:"Sits with the Open University tradition that treats technology assessment as a political process."},
+
+{n:"Jacques Ellul",sy:1912,p:"/ʒak ɛˈlyl/",u:W("Jacques_Ellul"),y:"1912–1994",f:"Sociology, law, theology",
+ w:[["The Technological Society","1954 / 1964",B("The Technological Society Ellul")],["Propaganda","1962",B("Propaganda Ellul")]],
+ a:"La technique, the drive toward the single most efficient method in every domain, is presented as a self-augmenting system that absorbs politics, art and religion and answers to no one.",
+ v:"Profoundly pessimistic: technique is autonomous, and choosing particular technologies wisely misses the point because the logic of efficiency has already colonised the choosing.",
+ c:"det",cl:"Autonomous technology",cn:"The strongest statement of substantive, system-level determinism in the modern literature."},
+
+{n:"Friedrich Engels",sy:1820,p:"/ˈfriːdrɪç ˈɛŋəlz/ · German /ˈɛŋl̩s/",u:W("Friedrich_Engels"),y:"1820–1895",f:"Political economy, social reporting, philosophy",
+ w:[["The Condition of the Working Class in England","1845",B("The Condition of the Working Class in England Engels")],["On Authority","1872",G("Engels On Authority 1872 essay")]],
+ a:"The 1845 book is field research in Manchester, documenting what mechanised production did to housing, health and working hours; On Authority then argues that the factory and the railway impose obedience by their own nature, since a spinning mill or a timetable cannot be run by debate whoever owns it.",
+ v:"Large-scale technology carries an authority structure with it, so abolishing private ownership would not abolish the subordination the machinery itself requires.",
+ c:"det",cl:"Technical necessity of authority",cn:"The strongest determinist text in the Marxist canon, and in open tension with the emphasis on social relations in Marx's machinery chapters; anarchists read it as the argument they must defeat."},
+
+{n:"Christopher Evans",sy:1931,p:"/ˈkrɪstəfə ˈɛvənz/",u:W("Christopher_Evans_(computer_scientist)"),y:"1931–1979",f:"Psychology, computer science, popular science",
+ w:[["The Mighty Micro","1979",B("The Mighty Micro Christopher Evans")]],
+ a:"The microprocessor is forecast to transform work, money, education and publishing within two decades, with book and office culture displaced by machine-readable text.",
+ v:"Enthusiastic and confident, treating the computer revolution as an unstoppable and largely benign wave.",
+ c:"det",cl:"Optimistic determinism",cn:"A period specimen of the impact-forecast genre, useful now mainly for what it got right and wrong."},
+
+{n:"Ruth Finnegan",sy:1933,p:"/ruːθ ˈfɪnɪɡən/",u:W("Ruth_Finnegan"),y:"b. 1933",f:"Social anthropology, oral literature, communication",
+ w:[["Literacy and Orality","1988",B("Literacy and Orality Finnegan")],["Oral Poetry","1977",B("Oral Poetry Finnegan")]],
+ a:"Fieldwork on African and Pacific oral traditions shows oral and written practices mixing constantly, undermining the claim that literacy marks a cognitive threshold.",
+ v:"Communication technologies take their meaning from the cultures that use them, and the oral/literate divide is a scholarly construction more than an observed fact.",
+ c:"soc",cl:"Anti-Great Divide",cn:"Her critique, alongside Street's, is the standard empirical rebuttal to Goody, Havelock and Ong."},
+
+{n:"Michel Foucault",sy:1926,p:"/miʃɛl fuˈko/",u:W("Michel_Foucault"),y:"1926–1984",f:"Philosophy, history of systems of thought",
+ w:[["Discipline and Punish","1975",B("Discipline and Punish Foucault")],["Technologies of the Self","1988",B("Technologies of the Self Foucault")]],
+ a:"Power is traced through techniques rather than through the state: the timetable, the examination, the panoptic layout that makes visibility itself a means of control.",
+ v:"Technologies are materialised power relations, and the same applies to the techniques people use on themselves.",
+ c:"oth",cl:"Power/knowledge",cn:"Neither determinist nor constructivist in the usual sense, but heavily used by both; the panopticon is the standard reference point for surveillance studies."},
+
+{n:"John Gall",sy:1925,p:"/dʒɒn ɡɔːl/",u:W("John_Gall_(author)"),y:"1925–2014",f:"Paediatrics, systems theory, satire",
+ w:[["Systemantics / The Systems Bible","1975",B("Systemantics John Gall")]],
+ a:"A comic but serious set of laws about why large systems fail, including the rule that a complex system that works has always evolved from a simple system that worked.",
+ v:"Systems, technical ones included, develop goals of their own and routinely defeat the intentions of their designers.",
+ c:"det",cl:"Systems autonomy (satirical)",cn:"A humorous relative of Ellul and Winner: the machine escapes control not by conspiracy but by the ordinary dynamics of complexity."},
+
+{n:"Siegfried Giedion",sy:1888,p:"/ˈziːkfriːt ˈɡiːdiɔn/ · anglicised /ˈɡiːdiən/",u:W("Sigfried_Giedion"),y:"1888–1968",f:"Architectural history, history of technology",
+ w:[["Mechanization Takes Command","1948",B("Mechanization Takes Command Giedion")],["Space, Time and Architecture","1941",B("Space Time and Architecture Giedion")]],
+ a:"An anonymous history of mechanisation, following the assembly line, the bath, the chair and the slaughterhouse to show how mechanised method reorganised domestic and bodily life.",
+ v:"Mechanisation is a deep cultural force whose most important effects are in habits and sensibility rather than in output figures.",
+ c:"soft",cl:"Cultural history of technics",cn:"Method is close to Mumford; mechanisation shapes experience, yet the account stays historical rather than lawlike."},
+
+{n:"Tarleton Gillespie",sy:null,ay:2010,p:"/ˈtɑːltən ɡɪˈlɛspi/",u:G("Tarleton Gillespie Microsoft Research Custodians of the Internet"),y:"<span class='uncertain'>dates not established</span>",f:"Communication, platform studies, science and technology studies",
+ w:[["The Politics of Platforms","2010",G("Gillespie The Politics of Platforms 2010")],["Custodians of the Internet","2018",B("Custodians of the Internet Gillespie")]],
+ a:"The word platform is shown to be a strategic choice that lets companies present themselves as neutral stages while they curate, and moderation is then argued to be not an unfortunate cost but the service these companies actually provide.",
+ v:"Algorithmic ranking and content rules are editorial decisions wearing technical clothing, which is how they escape the accountability publishers face.",
+ c:"soc",cl:"Platform studies",cn:"The vocabulary here, platform, moderation, algorithmic relevance, is the direct successor to Winner's question about what politics an artefact enacts."},
+
+{n:"Erving Goffman",sy:1922,p:"/ˈɜːvɪŋ ˈɡɒfmən/",u:W("Erving_Goffman"),y:"1922–1982",f:"Sociology, symbolic interactionism, social psychology",
+ w:[["The Presentation of Self in Everyday Life","1959",B("The Presentation of Self in Everyday Life Goffman")],["Frame Analysis","1974",B("Frame Analysis Goffman")],["Behavior in Public Places","1963",B("Behavior in Public Places Goffman")]],
+ a:"Social life is analysed as performance, with front and back regions, impression management and audience segregation governing how a self is sustained; Frame Analysis then asks how people decide what kind of activity is going on, and what happens when a frame is broken or keyed.",
+ v:"Communication technologies matter because they rearrange who can see which performance, collapsing the separation between audiences that face-to-face life keeps apart.",
+ c:"soc",cl:"Dramaturgy and framing",cn:"The direct source for Meyrowitz's No Sense of Place, for framing theory in media research, and for danah boyd's context collapse; the self is socially accomplished rather than technologically produced."},
+
+{n:"Jack Goody",sy:1919,p:"/dʒæk ˈɡʊdi/",u:W("Jack_Goody"),y:"1919–2015",f:"Social anthropology, comparative sociology",
+ w:[["The Consequences of Literacy","1963",G("Goody Watt The Consequences of Literacy 1963")],["The Domestication of the Savage Mind","1977",B("The Domestication of the Savage Mind Goody")]],
+ a:"Written with Ian Watt in the first instance, the argument is that alphabetic writing enables list-making, tabulation, scepticism and historical consciousness, and so reshapes how societies reason.",
+ v:"Writing is a technology of the intellect, though his later work softens the claim and allows for many literacies in many settings.",
+ c:"soft",cl:"Literacy thesis",cn:"Usually labelled the Great Divide position; he spent later decades qualifying it in response to Street, Finnegan and Graff."},
+
+{n:"Harvey J. Graff",sy:1949,p:"/ˈhɑːvi ɡræf/",u:W("Harvey_J._Graff"),y:"b. 1949",f:"Social history, literacy studies",
+ w:[["The Literacy Myth","1979",B("The Literacy Myth Graff")]],
+ a:"Nineteenth-century Canadian data show that literacy did not deliver the promised mobility or prosperity, and often functioned to sort and discipline populations instead.",
+ v:"Claims made for literacy and by extension for new media are ideological promises that should be tested against evidence.",
+ c:"soc",cl:"Critical literacy studies",cn:"Coined the literacy myth, the term now borrowed for every technology promised to transform education."},
+
+{n:"Patricia Greenfield",sy:1940,p:"/pəˈtrɪʃə ˈɡriːnfiːld/",u:W("Patricia_Greenfield"),y:"b. 1940",f:"Developmental and cultural psychology",
+ w:[["Mind and Media","1984",B("Mind and Media Greenfield")]],
+ a:"Television, video games and computers are each shown to cultivate particular cognitive skills, with visual and spatial abilities strengthened while others are not exercised.",
+ v:"Media are neither uniformly harmful nor neutral; each medium trades one set of mental skills against another.",
+ c:"soft",cl:"Media as cognitive amplifiers",cn:"An empirical middle path between moral panic and dismissal, and the psychological counterpart to medium theory."},
+
+{n:"Jürgen Habermas",sy:1929,p:"/ˈjʏʁɡn̩ ˈhaːbɐmaːs/ · anglicised /ˈjɜːɡən ˈhɑːbəmɑːs/",u:W("J%C3%BCrgen_Habermas"),y:"b. 1929",f:"Philosophy, sociology, critical theory",
+ w:[["The Structural Transformation of the Public Sphere","1962 / Eng. 1989",B("Structural Transformation of the Public Sphere Habermas")],["The Public Sphere: An Encyclopedia Article (first)","1964, trans. 1974",G("Habermas The Public Sphere An Encyclopedia Article 1964 New German Critique")],["Reflections and Hypotheses on a Further Structural Transformation of the Political Public Sphere (latest)","2022",G("Habermas Reflections and Hypotheses on a Further Structural Transformation of the Political Public Sphere 2022")]],
+ a:"The 1962 habilitation traces a bourgeois public sphere forming in coffee houses, salons and the periodical press, where private people reasoned together about common affairs, and then hollowing out as advertising, public relations and mass broadcasting turned discussion into staged publicity, a process he calls refeudalisation. The 1964 encyclopedia article condenses that account into the short definition still quoted in syllabi, and the 2022 essay returns to the question sixty years on, arguing that platform media dissolve the editorial filters that once made a shared, inclusive arena possible.",
+ v:"Media are the infrastructure of democratic reason: print sustained a deliberating public, broadcasting made it an audience, and digital platforms fragment it into semi-public enclaves where everyone publishes and no common agenda forms.",
+ c:"soft",cl:"Deliberative theory, soft determinism",cn:"He is writing into a long argument about the public: Kant's principle of publicity in What Is Enlightenment?, Hegel's civil society, Marx's charge that bourgeois publicity universalises a class interest, Dewey's reply to Lippmann in The Public and Its Problems, Arendt's public realm in The Human Condition, and Koselleck's Critique and Crisis. The standard objections come from Nancy Fraser on subaltern counterpublics and from Negt and Kluge on the proletarian public sphere, both arguing his single bourgeois public was never as universal as it claimed."},
+
+{n:"Edward T. Hall",sy:1914,p:"/ˈɛdwəd hɔːl/",u:W("Edward_T._Hall"),y:"1914–2009",f:"Anthropology, intercultural communication",
+ w:[["The Silent Language","1959",B("The Silent Language Edward Hall")],["The Hidden Dimension","1966",B("The Hidden Dimension Edward Hall")]],
+ a:"Culture is analysed as communication carried in time, space and gesture, with proxemics naming the unspoken rules that govern distance between bodies.",
+ v:"Technologies are extensions of human faculties, a formulation that arrived before McLuhan made it famous.",
+ c:"soft",cl:"Extension theory",cn:"A direct source for McLuhan's extensions of man, and the anthropological root of medium theory."},
+
+{n:"Karen Hao",sy:null,ay:2025,p:"/ˈkærən haʊ/ (approximate)",u:G("Karen Hao journalist Empire of AI author"),y:"<span class='uncertain'>born early 1990s, inferred from a 2022 under-30 award; no birth year published</span>",f:"Technology journalism, investigative reporting",
+ w:[["Empire of AI: Dreams and Nightmares in Sam Altman's OpenAI","2025",B("Empire of AI Karen Hao")],["Reporting on data labour in Kenya and Venezuela","2019–2023",G("Karen Hao AI data labelling Kenya reporting")]],
+ a:"OpenAI is examined as an imperial formation: scale purchased through data taken without consent, energy and water drawn from local communities, and content moderation outsourced to workers in the global south, with mission language covering a commercial consolidation.",
+ v:"The AI industry follows colonial patterns of resource and labour extraction, so the right comparison is an empire rather than a laboratory.",
+ c:"soc",cl:"Investigative political economy",cn:"Your list said Karen Hal; I have taken this to be Karen Hao, the reporter behind the OpenAI coverage, since no technology writer named Hal fits the surrounding names."},
+
+{n:"Eric Havelock",sy:1903,p:"/ˈɛrɪk ˈhævlɒk/",u:W("Eric_A._Havelock"),y:"1903–1988",f:"Classics, history of communication",
+ w:[["Preface to Plato","1963",B("Preface to Plato Havelock")],["The Muse Learns to Write","1986",B("The Muse Learns to Write Havelock")]],
+ a:"Plato's quarrel with the poets is read as a conflict between an oral culture of memorised performance and a new alphabetic literacy that made abstract analysis possible.",
+ v:"The Greek alphabet is treated as the enabling condition for philosophy and for the separation of knower from known.",
+ c:"det",cl:"Strong literacy determinism",cn:"With Innis, McLuhan and Ong, one of the Toronto School positions this table's constructivists were written against."},
+
+{n:"Thomas Hobbes",sy:1588,p:"/ˈtɒməs hɒbz/",u:W("Thomas_Hobbes"),y:"1588–1679",f:"Political philosophy",
+ w:[["Leviathan","1651",B("Leviathan Hobbes")]],
+ a:"The commonwealth is described as an artificial man built from springs, joints and nerves, making the state itself a designed machine for producing security.",
+ v:"Human institutions are engineered artefacts, and the machine is the governing metaphor for both body and polity.",
+ c:"oth",cl:"Mechanistic philosophy",cn:"Supplies the mechanical model of society that Mumford's megamachine and later systems critiques push back against."},
+
+{n:"Harold Innis",sy:1894,p:"/ˈhærəld ˈɪnɪs/",u:W("Harold_Innis"),y:"1894–1952",f:"Political economy, communication history",
+ w:[["Empire and Communications","1950",B("Empire and Communications Innis")],["The Bias of Communication","1951",B("The Bias of Communication Innis")]],
+ a:"Media are sorted by bias: heavy, durable, time-biased media favour tradition and religious authority, while light, portable, space-biased media favour administration and territorial empire.",
+ v:"Dominant media create monopolies of knowledge, and empires rise and fall with the communication forms they depend on.",
+ c:"det",cl:"Medium theory, political economy",cn:"Founder of the Toronto School; more institutional and less psychological than McLuhan, which is why some read him as only softly determinist."},
+
+{n:"Henry Jenkins",sy:1958,p:"/ˈhɛnri ˈdʒɛŋkɪnz/",u:W("Henry_Jenkins"),y:"b. 1958",f:"Media studies, cultural studies",
+ w:[["Textual Poachers","1992",B("Textual Poachers Jenkins")],["Convergence Culture","2006",B("Convergence Culture Jenkins")]],
+ a:"Fans are shown rewriting and redistributing commercial culture, and convergence is defined as a cultural process of audience participation rather than a merger of gadgets.",
+ v:"Technologies matter through the protocols and communities that grow around them, so the interesting change is social.",
+ c:"soc",cl:"Participatory culture",cn:"Explicitly opposes the black-box view of media technology, building on de Certeau and cultural studies."},
+
+{n:"Paul Jennings",sy:1918,p:"/pɔːl ˈdʒɛnɪŋz/",u:W("Paul_Jennings_(humorist)"),y:"1918–1989",f:"Humour, journalism, essays",
+ w:[["Report on Resistentialism","1948",G("Paul Jennings Report on Resistentialism 1948")]],
+ a:"A parody of existentialism proposing that objects are actively hostile to people, summarised as les choses sont contre nous, things are against us.",
+ v:"Comic, but it names something real about the experience of living among machines that thwart their users.",
+ c:"oth",cl:"Satire of technological agency",cn:"Frequently quoted in the determinism literature as the folk version of attributing intention to artefacts."},
+
+{n:"Barry Jones",sy:1932,p:"/ˈbæri dʒəʊnz/",u:W("Barry_Jones_(Australian_politician)"),y:"b. 1932",f:"Politics, public policy, futures studies",
+ w:[["Sleepers, Wake! Technology and the Future of Work","1982",B("Sleepers Wake Barry Jones")]],
+ a:"Automation is argued to be dissolving the link between production and employment, so that education and the service sector must absorb what manufacturing no longer needs.",
+ v:"Technological change is real and rapid, but its employment consequences are a matter of policy choice rather than fate.",
+ c:"soft",cl:"Post-industrial policy",cn:"A politician's version of Toffler's thesis, with the emphasis shifted from prophecy to state planning."},
+
+{n:"Henry Kissinger",sy:1923,p:"/ˈhɛnri ˈkɪsɪndʒə/",u:W("Henry_Kissinger"),y:"1923–2023",f:"Diplomacy, international relations, strategic studies",
+ w:[["How the Enlightenment Ends","2018",G("Kissinger How the Enlightenment Ends Atlantic 2018")],["The Age of AI","2021",B("The Age of AI Kissinger Schmidt Huttenlocher")],["Genesis","2024",B("Genesis Kissinger Schmidt Mundie")]],
+ a:"Written with Eric Schmidt and others, the argument is that machine systems now reach conclusions their makers cannot explain, unsettling the Enlightenment arrangement in which reason was answerable to reason, and that diplomacy has no doctrine for weapons and advisers that decide faster than deliberation allows.",
+ v:"Artificial intelligence is a philosophical and geopolitical rupture on the scale of nuclear weapons, demanding statecraft before it arrives rather than after.",
+ c:"det",cl:"Epochal rupture",cn:"A statesman's determinism: the technology is treated as an autonomous historical force, with politics reduced to managing its arrival."},
+
+{n:"Jacques Lacan",sy:1901,p:"/ʒak laˈkɑ̃/",u:W("Jacques_Lacan"),y:"1901–1981",f:"Psychoanalysis, psychiatry, structuralist theory",
+ w:[["Écrits","1966",B("Ecrits Lacan")],["The Four Fundamental Concepts of Psychoanalysis","1973",B("Four Fundamental Concepts of Psychoanalysis Lacan")]],
+ a:"The mirror stage describes an infant coming to identify with an image that is more coherent than its own experience, and the unconscious is held to be structured like a language, with the subject constituted inside a symbolic order it did not choose.",
+ v:"Media matter because images and signifiers make subjects; the screen is a site of misrecognition and of the gaze rather than a channel for messages.",
+ c:"oth",cl:"Structuralist psychoanalysis",cn:"The theoretical engine of 1970s apparatus and screen theory in Metz, Baudry and Mulvey, where the medium works on the viewer's psyche rather than on society."},
+
+{n:"Peter Large",sy:null,ay:1980,p:"/ˈpiːtə lɑːdʒ/",u:G("Peter Large Guardian technology editor Micro Revolution"),y:"<span class='uncertain'>dates not established</span>",f:"Journalism, technology reporting",
+ w:[["The Micro Revolution","1980",B("The Micro Revolution Peter Large")],["The Micro Revolution Revisited","1984",B("The Micro Revolution Revisited Peter Large")]],
+ a:"Written as the Guardian's technology editor, these books survey the social consequences of cheap computing power, especially for employment and industrial structure.",
+ v:"Concerned rather than alarmed, treating the microchip as a genuine break whose costs fall unevenly across classes and regions.",
+ c:"soft",cl:"Impact journalism",cn:"Part of the British micro-revolution debate of 1979 to 1985 that Chandler and Shallis were also writing into."},
+
+{n:"Lenin",sy:1870,p:"/ˈlɛnɪn/ · Russian /ˈlʲenʲɪn/",u:W("Vladimir_Lenin"),y:"1870–1924",f:"Revolutionary politics, Marxist theory",
+ w:[["The Immediate Tasks of the Soviet Government","1918",B("Immediate Tasks of the Soviet Government Lenin")],["Report on electrification (GOELRO)","1920",G("Lenin communism Soviet power electrification of the whole country")]],
+ a:"Electrification and scientific management are adopted as the material basis of socialism, with the formula that communism equals Soviet power plus electrification of the whole country.",
+ v:"Technology is class-neutral machinery that changes meaning with ownership, so capitalist techniques including Taylorism can be taken over wholesale.",
+ c:"det",cl:"Productive-forces determinism",cn:"The state-socialist reading of Marx that later Marxists, Braverman and Melman among them, reject as ignoring how technique embeds control."},
+
+{n:"Walter Lippmann",sy:1889,p:"/ˈwɔːltər ˈlɪpmən/",u:W("Walter_Lippmann"),y:"1889–1974",f:"Journalism, political theory, public opinion research",
+ w:[["Public Opinion","1922",B("Public Opinion Lippmann")],["The Phantom Public","1925",B("The Phantom Public Lippmann")]],
+ a:"People act on a pseudo-environment built from stereotypes and second-hand reports rather than on the world itself, and the press is shown to be structurally incapable of supplying the picture democratic theory assumes citizens have.",
+ v:"News does not mirror reality but selects and simplifies it, so the pictures in our heads are a manufactured product with political consequences.",
+ c:"soft",cl:"Media effects, agenda-setting precursor",cn:"Supplies the founding formulation for agenda-setting and framing research, and the phrase manufacture of consent that Herman and Chomsky later took up critically."},
+
+{n:"Dwight Macdonald",sy:1906,p:"/dwaɪt məkˈdɒnəld/",u:W("Dwight_Macdonald"),y:"1906–1982",f:"Cultural criticism, journalism",
+ w:[["A Theory of Mass Culture","1953",G("Dwight Macdonald A Theory of Mass Culture 1953")],["Against the American Grain","1962",B("Against the American Grain Macdonald")]],
+ a:"Mass culture is described as an industrial product imposed from above, with midcult, the middlebrow imitation of art, singled out as the more corrosive form.",
+ v:"Mass media homogenise taste and audiences, absorbing avant-garde and folk culture alike into a marketable average.",
+ c:"oth",cl:"Mass culture critique",cn:"American cousin of the Frankfurt School, and one of the positions cultural studies later set out to dismantle."},
+
+{n:"Donald MacKenzie",sy:1950,p:"/ˈdɒnəld məˈkɛnzi/",u:W("Donald_A._MacKenzie"),y:"b. 1950",f:"Sociology of science and technology",
+ w:[["The Social Shaping of Technology","1985",B("The Social Shaping of Technology MacKenzie Wajcman")],["Inventing Accuracy","1990",B("Inventing Accuracy MacKenzie")]],
+ a:"The edited collection with Judy Wajcman assembles the case that technologies are patterned by the social relations of their making, and the missile study shows accuracy itself being institutionally constructed.",
+ v:"Technology has no independent trajectory; what looks like technical necessity usually turns out to be settled interests.",
+ c:"soc",cl:"Social shaping of technology",cn:"With Wajcman, the definitive anti-determinist statement in British science and technology studies."},
+
+{n:"Jerry Mander",sy:1936,p:"/ˈdʒɛri ˈmændər/",u:W("Jerry_Mander"),y:"1936–2023",f:"Advertising, media criticism, environmental activism",
+ w:[["Four Arguments for the Elimination of Television","1978",B("Four Arguments for the Elimination of Television Mander")],["In the Absence of the Sacred","1991",B("In the Absence of the Sacred Mander")]],
+ a:"Television is argued to be irreformable because of what it does to perception, its concentration of control, and the kind of content its form rewards; the later book extends the case to technology and indigenous societies.",
+ v:"Technologies are not neutral and some should be refused outright rather than reformed.",
+ c:"det",cl:"Substantive determinism",cn:"A strong form of the claim that a medium's bias is inherent rather than a matter of use, close to Ellul in temperament."},
+
+{n:"Karl Marx",sy:1818,p:"/kɑːl mɑːks/",u:W("Karl_Marx"),y:"1818–1883",f:"Political economy, philosophy, history",
+ w:[["The Poverty of Philosophy","1847",B("The Poverty of Philosophy Marx")],["Capital, Volume I","1867",B("Capital Volume 1 Marx machinery")],["Fragment on Machines (Grundrisse)","1858",G("Marx Grundrisse Fragment on Machines general intellect")]],
+ a:"The hand-mill line pairs a technology with a social formation, but the machinery chapters of Capital argue the opposite way round: machines are introduced to break the bargaining power of skilled labour, so the design of the factory records a struggle rather than a technical necessity.",
+ v:"Technology is a social relation that has taken material form, which means the machine both expresses and enforces the order that produced it.",
+ c:"oth",cl:"Contested",cn:"Read as technological determinism by Heilbroner in Do Machines Make History? and as its refutation by Raymond Williams and the social shaping school; the Grundrisse fragment on general intellect is the passage Pasquinelli builds on."},
+
+{n:"Abraham Maslow",sy:1908,p:"/ˈeɪbrəhæm ˈmæzloʊ/",u:W("Abraham_Maslow"),y:"1908–1970",f:"Psychology",
+ w:[["The Psychology of Science","1966",B("The Psychology of Science Maslow")]],
+ a:"The law of the instrument is stated here: a person holding only a hammer will tend to treat everything encountered as a nail.",
+ v:"Tools shape the problems their users are able to see, a cognitive bias rather than a social force.",
+ c:"soft",cl:"Tool bias",cn:"A one-line psychological analogue of medium theory, widely cited as shorthand for how instruments frame perception."},
+
+{n:"Michael Calvin McGee",sy:1943,p:"/ˈmaɪkəl ˈkælvɪn məˈɡiː/",u:W("Michael_Calvin_McGee"),y:"1943–2002",f:"Rhetorical studies, communication, ideology critique",
+ w:[["The Ideograph: A Link Between Rhetoric and Ideology","1980",G("McGee The Ideograph A Link Between Rhetoric and Ideology")],["Text, Context, and the Fragmentation of Contemporary Culture","1990",G("McGee Text Context and the Fragmentation of Contemporary Culture")]],
+ a:"Ideographs are ordinary political terms such as liberty or progress that carry ideological commitment in compressed form, and the later essay argues that culture now circulates as fragments which critics must assemble into texts themselves.",
+ v:"Ideology lives in the circulating vocabulary of a media culture, so the object of criticism is the fragment in circulation rather than the finished work.",
+ c:"soc",cl:"Rhetorical construction of ideology",cn:"A discourse-centred anti-determinism: meaning is assembled by audiences and critics out of mediated fragments, not delivered by the medium."},
+
+{n:"Colin McGinn",sy:1950,p:"/ˈkɒlɪn məˈɡɪn/",u:W("Colin_McGinn"),y:"b. 1950",f:"Philosophy of mind, metaphysics, philosophical psychology",
+ w:[["The Mysterious Flame","1999",B("The Mysterious Flame Colin McGinn")],["Can We Solve the Mind-Body Problem?","1989",G("McGinn Can We Solve the Mind-Body Problem 1989 Mind")]],
+ a:"Consciousness is argued to be a natural phenomenon that human cognition may be constitutionally unable to explain, since our concept-forming faculties evolved for other purposes; the mind-body problem is therefore a limit in us rather than a mystery in nature.",
+ v:"If consciousness is cognitively closed to us, claims that machines are or could become conscious are claims we are not equipped to settle either way.",
+ c:"oth",cl:"Transcendental naturalism",cn:"The position is usually called new mysterianism; it cuts against both the computational theory of mind and its critics, and pairs with O'Gieblyn and Weizenbaum on what the machine metaphor cannot deliver."},
+
+{n:"Marshall McLuhan",sy:1911,p:"/ˈmɑːʃəl məˈkluːən/",u:W("Marshall_McLuhan"),y:"1911–1980",f:"English literature, media theory",
+ w:[["The Gutenberg Galaxy","1962",B("The Gutenberg Galaxy McLuhan")],["Understanding Media","1964",B("Understanding Media McLuhan")]],
+ a:"Media are extensions of the senses whose scale and pace matter more than their content, with print producing linear individualism and electric media returning the world to a tribal, acoustic condition.",
+ v:"The medium is the message; effects run through the sensory ratios a medium imposes rather than through anything it carries.",
+ c:"det",cl:"Media determinism",cn:"The canonical case, though he rejected the label and described himself as diagnosing rather than approving; Raymond Williams's critique is the standard counterweight."},
+
+{n:"Peter Medawar",sy:1915,p:"/ˈpiːtə ˈmɛdəwə/",u:W("Peter_Medawar"),y:"1915–1987",f:"Immunology, philosophy of science, essays",
+ w:[["The Hope of Progress","1972",B("The Hope of Progress Medawar")],["The Limits of Science","1984",B("The Limits of Science Medawar")]],
+ a:"The essays defend science and technology against romantic despair while marking out clearly what science cannot settle, particularly questions of value.",
+ v:"The remedies for the damage technology causes are usually more and better science, not less of it.",
+ c:"oth",cl:"Scientific optimism",cn:"Included on reading lists as the considered rebuttal to Ellul, Mander and the anti-technology tradition."},
+
+{n:"Seymour Melman",sy:1917,p:"/ˈsiːmɔː ˈmɛlmən/",u:W("Seymour_Melman"),y:"1917–2004",f:"Industrial engineering, political economy",
+ w:[["Pentagon Capitalism","1970",B("Pentagon Capitalism Melman")],["The Permanent War Economy","1974",B("The Permanent War Economy Melman")]],
+ a:"Permanent military production is argued to have created a state management system that drains civilian industry of capital and skill while rewarding cost growth rather than efficiency.",
+ v:"The direction of technical development follows institutional power, and workplace technology is chosen for managerial control as much as for productivity.",
+ c:"soc",cl:"Political economy of technical choice",cn:"An early insider argument that technology is shaped by who pays, aligned with later labour-process critiques."},
+
+{n:"Abbe Mowshowitz",sy:null,ay:1976,p:"/ˈæbi ˈmaʊʃəwɪts/ (approximate)",u:G("Abbe Mowshowitz computer science City College New York"),y:"<span class='uncertain'>dates not established</span>",f:"Computer science, social informatics",
+ w:[["The Conquest of Will: Information Processing in Human Affairs","1976",B("The Conquest of Will Mowshowitz")],["Virtual Organization","2002",B("Virtual Organization Mowshowitz")]],
+ a:"Computing is examined as an organisational and political phenomenon, with attention to how information systems redistribute discretion, and later to how virtual organisation dissolves place-bound loyalty.",
+ v:"Critical from inside the discipline, treating computerisation as a managerial project whose social costs are rarely counted.",
+ c:"soc",cl:"Social informatics",cn:"Belongs with Weizenbaum in the tradition of computer scientists turning critical tools on their own field."},
+
+{n:"Lewis Mumford",sy:1895,p:"/ˈluːɪs ˈmʌmfəd/",u:W("Lewis_Mumford"),y:"1895–1990",f:"History of technology, urbanism, cultural criticism",
+ w:[["Technics and Civilization","1934",B("Technics and Civilization Mumford")],["The Myth of the Machine","1967–70",B("The Myth of the Machine Mumford")]],
+ a:"Technical history is divided into eotechnic, paleotechnic and neotechnic phases, the clock rather than the steam engine is named the key machine of industrialism, and the megamachine is identified as an ancient organisation of human beings into mechanical parts.",
+ v:"Distinguishes democratic technics, small-scale and dispersed, from authoritarian technics, centralised and coercive, insisting the choice between them is ours to make.",
+ c:"oth",cl:"Between determinism and choice",cn:"Often read as determinist for the clock argument, yet his democratic/authoritarian distinction is a normative and anti-determinist claim."},
+
+{n:"Jason D. Myres",sy:null,ay:2018,p:"/ˈdʒeɪsən ˈmaɪərz/ (approximate)",u:"https://comm.uga.edu/directory/people/jason-d-myres",y:"<span class='uncertain'>dates not established</span>",f:"Rhetorical studies, communication, psychoanalytic theory",
+ w:[["Five Formations of Publicity: Constitutive Rhetoric from its Other Side","2018",G("Myres Five Formations of Publicity Quarterly Journal of Speech 2018")],["Post-Truth as Symptom: The Emergence of a Masculine Hysteria","2018",G("Myres Post-Truth as Symptom Philosophy and Rhetoric 2018")]],
+ a:"Publicity is sorted into five rhetorical formations in order to explain how publics are called into being by desire as well as by argument, and post-truth is read as a symptom of a wounded relation to authority rather than as a simple failure of information.",
+ v:"Publics are rhetorical and affective achievements, so mediated discourse constitutes its audience rather than merely informing one that already exists.",
+ c:"soc",cl:"Rhetorical theory of publics",cn:"Reads with McGee on fragmentation and against the rational-deliberative public of Habermas, borrowing the psychoanalytic vocabulary of Lacan; he took his doctorate at Georgia in 2016 and teaches there."},
+
+{n:"Arvind Narayanan",sy:null,ay:2024,p:"/ˈɑːvɪnd nɑːrɑːˈjʌnən/ (approximate)",u:G("Arvind Narayanan Princeton computer science AI Snake Oil"),y:"<span class='uncertain'>dates not established</span>",f:"Computer science, privacy research, AI policy",
+ w:[["AI Snake Oil","2024",B("AI Snake Oil Narayanan Kapoor")],["Fairness and Machine Learning","2019",B("Fairness and Machine Learning Barocas Hardt Narayanan")]],
+ a:"Predictive AI is separated from generative AI and shown to perform poorly at forecasting social outcomes such as recidivism or job success, while much of what is sold as artificial intelligence is argued to be marketing; his earlier work demonstrated that supposedly anonymised datasets can be re-identified.",
+ v:"Neither the doom nor the hype survives contact with evidence, and each system has to be evaluated for what it demonstrably does.",
+ c:"oth",cl:"Empirical scepticism",cn:"Useful as a methodological check on both the determinist and the constructivist literatures, since it insists on measured capability before theory."},
+
+{n:"Meghan O'Gieblyn",sy:null,ay:2021,p:"/ˈmɛɡən oʊˈɡiːblɪn/ (approximate)",u:G("Meghan O'Gieblyn essayist God Human Animal Machine"),y:"<span class='uncertain'>dates not established</span>",f:"Essays, literary nonfiction, criticism",
+ w:[["God, Human, Animal, Machine","2021",B("God Human Animal Machine O'Gieblyn")],["Interior States","2018",B("Interior States O'Gieblyn")]],
+ a:"Transhumanism, machine consciousness and the language of algorithms are read against the author's evangelical upbringing, showing that disenchanted technical vocabulary keeps recycling the theological problems it claims to have retired.",
+ v:"We describe machines in borrowed religious terms and then describe ourselves in the machine's terms, so the metaphor runs in both directions and quietly shapes what we think a mind is.",
+ c:"oth",cl:"Metaphor and theology",cn:"A humanist counterpart to Weizenbaum: the danger lies in the descriptions we accept, not in the capability of the system."},
+
+{n:"David Olson",sy:1935,p:"/ˈdeɪvɪd ˈəʊlsən/",u:W("David_R._Olson"),y:"b. 1935",f:"Educational psychology, cognitive development",
+ w:[["From Utterance to Text","1977",G("Olson From Utterance to Text 1977")],["The World on Paper","1994",B("The World on Paper Olson")]],
+ a:"Writing is argued to provide a model for thinking about speech and thought themselves, so that literate cultures acquire concepts of literal meaning, text and interpretation.",
+ v:"Literacy changes not just what people know but the categories in which they think about knowing.",
+ c:"soft",cl:"Literacy thesis, moderated",cn:"Later work concedes much to the ideological-model critics while keeping a cognitive claim about writing as a metalanguage."},
+
+{n:"Walter Ong",sy:1912,p:"/ˈwɔːltər ɒŋ/",u:W("Walter_J._Ong"),y:"1912–2003",f:"English literature, cultural history, Jesuit theology",
+ w:[["Orality and Literacy","1982",B("Orality and Literacy Ong")],["The Presence of the Word","1967",B("The Presence of the Word Ong")]],
+ a:"Primary oral cultures are characterised as additive, aggregative, situational and formulaic, with writing described as a technology that restructures consciousness and electronic media producing a secondary orality.",
+ v:"Writing is not a neutral record of speech but an internalised technology that reorganises thought.",
+ c:"soft",cl:"Medium theory, literacy strand",cn:"His phrase writing is a technology that restructures thought is the clearest soft-determinist formulation in the literacy debate."},
+
+{n:"Hasan Özbekhan",sy:1921,ay:1968,p:"/haˈsan œzbecˈhan/ · as he said it in the US, roughly /ˈʌzbəkɑːn/",u:W("Hasan_%C3%96zbekhan"),y:"1921–2007",f:"Systems science, planning, management",
+ w:[["The Triumph of Technology: Can Implies Ought","1968",G("Ozbekhan The Triumph of Technology Can Implies Ought")],["The Predicament of Mankind","1970",G("Ozbekhan Predicament of Mankind Club of Rome")]],
+ a:"The essay names the technological imperative, the assumption that whatever can be done ought to be done, and argues that feasibility has quietly replaced deliberation as the basis of planning.",
+ v:"Technology drives society only because societies have abandoned the normative question; planning should restore it.",
+ c:"det",cl:"Technological imperative",cn:"A key source for the imperative version of determinism, and for the Club of Rome's framing of global problems as a system."},
+
+{n:"Arnold Pacey",sy:1937,p:"/ˈɑːnəld ˈpeɪsi/",u:W("Arnold_Pacey"),y:"b. 1937",f:"History of technology, science and technology studies",
+ w:[["The Culture of Technology","1983",B("The Culture of Technology Pacey")],["The Maze of Ingenuity","1974",B("The Maze of Ingenuity Pacey")]],
+ a:"Technology-practice is defined as a triangle of technical, organisational and cultural aspects, and the narrow technical reading is shown to hide the values built into every project.",
+ v:"There is no such thing as a purely technical decision, and comparing how the same device works in different cultures proves it.",
+ c:"soc",cl:"Technology as practice",cn:"A widely taught bridge between engineering and social analysis, close in spirit to social shaping without the constructivist apparatus."},
+
+{n:"Matteo Pasquinelli",sy:1974,ay:2023,p:"/matˈtɛːo paskwiˈnɛlli/",u:W("Matteo_Pasquinelli"),y:"b. 1974",f:"Philosophy, media theory, political economy of AI",
+ w:[["The Eye of the Master: A Social History of Artificial Intelligence","2023",B("The Eye of the Master Pasquinelli")],["How a Machine Learns and Fails","2019",G("Pasquinelli How a Machine Learns and Fails")]],
+ a:"Machine learning is traced to the industrial division of labour, running from Babbage's factory arithmetic through nineteenth-century statistics to Rosenblatt's perceptron, and is argued to automate not thought but the measurement and management of collective labour.",
+ v:"Artificial intelligence is crystallised social labour, so a labour theory of automation should replace the mythology of machine intelligence.",
+ c:"soc",cl:"Labour-process critique of AI",cn:"The most direct contemporary descendant of the Marx machinery chapters and of Melman's argument that technique encodes managerial control."},
+
+{n:"Plato",sy:-428,p:"/ˈpleɪtəʊ/ · Greek Πλάτων /ˈplatɔːn/",u:W("Plato"),y:"c. 428–348 BCE",f:"Philosophy, political theory, education",
+ w:[["The Republic","c. 375 BCE",B("Plato Republic")],["Phaedrus","c. 370 BCE",B("Plato Phaedrus")]],
+ a:"Book X of the Republic ranks imitation as three removes from truth and expels most poetry from the just city, while the cave presents a citizenry taking projected images for reality; the Phaedrus carries the case against writing.",
+ v:"Representations educate the soul whether or not anyone intends them to, which makes the control of images a political rather than an aesthetic question.",
+ c:"oth",cl:"Foundational critique of representation",cn:"The ancestor of every media-effects argument, and, in Havelock's reading, itself a symptom of the shift from oral to literate Greece."},
+
+{n:"Neil Postman",sy:1931,p:"/niːl ˈpəʊstmən/",u:W("Neil_Postman"),y:"1931–2003",f:"Media ecology, education, cultural criticism",
+ w:[["Amusing Ourselves to Death","1985",B("Amusing Ourselves to Death Postman")],["Technopoly","1992",B("Technopoly Postman")]],
+ a:"Each medium carries an epistemology, and television's bias toward entertainment degrades public discourse more effectively than censorship could; Technopoly describes a culture that has surrendered its other authorities to technique.",
+ v:"Technological change is ecological rather than additive, never a simple gain, and always redistributes who holds authority.",
+ c:"soft",cl:"Media ecology",cn:"Succeeds McLuhan but with an explicit moral programme; usually classed as soft determinism because he calls for cultural resistance."},
+
+{n:"David M. Potter",sy:1910,p:"/ˈdeɪvɪd ˈpɑːtər/",u:W("David_M._Potter"),y:"1910–1971",f:"American history, national character studies",
+ w:[["People of Plenty: Economic Abundance and the American Character","1954",B("People of Plenty Potter economic abundance American character")],["The Impending Crisis","1976",B("The Impending Crisis Potter")]],
+ a:"American character is explained by material abundance rather than by frontier spirit or creed, and a central chapter treats advertising as the institution of an abundant economy, the first institution in history whose business is to create demand rather than to satisfy it.",
+ v:"Advertising is placed alongside the school and the church as a shaping institution, disciplining people into consumption because an economy of plenty needs consumers more than it needs producers.",
+ c:"soft",cl:"Material conditions and character",cn:"The chapter on advertising is why he sits on media reading lists; it anticipates the critiques Macdonald and later political economists made of consumer media."},
+
+{n:"Carroll Pursell",sy:1932,p:"/ˈkærəl ˈpɜːsəl/",u:W("Carroll_Pursell"),y:"b. 1932",f:"History of technology, American studies",
+ w:[["The Machine in America","1995",B("The Machine in America Pursell")],["Technology in America","1981",B("Technology in America Pursell")]],
+ a:"A social history of American technology that follows who gained and who lost from mechanisation, including labour, women and rural communities usually absent from invention narratives.",
+ v:"Technology is a social product carrying the politics of its makers, and its history should be written from below as well as from the patent office.",
+ c:"soc",cl:"Social history of technology",cn:"Part of the generation that moved the field from internalist invention history to contextual social history."},
+
+{n:"Kevin Robins",sy:null,ay:1989,p:"/ˈkɛvɪn ˈrɒbɪnz/",u:G("Kevin Robins media studies Times of the Technoculture"),y:"<span class='uncertain'>dates not established</span>",f:"Media and cultural studies, urban studies",
+ w:[["The Technical Fix","1989",B("The Technical Fix Robins Webster")],["Times of the Technoculture","1999",B("Times of the Technoculture Robins Webster")]],
+ a:"Written with Frank Webster, these books treat the information revolution as the latest phase of an older project of social management, with education and the workplace as its testing grounds.",
+ v:"The rhetoric of technological revolution obscures continuity in control, surveillance and commodification.",
+ c:"soc",cl:"Critical political economy",cn:"Directly opposes the information-society epochalism of Toffler and Bell."},
+
+{n:"Jean-Jacques Rousseau",sy:1712,p:"/ʒɑ̃ ʒak ʁuˈso/",u:W("Jean-Jacques_Rousseau"),y:"1712–1778",f:"Political philosophy, education, literature",
+ w:[["Discourse on the Sciences and Arts","1750",B("Discourse on the Sciences and Arts Rousseau")],["Discourse on Inequality","1755",B("Discourse on the Origin of Inequality Rousseau")]],
+ a:"The prize essay argues that advances in the arts and sciences have corrupted morals rather than improved them, and the second discourse traces inequality to metallurgy, agriculture and property.",
+ v:"Technical progress and moral progress diverge; refinement brings dependence and vanity rather than freedom.",
+ c:"det",cl:"Romantic critique of progress",cn:"The philosophical origin of the pessimistic tradition running through Carlyle, Thoreau, Mumford and Mander."},
+
+{n:"Robin Roy",sy:null,ay:1974,p:"/ˈrɒbɪn rɔɪ/",u:G("Robin Roy design innovation Open University"),y:"<span class='uncertain'>dates not established</span>",f:"Design studies, innovation, sustainable design",
+ w:[["Man-Made Futures","1974",B("Man-Made Futures Cross Elliott Roy")],["Design and the Economy","1982",B("Design and the Economy Robin Roy")]],
+ a:"The Open University design and innovation materials examine how products come to be as they are, treating design choice, market pressure and environmental cost as a single question.",
+ v:"Artefacts are the outcome of negotiable design and commercial decisions, so different futures were always available.",
+ c:"soc",cl:"Design as social choice",cn:"Belongs with Cross and Elliott in the Open University technology-and-society teaching tradition."},
+
+{n:"Philip Sarre",sy:null,ay:1985,p:"/ˈfɪlɪp sɑː/ (approximate)",u:G("Philip Sarre Open University geography society"),y:"<span class='uncertain'>dates not established</span>",f:"Geography, social science, environment",
+ w:[["Open University readers on society, technology and environment","1980s–90s",G("Philip Sarre Open University reader society environment")]],
+ a:"His editorial work gathers social-science writing on environment, development and technological change for teaching purposes rather than advancing a single thesis.",
+ v:"Technology is analysed within its geographical and environmental setting, with uneven development a central concern.",
+ c:"soc",cl:"Contextual social science",cn:"An editor and course author rather than a theorist, which is why he is hard to place and hard to document."},
+
+{n:"Michael Shallis",sy:null,ay:1984,p:"/ˈmaɪkəl ˈʃælɪs/",u:G("Michael Shallis Oxford The Silicon Idol author"),y:"<span class='uncertain'>dates not established</span>",f:"Physical sciences, technology criticism",
+ w:[["The Silicon Idol","1984",B("The Silicon Idol Shallis")]],
+ a:"Written by an Oxford lecturer in physical sciences, the book reads the microelectronics revolution as a quasi-religious surrender in which the computer becomes the idol that measures human worth.",
+ v:"Strongly hostile, holding that computers impose a numerical and mechanistic model of mind that impoverishes human self-understanding.",
+ c:"det",cl:"Substantive, spiritual critique",cn:"A British 1980s counterpart to Mander and Weizenbaum; the machine's bias is taken to be inherent, not contingent."},
+
+{n:"Socrates",sy:-470,p:"/ˈsɒkrətiːz/ · Greek Σωκράτης /sɔːˈkratɛːs/",u:W("Socrates"),y:"c. 470–399 BCE",f:"Philosophy, ethics, dialectic",
+ w:[["Phaedrus (the myth of Theuth and Thamus)","c. 370 BCE",B("Plato Phaedrus Theuth Thamus writing")]],
+ a:"Speaking in Plato's dialogue, he argues that writing will produce forgetfulness by removing the need for memory, that written words cannot answer questions or choose their readers, and that they give the appearance of wisdom rather than wisdom itself.",
+ v:"The first recorded case against a communication technology, and it targets the form of the medium rather than anything written in it.",
+ c:"det",cl:"Earliest media critique",cn:"Quoted by Ong, Postman and nearly everyone else in this table; note the irony that we have it only because Plato wrote it down."},
+
+{n:"Gerald E. Stearn",sy:null,ay:1967,p:"/ˈdʒɛrəld stɜːn/",u:G("Gerald Emanuel Stearn McLuhan Hot and Cool editor"),y:"<span class='uncertain'>dates not established</span>",f:"Editing, cultural journalism",
+ w:[["McLuhan: Hot and Cool","1967",B("McLuhan Hot and Cool Stearn")]],
+ a:"An early critical anthology that collects responses to McLuhan from across the disciplines alongside a long interview in which McLuhan answers his critics.",
+ v:"Editorial rather than doctrinal; the value is in showing how contested medium theory was at its moment of fame.",
+ c:"oth",cl:"Editor and documentarian",cn:"The best single source for the first wave of the determinism argument as it was actually conducted."},
+
+{n:"Brian V. Street",sy:1943,p:"/ˈbraɪən striːt/",u:W("Brian_Street"),y:"1943–2017",f:"Social anthropology, New Literacy Studies",
+ w:[["Literacy in Theory and Practice","1984",B("Literacy in Theory and Practice Street")],["Social Literacies","1995",B("Social Literacies Street")]],
+ a:"The autonomous model, in which literacy has its own cognitive consequences, is set against an ideological model in which literacy practices are always embedded in power relations and cultural meanings.",
+ v:"There is no literacy as such, only literacies, and claims about what writing does to minds are usually claims about whose writing counts.",
+ c:"soc",cl:"Ideological model of literacy",cn:"The founding statement of New Literacy Studies and the sharpest anti-determinist position in the Goody–Ong–Olson debate."},
+
+{n:"Henry David Thoreau",sy:1817,p:"/ˈhɛnri ˈdeɪvɪd θəˈroʊ/ · also /ˈθɔːroʊ/",u:W("Henry_David_Thoreau"),y:"1817–1862",f:"Literature, philosophy, naturalism",
+ w:[["Walden","1854",B("Walden Thoreau")]],
+ a:"Simplified living is set against the acceleration of the railway and the telegraph, with the observation that men have become the tools of their tools and that improved means often serve unimproved ends.",
+ v:"New communication technologies enlarge reach without enlarging anything worth saying, and the labour they demand exceeds the freedom they return.",
+ c:"det",cl:"Romantic critique of progress",cn:"Cited constantly in media criticism, particularly the question of what Maine has to say to Texas once the wire is laid."},
+
+{n:"Alvin Toffler",sy:1928,p:"/ˈælvɪn ˈtɒflər/",u:W("Alvin_Toffler"),y:"1928–2016",f:"Futures studies, journalism",
+ w:[["Future Shock","1970",B("Future Shock Toffler")],["The Third Wave","1980",B("The Third Wave Toffler")]],
+ a:"Accelerating change is diagnosed as a psychological illness of too much transience, and history is divided into agricultural, industrial and informational waves, each with its own institutions and family forms.",
+ v:"Technology is the engine of epochal change, and societies can only adapt to the wave they are in.",
+ c:"det",cl:"Popular determinism",cn:"The best-selling version of the position, and the usual first target when Webster, Robins or Williams attack epochal thinking."},
+
+{n:"John von Neumann",sy:1903,p:"/dʒɒn vɒn ˈnɔɪmən/",u:W("John_von_Neumann"),y:"1903–1957",f:"Mathematics, computer science, game theory",
+ w:[["Can We Survive Technology?","1955",G("von Neumann Can We Survive Technology 1955 Fortune")],["Theory of Games and Economic Behavior","1944",B("Theory of Games and Economic Behavior von Neumann")]],
+ a:"The 1955 essay argues that technical power is growing faster than the political geography that must contain it, with the earth becoming too small for the weapons available on it.",
+ v:"Progress cannot be stopped and should not be, but survival depends on political invention keeping pace with technical invention.",
+ c:"det",cl:"Technological imperative, insider view",cn:"The architect of the stored-program computer stating the acceleration thesis from within the laboratory."},
+
+{n:"Judy Wajcman",sy:1950,p:"/ˈdʒuːdi ˈvaɪtsmən/ (approximate)",u:W("Judy_Wajcman"),y:"b. 1950",f:"Sociology, feminist science and technology studies",
+ w:[["Feminism Confronts Technology","1991",B("Feminism Confronts Technology Wajcman")],["Pressed for Time","2015",B("Pressed for Time Wajcman")]],
+ a:"Technology is analysed as a masculine culture as much as a set of artefacts, and the acceleration thesis is tested against time-use evidence showing that digital devices do not simply speed life up.",
+ v:"Gender relations and technology shape one another, so neither liberation nor oppression follows from a device on its own.",
+ c:"soc",cl:"Technofeminism, social shaping",cn:"Her work with MacKenzie set the social shaping agenda; Pressed for Time is the empirical answer to Toffler-style future shock."},
+
+{n:"Frank Webster",sy:1950,p:"/fræŋk ˈwɛbstə/",u:G("Frank Webster sociologist Theories of the Information Society"),y:"b. 1950",f:"Sociology, media and communication studies",
+ w:[["Theories of the Information Society","1995",B("Theories of the Information Society Webster")],["The Technical Fix","1989",B("The Technical Fix Robins Webster")]],
+ a:"The major theories of informational change are sorted by their definitions, technological, economic, occupational, spatial and cultural, and each epochal claim is tested against the evidence for continuity.",
+ v:"More information does not make a new kind of society; capitalist relations persist through the technical change that is said to have ended them.",
+ c:"soc",cl:"Continuity thesis",cn:"The standard critical survey and the clearest available rebuttal to information-revolution determinism."},
+
+{n:"Joseph Weizenbaum",sy:1923,p:"/ˈdʒəʊzɪf ˈwaɪzənbaʊm/ · German /ˈvaɪtsn̩baʊm/",u:W("Joseph_Weizenbaum"),y:"1923–2008",f:"Computer science, artificial intelligence, ethics",
+ w:[["Computer Power and Human Reason","1976",B("Computer Power and Human Reason Weizenbaum")]],
+ a:"Written after users confided in his ELIZA chatbot, the book distinguishes calculation from judgement and argues there are decisions, especially those requiring compassion, that computers should not be asked to make even if they could.",
+ v:"The danger is not intelligent machines but a culture that redefines every human problem as computable.",
+ c:"soc",cl:"Ethical critique from within",cn:"Argues the limits are moral rather than technical, which separates him from both determinists and enthusiasts."},
+
+{n:"Leslie White",sy:1900,p:"/ˈlɛzli waɪt/",u:W("Leslie_White"),y:"1900–1975",f:"Anthropology, cultural evolution",
+ w:[["The Science of Culture","1949",B("The Science of Culture Leslie White")],["The Evolution of Culture","1959",B("The Evolution of Culture Leslie White")]],
+ a:"Culture is said to evolve as the energy harnessed per capita rises, with technology the primary subsystem determining the social and ideological ones.",
+ v:"Technology is the base on which social organisation and belief rest, and cultural advance can in principle be measured.",
+ c:"det",cl:"Hard technological determinism",cn:"White's law is about as explicit as the determinist position gets in the social sciences."},
+
+{n:"Lynn White Jr.",sy:1907,p:"/lɪn waɪt ˈdʒuːniə/",u:W("Lynn_Townsend_White_Jr."),y:"1907–1987",f:"Medieval history, history of technology",
+ w:[["Medieval Technology and Social Change","1962",B("Medieval Technology and Social Change Lynn White")],["The Historical Roots of Our Ecologic Crisis","1967",G("Lynn White Historical Roots of Our Ecologic Crisis")]],
+ a:"The stirrup is linked to mounted shock combat and thence to feudal social structure, while the 1967 essay traces environmental exploitation to Western Christian attitudes toward nature.",
+ v:"Small technical changes can reorganise societies, though the ecology essay locates the deeper cause in religious ideas rather than in machines.",
+ c:"det",cl:"Classic and contested determinism",cn:"The stirrup thesis is the textbook example of technological determinism in history and has been heavily criticised on evidential grounds."},
+
+{n:"Benjamin Lee Whorf",sy:1897,p:"/ˈbɛndʒəmɪn liː wɔːf/",u:W("Benjamin_Lee_Whorf"),y:"1897–1941",f:"Linguistics, anthropology",
+ w:[["Language, Thought, and Reality","1956",B("Language Thought and Reality Whorf")]],
+ a:"The collected papers argue that the grammatical categories of a language, particularly its handling of time and substance, dispose its speakers toward particular ways of segmenting experience.",
+ v:"The medium of language is not a transparent vehicle for thought but a partial determinant of it.",
+ c:"det",cl:"Linguistic determinism and relativity",cn:"The structural template for media determinism: strong versions are largely rejected, weaker relativity versions retain empirical support."},
+
+{n:"Raymond Williams",sy:1921,p:"/ˈreɪmənd ˈwɪljəmz/",u:W("Raymond_Williams"),y:"1921–1988",f:"Cultural studies, literary criticism, Marxist theory",
+ w:[["Television: Technology and Cultural Form","1974",B("Television Technology and Cultural Form Williams")],["Culture and Society","1958",B("Culture and Society Raymond Williams")]],
+ a:"Television is shown to have been researched, funded and institutionalised to meet existing social needs, with mobile privatisation naming the condition it served and flow naming the experience it produced.",
+ v:"Technologies are intended rather than accidental, so asking who wanted this and for what is more useful than asking what the medium does to us.",
+ c:"soc",cl:"Cultural materialism",cn:"The definitive critique of McLuhan and the origin of the intention argument against determinism; note his symmetrical rejection of symptomatic technology."},
+
+{n:"Langdon Winner",sy:1944,p:"/ˈlæŋdən ˈwɪnə/",u:W("Langdon_Winner"),y:"b. 1944",f:"Political theory, science and technology studies",
+ w:[["Autonomous Technology","1977",B("Autonomous Technology Winner")],["The Whale and the Reactor","1986",B("The Whale and the Reactor Winner")]],
+ a:"The earlier book takes the idea of technology out of control seriously as political theory, and the essay Do Artifacts Have Politics? argues that some designs settle questions of authority, using low bridges and the tomato harvester as cases.",
+ v:"Technologies are forms of life that legislate quietly, and technological somnambulism names our habit of accepting them without deliberation.",
+ c:"oth",cl:"Technological politics",cn:"Occupies the middle ground deliberately: artefacts carry politics, which makes them neither neutral tools nor autonomous forces."}
+];
+
+const tbody = document.getElementById("tbody");
+const countEl = document.getElementById("count");
+const campNames = {det:"Determinist", soft:"Soft / medium theory", soc:"Social shaping", oth:"Other / mixed"};
+let campFilter = "all", query = "", sortMode = "az";
+
+const eras = [
+  {max:0,    label:"Classical antiquity, fifth and fourth centuries BCE"},
+  {max:1699, label:"Sixteenth and seventeenth centuries"},
+  {max:1799, label:"Eighteenth century"},
+  {max:1899, label:"Born in the nineteenth century"},
+  {max:1919, label:"Born 1900–1919"},
+  {max:1939, label:"Born 1920–1939"},
+  {max:9999, label:"Born 1940 or later"}
+];
+const eraOf = (sy) => sy === null ? "Dates not established, ordered by year of principal work" : eras.find(e => sy <= e.max).label;
+
+function render(){
+  let rows = data.filter(d => {
+    if(campFilter !== "all" && d.c !== campFilter) return false;
+    if(!query) return true;
+    const hay = (d.n + " " + d.p + " " + d.f + " " + d.a + " " + d.v + " " + d.cl + " " + d.cn + " " +
+                 d.w.map(x => x[0]).join(" ")).toLowerCase();
+    return hay.includes(query);
+  });
+
+  if(sortMode === "chrono"){
+    rows = rows.slice().sort((a,b) => {
+      if(a.sy === null && b.sy === null) return (a.ay||9999) - (b.ay||9999);
+      if(a.sy === null) return 1;
+      if(b.sy === null) return -1;
+      return a.sy - b.sy;
+    });
+  }
+
+  let html = "", lastEra = null;
+  rows.forEach(d => {
+    if(sortMode === "chrono"){
+      const era = eraOf(d.sy);
+      if(era !== lastEra){
+        html += `<tr class="group"><td colspan="7">${era}</td></tr>`;
+        lastEra = era;
+      }
+    }
+    html += `
+    <tr>
+      <td class="name"><a href="${d.u}" target="_blank" rel="noopener">${d.n}</a><div class="ipa">${d.p}</div></td>
+      <td class="years">${d.y}</td>
+      <td class="fields">${d.f}</td>
+      <td class="works"><ul class="works-list">${d.w.map(x =>
+        `<li><a href="${x[2]}" target="_blank" rel="noopener">${x[0]}</a>${x[1] ? ` <span>(${x[1]})</span>` : ""}</li>`).join("")}</ul></td>
+      <td class="about">${d.a}</td>
+      <td class="view">${d.v}</td>
+      <td class="camp"><span class="tag t-${d.c}">${d.cl}</span><p>${d.cn}</p></td>
+    </tr>`;
+  });
+  tbody.innerHTML = html;
+
+  countEl.textContent = rows.length + " of " + data.length + " entries shown · " +
+    (sortMode === "az" ? "alphabetical by surname" : "earliest to latest by birth") +
+    (campFilter === "all" ? "" : " · " + campNames[campFilter]);
+}
+
+document.getElementById("q").addEventListener("input", e => {
+  query = e.target.value.trim().toLowerCase();
+  render();
+});
+document.querySelectorAll("button[data-sort]").forEach(b => {
+  b.addEventListener("click", () => {
+    sortMode = b.dataset.sort;
+    document.querySelectorAll("button[data-sort]").forEach(x =>
+      x.setAttribute("aria-pressed", String(x === b)));
+    render();
+  });
+});
+document.querySelectorAll("button[data-camp]").forEach(b => {
+  b.addEventListener("click", () => {
+    campFilter = b.dataset.camp;
+    document.querySelectorAll("button[data-camp]").forEach(x =>
+      x.setAttribute("aria-pressed", String(x === b)));
+    render();
+  });
+});
+render();
+</script>
+<script>
+(function(){
+const G = (q) => "https://www.google.com/search?q=" + encodeURIComponent(q);
+const B = (q) => "https://www.google.com/search?tbm=bks&q=" + encodeURIComponent(q);
+const W = (x) => "https://en.wikipedia.org/wiki/" + x;
+
+const M = [
+{n:"Tima Bansal and Kevin Corley",ky:2011,p:"/ˈbʌnsəl/ (approximate) · /ˈkɔːli/",u:G("Tima Bansal Ivey Kevin Corley qualitative research Academy of Management Journal"),y:"<span class='uncertain'>dates not established</span>",
+ f:"Strategy and sustainability (Ivey) and organizational identity (Arizona State); associate editors of the Academy of Management Journal",
+ w:[["The Coming of Age for Qualitative Research","2011",G("Bansal Corley coming of age for qualitative research AMJ 2011")],["What's Different About Qualitative Research?","2011",G("Bansal Corley Publishing in AMJ Part 7 qualitative research")]],
+ a:"Qualitative submissions are argued to fail most often when they borrow a quantitative template, and the editors set out what they actually look for: a question that needs qualitative data, transparency about how the analysis was done, and diversity of method rather than one approved recipe.",
+ r:"Written from inside the editorial process at the discipline's flagship empirical journal, these essays did much of the work of making qualitative submissions publishable there.",
+ c:"oth",cl:"Editorial standards"},
+
+{n:"Jean Bartunek, Sara Rynes and R. Duane Ireland",ky:2006,p:"/bɑːˈtuːnɛk/ (approximate) · /raɪnz/ · /ˈaɪələnd/",u:G("Bartunek Rynes Ireland what makes management research interesting 2006"),y:"<span class='uncertain'>dates not established</span>",
+ f:"Organizational behaviour (Boston College), human resources (Iowa) and strategic management (Texas A&M); all three served as AMJ editors",
+ w:[["What Makes Management Research Interesting, and Why Does It Matter?","2006",G("Bartunek Rynes Ireland What Makes Management Research Interesting AMJ 2006")]],
+ a:"Editorial board members were asked which articles they found interesting and why; the answers cluster around counterintuitive findings, results that unsettle a held assumption, and questions that matter outside the academy, rather than around methodological polish.",
+ r:"Turns interestingness into an explicit, teachable criterion for framing a contribution, extending Murray Davis's 1971 argument that theories become famous by denying an assumption of their audience.",
+ c:"soft",cl:"Framing a contribution"},
+
+{n:"Beth A. Bechky",ky:2020,p:"/bɛθ ˈbɛki/",u:G("Beth Bechky NYU Stern ethnography Administrative Science Quarterly"),y:"<span class='uncertain'>dates not established</span>",
+ f:"Management and organizations at NYU Stern; occupational ethnography of technical and forensic work",
+ w:[["Evaluative Spillovers from Technological Change","2020",G("Bechky Evaluative Spillovers DNA Envy Administrative Science Quarterly 2020")],["Leveraging Comparative Field Data for Theory Generation","2016",G("OMahony Bechky Leveraging Comparative Field Data for Theory Generation")]],
+ a:"Forensic scientists are shown reshaping their own practices in response to the prestige of DNA analysis, an occupational effect of technological change no survey would surface; the methods chapter with O&rsquo;Mahony sets out how comparison across field sites generates theory rather than merely adding cases.",
+ r:"A working demonstration that long-term occupational ethnography can produce theory publishable in the field's most demanding outlet, and a template for the comparative logic behind it.",
+ c:"soc",cl:"Occupational ethnography"},
+
+{n:"Howard S. Becker",ky:1998,p:"/ˈhaʊəd ˈbɛkə/",u:W("Howard_S._Becker"),y:"1928–2023",f:"Sociology at Northwestern and Washington; deviance, art worlds, and the craft of social research",
+ w:[["Writing for Social Scientists","1986",B("Writing for Social Scientists Becker")],["Tricks of the Trade","1998",B("Tricks of the Trade Howard Becker")]],
+ a:"Academic writing trouble is diagnosed as a social problem rather than a stylistic one, driven by fear of exposure and by editing while drafting; Tricks of the Trade then collects concrete devices for loosening a stuck analysis, such as imagining the null case or the same event in another society.",
+ r:"The standard antidote to paralysis in doctoral writing, and the reason generations of ethnographers separate the drafting pass from the editing pass.",
+ c:"m5",cl:"Craft and writing"},
+
+{n:"Wayne C. Booth, Gregory G. Colomb and Joseph M. Williams",ky:1995,p:"/buːθ/ · /kəˈloʊm/ (approximate) · /ˈwɪljəmz/",u:W("The_Craft_of_Research"),y:"1921–2005 · 1951–2011 · 1933–2008",
+ f:"Rhetoric and English at the University of Chicago and Virginia; not organizational scholars, but the standard writing authority in doctoral training",
+ w:[["The Craft of Research","1995, 4th ed. 2016",B("The Craft of Research Booth Colomb Williams")]],
+ a:"Research is treated as a conversation with a reader who is entitled to ask so what: a topic becomes a problem only when it has a condition, a consequence and a reader who should care, and an argument is built from claim, reasons, evidence, warrant and acknowledged objections.",
+ r:"Supplies the problem statement machinery that method-fit arguments then slot into, and the vocabulary most committees use when they say a proposal has no research problem yet.",
+ c:"m5",cl:"Research writing and argument"},
+
+{n:"Kathy Charmaz",ky:2006,p:"/ˈkæθi ˈʃɑːmæz/ (approximate)",u:W("Kathy_Charmaz"),y:"1939–2020",f:"Sociology at Sonoma State; constructivist grounded theory and the study of chronic illness",
+ w:[["Constructing Grounded Theory","2006, 2nd ed. 2014",B("Constructing Grounded Theory Charmaz")]],
+ a:"Grounded theory is rebuilt on constructivist premises: categories are produced by a researcher who is part of the setting rather than discovered lying in the data, and analysis proceeds through initial line-by-line coding, focused coding, and memo-writing that turns codes into argument.",
+ r:"The version of grounded theory most used in management field research today, and the one that reconciles the method with the reflexivity the subjectivist end of Morgan and Smircich's continuum demands.",
+ c:"soc",cl:"Constructivist grounded theory"},
+
+{n:"Gerald F. Davis",ky:2010,p:"/ˈdʒɛrəld ˈdeɪvɪs/",u:G("Gerald F Davis Michigan Ross organizational theory ASQ editor"),y:"<span class='uncertain'>dates not established</span>",
+ f:"Management and sociology at Michigan Ross; former editor of Administrative Science Quarterly",
+ w:[["What Is Organizational Research For?","2015",G("Gerald Davis What is organizational research for Administrative Science Quarterly")],["Do Theories of Organizations Progress?","2010",G("Gerald Davis Do Theories of Organizations Progress Organizational Research Methods 2010")],["Why Do We Still Have Journals?","2014",G("Gerald Davis editorial essay Why do we still have journals ASQ 2014")]],
+ a:"Organizational theory is shown to move in fashion cycles rather than to accumulate, with constructs abandoned before they are tested out; the later essay argues that journals now function as certification and curation devices rather than as distribution channels.",
+ r:"A field-level critique that asks what the enterprise as a whole is producing, which is the frame within which arguments about method choice and publication norms take on stakes.",
+ c:"oth",cl:"Critique of the field"},
+
+{n:"Amy C. Edmondson and Stacy E. McManus",ky:2007,p:"/ˈɛdməndsən/ · /məkˈmænəs/",u:G("Amy Edmondson Stacy McManus methodological fit in management field research 2007"),y:"Edmondson b. 1959 · McManus <span class='uncertain'>not established</span>",
+ f:"Leadership and management at Harvard Business School, known for psychological safety and team learning research",
+ w:[["Methodological Fit in Management Field Research","2007",G("Edmondson McManus Methodological Fit in Management Field Research AMR 2007")]],
+ a:"Internal consistency is required among the state of prior theory, the research question, the type of data collected and the analytic method: nascent theory calls for open-ended qualitative work, mature theory for hypothesis testing, and the intermediate state for hybrid designs.",
+ r:"The single most used justification device in management method sections, because it lets an author defend a qualitative design on theoretical grounds rather than as a preference.",
+ c:"soft",cl:"Research design and fit"},
+
+{n:"Kathleen M. Eisenhardt and Melissa E. Graebner",ky:2007,p:"/ˈaɪzənhɑːt/ · /ˈɡreɪbnə/ (approximate)",u:G("Kathleen Eisenhardt Melissa Graebner theory building from cases 2007"),y:"<span class='uncertain'>dates not established</span>",
+ f:"Strategy and organization at Stanford Engineering and at Illinois; the dominant case-study methodology in management",
+ w:[["Theory Building from Cases: Opportunities and Challenges","2007",G("Eisenhardt Graebner Theory Building from Cases AMJ 2007")],["Building Theories from Case Study Research","1989",G("Eisenhardt Building Theories from Case Study Research AMR 1989")]],
+ a:"Multiple cases are defended as replication logic rather than sampling: cases are chosen theoretically for the constructs they illuminate, compared systematically, and written up as constructs and propositions supported by evidence tables.",
+ r:"Made case research legible to journals trained on hypothesis testing; Dyer and Wilkins had already objected in 1991 that the price is the deep, contextual single case.",
+ c:"soft",cl:"Case-based theory building"},
+
+{n:"Robert M. Emerson, Rachel I. Fretz and Linda L. Shaw",ky:1995,p:"/ˈɛməsən/ · /frɛts/ · /ʃɔː/",u:B("Writing Ethnographic Fieldnotes Emerson Fretz Shaw"),y:"<span class='uncertain'>dates not established</span>",
+ f:"Sociology and writing programmes at UCLA and CSU San Marcos; the standard authority on fieldnotes",
+ w:[["Writing Ethnographic Fieldnotes","1995, 2nd ed. 2011",B("Writing Ethnographic Fieldnotes Emerson Fretz Shaw")]],
+ a:"Fieldnotes are treated as constructed texts rather than transcripts of what happened: jottings, full notes written the same day, and the coding and memoing that later turn them into themes are each shown to be writing decisions that shape what the study can eventually claim.",
+ r:"Makes the least visible part of ethnography teachable, and supplies the vocabulary for defending fieldnotes as data during review.",
+ c:"soc",cl:"Fieldnotes and observation"},
+
+{n:"Dennis A. Gioia, Kevin G. Corley and Aimee L. Hamilton",ky:2013,p:"/ˈdʒɔɪə/ · /ˈkɔːli/ · /ˈhæmɪltən/",u:G("Gioia Corley Hamilton Seeking Qualitative Rigor in Inductive Research 2013"),y:"<span class='uncertain'>dates not established</span>",
+ f:"Organizational behaviour at Penn State, Arizona State and Denver; identity and sensemaking research",
+ w:[["Seeking Qualitative Rigor in Inductive Research","2013",G("Gioia Corley Hamilton Seeking Qualitative Rigor in Inductive Research Organizational Research Methods")]],
+ a:"An explicit analytic sequence is proposed, moving from informant-centric first-order codes to researcher-centric second-order themes to aggregate dimensions, displayed in a data structure figure that shows the reader how raw material became theory.",
+ r:"So widely adopted that the data structure diagram is now close to a genre requirement; the accompanying risk, which Pratt warns about, is that the figure becomes a boilerplate standing in for analytic reasoning.",
+ c:"soc",cl:"Analytic structure and rigor"},
+
+{n:"Barney G. Glaser and Anselm L. Strauss",ky:1967,p:"/ˈɡleɪzə/ · /ˈænsɛlm straʊs/",u:W("Grounded_theory"),y:"Glaser 1930–2022 · Strauss 1916–1996",
+ f:"Sociology at UCSF; founders of grounded theory, developed while studying dying in hospitals",
+ w:[["The Discovery of Grounded Theory","1967",B("The Discovery of Grounded Theory Glaser Strauss")],["Basics of Qualitative Research (Strauss and Corbin)","1990",B("Basics of Qualitative Research Strauss Corbin")]],
+ a:"Theory is to be generated from systematic comparison of data rather than deduced from existing frameworks, through constant comparison, theoretical sampling, and sampling until categories reach saturation.",
+ r:"The origin of nearly every qualitative coding practice in management, and the source of a lasting split: Strauss and Corbin's coding paradigm was rejected by Glaser as forcing data into a template, and Charmaz later rejected the discovery language of both.",
+ c:"det",cl:"Grounded theory foundations"},
+
+{n:"Karen Golden-Biddle",ky:1997,p:"/ˈɡəʊldən ˈbɪdəl/",u:G("Karen Golden-Biddle Boston University Questrom composing qualitative research"),y:"<span class='uncertain'>dates not established</span>",
+ f:"Organizational behaviour at Boston University Questrom; qualitative writing, organizational change and abduction",
+ w:[["Composing Qualitative Research","1997, 2nd ed. 2007",B("Composing Qualitative Research Golden-Biddle Locke")],["Appealing Work: How Ethnographic Texts Convince","1993",G("Golden-Biddle Locke Appealing work how ethnographic texts convince 1993")],["Constructing Opportunities for Contribution","1997",G("Locke Golden-Biddle Constructing opportunities for contribution AMJ 1997")]],
+ a:"With Karen Locke, ethnographic texts are analysed for how they persuade, through authenticity, plausibility and criticality, and contribution is shown to be manufactured in two moves: building intertextual coherence out of the literature, then problematising it to open the space the study will fill.",
+ r:"Converts writing from a final chore into an analytic act, and gives reviewers an explicit account of what a convincing qualitative text is doing to them.",
+ c:"m5",cl:"Rhetoric of qualitative writing"},
+
+{n:"Ann Langley",ky:1999,p:"/æn ˈlæŋli/",u:G("Ann Langley HEC Montreal Strategies for Theorizing from Process Data"),y:"<span class='uncertain'>dates not established</span>",
+ f:"Strategy and organization at HEC Montréal; process research and visual theorising",
+ w:[["Strategies for Theorizing from Process Data","1999",G("Langley Strategies for Theorizing from Process Data Academy of Management Review 1999")],["Process Studies of Change in Organization and Management","2013",G("Langley Smallman Tsoukas Van de Ven Process studies of change AMJ 2013")]],
+ a:"Seven strategies are laid out for turning messy event data into theory, among them narrative, temporal bracketing, visual mapping and alternate templates, each carrying its own trade-off between accuracy, simplicity and generality.",
+ r:"The standard reference for anyone theorising change over time, and the reason process papers organise findings into phases rather than variables.",
+ c:"soft",cl:"Process theorizing"},
+
+{n:"Annette Lareau",ky:2021,p:"/əˈnɛt ləˈroʊ/",u:W("Annette_Lareau"),y:"<span class='uncertain'>dates not established</span>",
+ f:"Sociology at Pennsylvania; class and family life, and a practical guide to doing fieldwork",
+ w:[["Listening to People","2021",B("Listening to People Lareau")],["Unequal Childhoods","2003",B("Unequal Childhoods Lareau")]],
+ a:"The guide walks through the unglamorous mechanics of fieldwork, gaining access, handling awkwardness, asking about the concrete rather than the abstract, and managing the emotional labour of interviewing, drawing on her ethnography of concerted cultivation in middle-class families.",
+ r:"A rare methods text written from the position of someone still doing the work, and the assigned text for interviewing and observation practice in this seminar.",
+ c:"soc",cl:"Interviewing and fieldwork practice"},
+
+{n:"Karen Locke",ky:2001,p:"/ˈkærən lɒk/",u:G("Karen Locke William and Mary grounded theory in management research"),y:"<span class='uncertain'>dates not established</span>",
+ f:"Organizational behaviour at William and Mary; grounded theory and the rhetoric of qualitative writing",
+ w:[["Field Research Practice in Management and Organization Studies: Reclaiming Its Tradition of Discovery","2011",G("Karen Locke Field Research Practice in Management and Organization Studies Academy of Management Annals 2011")],["Grounded Theory in Management Research","2001",B("Grounded Theory in Management Research Karen Locke")],["Composing Qualitative Research","1997, 2nd ed. 2007",B("Composing Qualitative Research Golden-Biddle Locke")]],
+ a:"Grounded theory is reconstructed for management settings, and, with Karen Golden-Biddle, qualitative writing is analysed as persuasion: authors first establish that they know the literature, then problematise it to open the gap their study fills.",
+ r:"Names the rhetorical moves that turn field material into a publishable contribution, which is why it is taught alongside coding technique rather than after it.",
+ c:"soc",cl:"Grounded theory and composition"},
+
+{n:"Matthew B. Miles and A. Michael Huberman",ky:1994,p:"/maɪlz/ · /ˈhjuːbəmən/",u:B("Qualitative Data Analysis Miles Huberman"),y:"<span class='uncertain'>dates not established</span>",
+ f:"Educational and organizational research; the systematic, display-driven school of qualitative analysis",
+ w:[["Qualitative Data Analysis: An Expanded Sourcebook","1994",B("Qualitative Data Analysis An Expanded Sourcebook Miles Huberman")]],
+ a:"Analysis is broken into data reduction, data display, and conclusion drawing with verification, and the book supplies dozens of matrices and network displays for holding large volumes of field material in view at once.",
+ r:"The most procedural of the major approaches, closer to post-positivism than to grounded theory, and the ancestor of the publication tables Cloutier and Ravasi later formalise.",
+ c:"soc",cl:"Systematic data display"},
+
+{n:"Gareth Morgan and Linda Smircich",ky:1980,p:"/ˈɡærəθ ˈmɔːɡən/ · /ˈsmɪətʃɪtʃ/ (approximate)",u:G("Gareth Morgan Linda Smircich The Case for Qualitative Research 1980"),y:"Morgan b. 1943 · Smircich <span class='uncertain'>not established</span>",
+ f:"Organization theory at York University and at UMass Amherst; Morgan also wrote Images of Organization and, with Burrell, Sociological Paradigms",
+ w:[["The Case for Qualitative Research","1980",G("Morgan Smircich The Case for Qualitative Research Academy of Management Review 1980")],["Images of Organization","1986",B("Images of Organization Gareth Morgan")]],
+ a:"Method is shown to follow from assumptions rather than from taste, laid out as a continuum of six positions running from reality as a concrete structure through reality as symbolic discourse to reality as a projection of human imagination, each carrying its own appropriate techniques.",
+ r:"The founding statement that qualitative research is an epistemological position rather than a toolkit, and still the standard opening move when a dissertation states its paradigm.",
+ c:"det",cl:"Paradigms and ontology"},
+
+{n:"Siobhán O'Mahony",ky:2007,p:"/ʃɪˈvɔːn oʊˈmɑːəni/",u:G("Siobhan O'Mahony Boston University Questrom open source community governance"),y:"<span class='uncertain'>dates not established</span>",
+ f:"Management at Boston University Questrom; qualitative and ethnographic study of open source communities and collaborative organising",
+ w:[["Leveraging Comparative Field Data for Theory Generation","2016",G("OMahony Bechky Leveraging Comparative Field Data for Theory Generation 2016")],["The Emergence of Governance in an Open Source Community","2007",G("O'Mahony Ferraro The Emergence of Governance in an Open Source Community AMJ 2007")],["Boundary Organizations","2008",G("O'Mahony Bechky boundary organizations ASQ 2008")]],
+ a:"Longitudinal fieldwork with Fabrizio Ferraro shows a volunteer community inventing a democratic constitution over years rather than inheriting one, and the work with Beth Bechky identifies organizations that stand between occupational communities and firms to reconcile their conflicting demands.",
+ r:"A working model of how to study distributed online organising over time, combining archives, digital traces, interviews and observation, and of how to build process theory from that material.",
+ c:"soc",cl:"Longitudinal field ethnography"},
+
+{n:"Michael Quinn Patton",ky:2002,p:"/ˈpætən/",u:G("Michael Quinn Patton Qualitative Research and Evaluation Methods purposeful sampling"),y:"<span class='uncertain'>dates not established</span>",
+ f:"Evaluation research; independent consultant and former president of the American Evaluation Association",
+ w:[["Qualitative Research and Evaluation Methods","2002, 4th ed. 2015",B("Qualitative Research and Evaluation Methods Patton")]],
+ a:"Purposeful sampling is codified into named strategies, among them extreme case, maximum variation, typical case, critical case and snowball, each tied to the kind of claim it can support, and interviewing is treated as a designed instrument with question types and sequencing.",
+ r:"Gives qualitative sampling a defensible logic that is not a weak imitation of random sampling, which is what reviewers trained on surveys challenge first.",
+ c:"soc",cl:"Sampling and interviewing"},
+
+{n:"Michael G. Pratt",ky:2009,p:"/ˈmaɪkəl præt/",u:G("Michael G Pratt Boston College qualitative research boilerplate AMJ 2009"),y:"<span class='uncertain'>dates not established</span>",
+ f:"Management and organization at Boston College; identity research and a leading voice on qualitative standards",
+ w:[["Crafting and Selecting Research Questions and Contexts in Qualitative Research","2016",G("Pratt Crafting and Selecting Research Questions and Contexts in Qualitative Research 2016")],["For the Lack of a Boilerplate","2009",G("Pratt For the lack of a boilerplate tips on writing up qualitative research AMJ 2009")],["Fitting Oval Pegs into Round Holes","2008",G("Pratt Fitting oval pegs into round holes Organizational Research Methods 2008")],["The Tumult over Transparency","2020",G("Pratt Kaplan Whittington tumult over transparency ASQ 2020")]],
+ a:"There is no single correct write-up, but there are recognisable failures: the argument is for showing data through structured tables and quotations, explaining analytic moves rather than naming them, and, in the later essay, for separating transparency from any expectation that qualitative work be replicable.",
+ r:"Gives reviewers and authors a shared standard that does not amount to a template, and defends qualitative criteria against evaluation by borrowed quantitative norms.",
+ c:"oth",cl:"Writing up and evaluation"},
+
+{n:"Davide Ravasi, with Charlotte Cloutier and Ann Langley",ky:2021,p:"/daˈviːde raˈvaːzi/ · /kluˈtjeɪ/",u:G("Davide Ravasi UCL visualizing theory building qualitative tables"),y:"<span class='uncertain'>dates not established</span>",
+ f:"Strategy and organization at UCL and HEC Montréal; organizational identity and the visual craft of analysis",
+ w:[["Using Tables to Enhance Trustworthiness in Qualitative Research","2021",G("Cloutier Ravasi Using tables to enhance trustworthiness in qualitative research Strategic Organization 2021")],["Visualizing Our Way Through Theory Building","2017",G("Ravasi Visualizing our way through theory building Journal of Management Inquiry 2017")]],
+ a:"Tables and diagrams are treated as instruments of analysis rather than decoration: a typology of table forms is set out, each doing different evidential work, and drawing is presented as a way of discovering relationships in the data rather than reporting them afterwards.",
+ r:"Answers the practical problem every qualitative author faces, how to show enough evidence inside a word limit, and ties display choices to the trustworthiness of the claim.",
+ c:"soc",cl:"Visualizing data and theory"},
+
+{n:"Sara L. Rynes and Robert P. Gephart Jr.",ky:2004,p:"/raɪnz/ · /ˈɡɛfɑːt/ (approximate)",u:G("Rynes Gephart qualitative research and the Academy of Management Journal 2004"),y:"<span class='uncertain'>dates not established</span>",
+ f:"Human resource studies at Iowa and organizational analysis at Alberta; Rynes as AMJ editor, Gephart as a qualitative methodologist and author of Ethnostatistics",
+ w:[["What Is Qualitative Research and Why Is It Important?","2004",G("Rynes Gephart From the Editors Qualitative Research and the Academy of Management Journal 2004")]],
+ a:"The editorial documents how few qualitative papers the journal was publishing, explains what such work uniquely delivers in process, context and meaning, and invites submissions while setting out what a credible one looks like.",
+ r:"The opening move in the decade-long editorial campaign that Bansal and Corley later continued, and a useful citation for anyone arguing that a qualitative design belongs in a mainstream journal.",
+ c:"oth",cl:"Editorial standards"},
+
+{n:"Johnny Saldaña",ky:2021,p:"/sɑːlˈdɑːnjə/",u:B("The Coding Manual for Qualitative Researchers Saldana"),y:"<span class='uncertain'>dates not established</span>",
+ f:"Theatre and qualitative inquiry at Arizona State; coding pedagogy",
+ w:[["The Coding Manual for Qualitative Researchers","2009, 4th ed. 2021",B("The Coding Manual for Qualitative Researchers Saldana")]],
+ a:"Roughly thirty coding methods are catalogued, from descriptive and in vivo through process, emotion and values coding, each with worked examples and guidance on the questions it suits, followed by the move from first to second cycle coding.",
+ r:"The reference that lets a researcher name and justify a coding approach rather than describing it vaguely as thematic, which is what most method sections do by default.",
+ c:"soc",cl:"Coding methods"},
+
+{n:"James P. Spradley",ky:1979,p:"/ˈsprædli/",u:W("James_P._Spradley"),y:"1933–1982",f:"Anthropology at Macalester College; ethnographic interviewing and participant observation",
+ w:[["The Ethnographic Interview","1979",B("The Ethnographic Interview Spradley")],["Participant Observation","1980",B("Participant Observation Spradley")]],
+ a:"The developmental research sequence gives ethnography an order of operations, beginning with grand tour and mini tour descriptive questions that elicit the informant's own categories, then moving through structural and contrast questions to a taxonomic analysis of local meaning.",
+ r:"The origin of the descriptive question technique still taught for opening interviews, and of the discipline of learning the informant's vocabulary before imposing the researcher's.",
+ c:"soc",cl:"Ethnographic interviewing"},
+
+{n:"Robert I. Sutton",ky:1997,p:"/ˈrɒbət ˈsʌtən/",u:G("Robert Sutton Stanford The Virtues of Closet Qualitative Research 1997"),y:"<span class='uncertain'>dates not established</span>",
+ f:"Management science and engineering at Stanford; organizational behaviour, later known for books on workplace practice",
+ w:[["The Virtues of Closet Qualitative Research","1997",G("Sutton The Virtues of Closet Qualitative Research Organization Science 1997")],["What Theory Is Not","1995",G("Sutton Staw What Theory Is Not Administrative Science Quarterly 1995")]],
+ a:"Many quantitative papers are shown to rest on qualitative work that never appears in print, the fieldwork having generated the insight and then been hidden to satisfy reviewers; the earlier essay with Barry Staw rules out references, data, variables, diagrams and hypotheses as substitutes for theory.",
+ r:"Names the informal economy of hidden fieldwork in the discipline, and supplies the most cited working definition of what does not count as a theoretical contribution.",
+ c:"soc",cl:"Field politics of method"},
+
+{n:"John Van Maanen",ky:1988,p:"/væn ˈmɑːnən/",u:W("John_Van_Maanen"),y:"b. 1943",f:"Organization studies at MIT Sloan; organizational ethnography and occupational socialization",
+ w:[["Tales of the Field","1988, 2nd ed. 2011",B("Tales of the Field Van Maanen")],["Qualitative Studies of Organizations","1998",B("Qualitative Studies of Organizations Van Maanen")]],
+ a:"Ethnographic writing is sorted into genres: the realist tale with its impersonal authority, the confessional tale that foregrounds the fieldworker's stumbles, and the impressionist tale told as dramatic reconstruction, each making a different claim on the reader's trust.",
+ r:"Made the authorial voice of fieldwork a methodological question rather than a matter of taste, and remains the standard framing for how much of the researcher to leave in the text.",
+ c:"m5",cl:"Genres of ethnographic writing"},
+
+{n:"Karl E. Weick",ky:1989,p:"/kɑːl waɪk/",u:W("Karl_E._Weick"),y:"b. 1936",f:"Organizational psychology at Michigan Ross; sensemaking, loose coupling and organizing as process",
+ w:[["Theory Construction as Disciplined Imagination","1989",G("Weick Theory Construction as Disciplined Imagination Academy of Management Review 1989")],["Sensemaking in Organizations","1995",B("Sensemaking in Organizations Weick")]],
+ a:"Theorising is modelled as artificial selection: the researcher generates many conjectures and applies consistent selection criteria to them, so the quality of a theory depends on the diversity of what was imagined and the discipline of what was rejected.",
+ r:"Supplies the account of theory building that qualitative researchers cite when defending inductive work as reasoning rather than as fishing.",
+ c:"soft",cl:"Theory construction"},
+
+{n:"Robert K. Yin",ky:1989,p:"/jɪn/",u:B("Case Study Research Design and Methods Yin"),y:"<span class='uncertain'>dates not established</span>",
+ f:"Applied social research and evaluation; the design-oriented school of case study method",
+ w:[["Case Study Research: Design and Methods","1984, later editions to 2018",B("Case Study Research Design and Methods Yin")]],
+ a:"Case study is presented as a research design rather than a data type, with propositions, units of analysis and rival explanations specified in advance, and validity pursued through multiple sources of evidence, chains of evidence and pattern matching.",
+ r:"The most positivist of the case traditions and the usual counterweight to grounded theory in a methods section; Eisenhardt's replication logic sits closer to Yin than to Glaser and Strauss.",
+ c:"soft",cl:"Case study design"}
+];
+
+const tbody2 = document.getElementById("tbody2");
+const count2 = document.getElementById("count2");
+let sort2 = "az", q2 = "";
+
+function render2(){
+  let rows = M.filter(d => {
+    if(!q2) return true;
+    const hay = (d.n + " " + d.f + " " + d.a + " " + d.r + " " + d.cl + " " +
+                 d.w.map(x => x[0]).join(" ")).toLowerCase();
+    return hay.includes(q2);
+  });
+  if(sort2 === "year") rows = rows.slice().sort((a,b) => a.ky - b.ky);
+  tbody2.innerHTML = rows.map(d => `
+    <tr>
+      <td class="name"><a href="${d.u}" target="_blank" rel="noopener">${d.n}</a><div class="ipa">${d.p}</div></td>
+      <td class="years">${d.y}</td>
+      <td class="fields">${d.f}</td>
+      <td class="works"><ul class="works-list">${d.w.map(x =>
+        `<li><a href="${x[2]}" target="_blank" rel="noopener">${x[0]}</a> <span>(${x[1]})</span></li>`).join("")}</ul></td>
+      <td class="about">${d.a}</td>
+      <td class="view">${d.r}</td>
+      <td class="camp"><span class="tag t-${d.c}">${d.cl}</span></td>
+    </tr>`).join("");
+  count2.textContent = rows.length + " of " + M.length + " sources shown · " +
+    (sort2 === "az" ? "alphabetical by first author" : "earliest to latest by key work");
+}
+document.getElementById("q2").addEventListener("input", e => {
+  q2 = e.target.value.trim().toLowerCase(); render2();
+});
+document.querySelectorAll("button[data-sort2]").forEach(b => {
+  b.addEventListener("click", () => {
+    sort2 = b.dataset.sort2;
+    document.querySelectorAll("button[data-sort2]").forEach(x =>
+      x.setAttribute("aria-pressed", String(x === b)));
+    render2();
+  });
+});
+render2();
+
+})();
+</script>
+</body>
+</html>
