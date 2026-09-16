@@ -84,6 +84,10 @@
       : eras.find((e) => sy <= e.max).label;
 
   function rowHTML(d) {
+    /* Not every figure in the table took a position on technology or media.
+       Those entries leave v, c and cl empty rather than have one invented. */
+    const view = d.v || '<span class="na">No stated position on technology or media.</span>';
+    const tag = d.c ? `<span class="tag t-${d.c}">${d.cl}</span>` : "";
     return `
     <tr>
       <td class="name"><a href="${d.u}" target="_blank" rel="noopener">${d.n}</a><div class="ipa">${d.p}</div></td>
@@ -92,8 +96,8 @@
       <td class="works"><ul class="works-list">${d.w.map((x) =>
         `<li><a href="${x[2]}" target="_blank" rel="noopener">${x[0]}</a>${x[1] ? ` <span>(${x[1]})</span>` : ""}</li>`).join("")}</ul></td>
       <td class="about">${d.a}</td>
-      <td class="view">${d.v}</td>
-      <td class="camp"><span class="tag t-${d.c}">${d.cl}</span><p>${d.cn}</p></td>
+      <td class="view">${view}</td>
+      <td class="camp">${tag}<p>${d.cn}</p></td>
     </tr>`;
   }
 

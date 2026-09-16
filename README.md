@@ -2,7 +2,7 @@
 
 A static, dependency-free reference site with two tables:
 
-1. **Thinkers on technology, media and literacy** — 81 authors, with dates, fields, key works,
+1. **Thinkers on technology, media and literacy** — 83 authors, with dates, fields, key works,
    what each work argues, the author's view of technology, and a theoretical placement
    (determinist · soft/medium theory · social shaping · other/mixed).
 2. **Organizational research methods** — 67 sources, with what each argues and what it
@@ -103,8 +103,8 @@ A thinkers entry (`assets/js/data-thinkers.js`):
 | `f` | fields |
 | `w` | key works, each `["Title", "Year", link]` |
 | `a` | what the work argues |
-| `v` | view of technology and media |
-| `c` | camp code: `det`, `soft`, `soc`, `oth` — drives the filter buttons and tag colour |
+| `v` | view of technology and media — empty for figures who took no position |
+| `c` | camp code: `det`, `soft`, `soc`, `oth` — drives the filter buttons and tag colour; empty alongside an empty `v`, in which case no tag is drawn and the entry appears only under All |
 
 The methods table uses one further code, `m5`, for craft-and-writing sources; it has no filter
 button, only a tag style.

@@ -99,7 +99,7 @@ const THINKERS = [
 {n:"Michel Foucault",sy:1926,p:"/miʃɛl fuˈko/",u:W("Michel_Foucault"),y:"1926–1984",f:"Philosophy, history of systems of thought",
  w:[["Discipline and Punish","1975",B("Discipline and Punish Foucault")],["Technologies of the Self","1988",B("Technologies of the Self Foucault")]],
  a:"Power is traced through techniques rather than through the state: the timetable, the examination, the panoptic layout that makes visibility itself a means of control.",
- v:"Technologies are materialised power relations, and the same applies to the techniques people use on themselves.",
+ v:"His technologies are techniques and procedures, the timetable, the examination, the confession, rather than machines or media. The surveillance and platform literature that reads the panopticon as a model for the database is extending him to an object he did not write about.",
  c:"oth",cl:"Power/knowledge",cn:"Neither determinist nor constructivist in the usual sense, but heavily used by both; the panopticon is the standard reference point for surveillance studies."},
 
 {n:"John Gall",sy:1925,p:"/dʒɒn ɡɔːl/",u:W("John_Gall_(author)"),y:"1925–2014",f:"Paediatrics, systems theory, satire",
@@ -123,7 +123,7 @@ const THINKERS = [
 {n:"Erving Goffman",sy:1922,p:"/ˈɜːvɪŋ ˈɡɒfmən/",u:W("Erving_Goffman"),y:"1922–1982",f:"Sociology, symbolic interactionism, social psychology",
  w:[["The Presentation of Self in Everyday Life","1959",B("The Presentation of Self in Everyday Life Goffman")],["Frame Analysis","1974",B("Frame Analysis Goffman")],["Behavior in Public Places","1963",B("Behavior in Public Places Goffman")]],
  a:"Social life is analysed as performance, with front and back regions, impression management and audience segregation governing how a self is sustained; Frame Analysis then asks how people decide what kind of activity is going on, and what happens when a frame is broken or keyed.",
- v:"Communication technologies matter because they rearrange who can see which performance, collapsing the separation between audiences that face-to-face life keeps apart.",
+ v:"He wrote about co-present interaction and did not take up communication technologies; the much-cited claim that broadcast and networked media collapse the audience segregation his account depends on is Meyrowitz's extension of the framework rather than a position Goffman stated.",
  c:"soc",cl:"Dramaturgy and framing",cn:"The direct source for Meyrowitz's No Sense of Place, for framing theory in media research, and for danah boyd's context collapse; the self is socially accomplished rather than technologically produced."},
 
 {n:"Jack Goody",sy:1919,p:"/dʒæk ˈɡʊdi/",u:W("Jack_Goody"),y:"1919–2015",f:"Social anthropology, comparative sociology",
@@ -207,7 +207,7 @@ const THINKERS = [
 {n:"Jacques Lacan",sy:1901,p:"/ʒak laˈkɑ̃/",u:W("Jacques_Lacan"),y:"1901–1981",f:"Psychoanalysis, psychiatry, structuralist theory",
  w:[["Écrits","1966",B("Ecrits Lacan")],["The Four Fundamental Concepts of Psychoanalysis","1973",B("Four Fundamental Concepts of Psychoanalysis Lacan")]],
  a:"The mirror stage describes an infant coming to identify with an image that is more coherent than its own experience, and the unconscious is held to be structured like a language, with the subject constituted inside a symbolic order it did not choose.",
- v:"Media matter because images and signifiers make subjects; the screen is a site of misrecognition and of the gaze rather than a channel for messages.",
+ v:"Not a theorist of media: his subjects are the image, the gaze and the symbolic order. Reading cinema and the screen through those terms belongs to the apparatus theorists who took up his vocabulary in the 1970s, and is theirs rather than his.",
  c:"oth",cl:"Structuralist psychoanalysis",cn:"The theoretical engine of 1970s apparatus and screen theory in Metz, Baudry and Mulvey, where the medium works on the viewer's psyche rather than on society."},
 
 {n:"Peter Large",sy:null,ay:1980,p:"/ˈpiːtə lɑːdʒ/",u:G("Peter Large Guardian technology editor Micro Revolution"),y:"<span class='uncertain'>dates not established</span>",f:"Journalism, technology reporting",
@@ -267,7 +267,7 @@ const THINKERS = [
 {n:"Colin McGinn",sy:1950,p:"/ˈkɒlɪn məˈɡɪn/",u:W("Colin_McGinn"),y:"b. 1950",f:"Philosophy of mind, metaphysics, philosophical psychology",
  w:[["The Mysterious Flame","1999",B("The Mysterious Flame Colin McGinn")],["Can We Solve the Mind-Body Problem?","1989",G("McGinn Can We Solve the Mind-Body Problem 1989 Mind")]],
  a:"Consciousness is argued to be a natural phenomenon that human cognition may be constitutionally unable to explain, since our concept-forming faculties evolved for other purposes; the mind-body problem is therefore a limit in us rather than a mystery in nature.",
- v:"If consciousness is cognitively closed to us, claims that machines are or could become conscious are claims we are not equipped to settle either way.",
+ v:"He writes on the mind-body problem, not on machines. The consequence often drawn for artificial consciousness, that cognitive closure would leave us unable to settle the question either way, is an entailment others take from the argument rather than a claim he advances.",
  c:"oth",cl:"Transcendental naturalism",cn:"The position is usually called new mysterianism; it cuts against both the computational theory of mind and its critics, and pairs with O'Gieblyn and Weizenbaum on what the machine metaphor cannot deliver."},
 
 {n:"Marshall McLuhan",sy:1911,p:"/ˈmɑːʃəl məˈkluːən/",u:W("Marshall_McLuhan"),y:"1911–1980",f:"English literature, media theory",
@@ -426,6 +426,12 @@ const THINKERS = [
  v:"New communication technologies enlarge reach without enlarging anything worth saying, and the labour they demand exceeds the freedom they return.",
  c:"det",cl:"Romantic critique of progress",cn:"Cited constantly in media criticism, particularly the question of what Maine has to say to Texas once the wire is laid."},
 
+{n:"Edward B. Titchener",sy:1867,p:"/ˈɛdwəd ˈtɪtʃɪnə/",u:W("Edward_B._Titchener"),y:"1867–1927",f:"Experimental psychology",
+ w:[["An Outline of Psychology","1896",B("An Outline of Psychology Titchener")],["Experimental Psychology: A Manual of Laboratory Practice","1901–1905",B("Experimental Psychology A Manual of Laboratory Practice Titchener")]],
+ a:"Consciousness is to be analysed into its elements, sensations, images and affections, along with their attributes and the ways they combine, through introspection carried out by observers trained to report the experience itself rather than the object it is of; the programme was named structuralism and pursued at Cornell.",
+ v:"",
+ c:"",cl:"",cn:"Wundt's student at Leipzig, though the structuralism he built in English is his own system and is often misread as a straight transmission of Wundt's. Included for disciplinary context: he took no position on technology or media, and none is attributed to him here."},
+
 {n:"Alvin Toffler",sy:1928,p:"/ˈælvɪn ˈtɒflər/",u:W("Alvin_Toffler"),y:"1928–2016",f:"Futures studies, journalism",
  w:[["Future Shock","1970",B("Future Shock Toffler")],["The Third Wave","1980",B("The Third Wave Toffler")]],
  a:"Accelerating change is diagnosed as a psychological illness of too much transience, and history is divided into agricultural, industrial and informational waves, each with its own institutions and family forms.",
@@ -484,5 +490,11 @@ const THINKERS = [
  w:[["Autonomous Technology","1977",B("Autonomous Technology Winner")],["The Whale and the Reactor","1986",B("The Whale and the Reactor Winner")]],
  a:"The earlier book takes the idea of technology out of control seriously as political theory, and the essay Do Artifacts Have Politics? argues that some designs settle questions of authority, using low bridges and the tomato harvester as cases.",
  v:"Technologies are forms of life that legislate quietly, and technological somnambulism names our habit of accepting them without deliberation.",
- c:"oth",cl:"Technological politics",cn:"Occupies the middle ground deliberately: artefacts carry politics, which makes them neither neutral tools nor autonomous forces."}
+ c:"oth",cl:"Technological politics",cn:"Occupies the middle ground deliberately: artefacts carry politics, which makes them neither neutral tools nor autonomous forces."},
+
+{n:"Wilhelm Wundt",sy:1832,p:"/ˈvɪlhɛlm vʊnt/",u:W("Wilhelm_Wundt"),y:"1832–1920",f:"Experimental psychology, physiology, philosophy",
+ w:[["Principles of Physiological Psychology","1874",B("Principles of Physiological Psychology Wundt")],["Völkerpsychologie","1900–1920",B("Volkerpsychologie Wundt")]],
+ a:"Psychology is claimed as an experimental science of immediate conscious experience, to be studied under laboratory control through reaction times and trained self-observation; the later ten-volume Völkerpsychologie holds that the higher mental processes, language, myth and custom among them, cannot be reached by experiment at all and require comparative and historical study instead.",
+ v:"",
+ c:"",cl:"",cn:"Founder of the first laboratory devoted to experimental psychology, at Leipzig in 1879, and teacher of a generation that included Titchener. Included here for disciplinary context: he wrote on language and custom but not on technology or media, and no position on either is attributed to him."}
 ];
