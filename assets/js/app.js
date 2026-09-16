@@ -10,6 +10,16 @@
     methods: document.getElementById("panel-methods")
   };
 
+  /* The table card scrolls on its own axis now, so "top" means both the page
+     and the card. Horizontal scroll is left alone — the reader may have paged
+     across to a column deliberately. */
+  function scrollToTop(name) {
+    const panel = panels[name] || document.querySelector(".panel:not([hidden])");
+    const box = panel && panel.querySelector(".scroller");
+    if (box) box.scrollTop = 0;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   function showTab(name, pushHash) {
     if (!panels[name]) name = "thinkers";
     tabs.forEach((t) => {
@@ -23,6 +33,8 @@
     if (pushHash && location.hash !== "#" + name) {
       history.replaceState(null, "", "#" + name);
     }
+    const box = panels[name].querySelector(".scroller");
+    if (box) box.scrollTop = 0;
     window.scrollTo({ top: 0, behavior: "auto" });
   }
 
@@ -120,6 +132,9 @@
       tbody.innerHTML = html;
     }
 
+    const box1 = document.querySelector("#panel-thinkers .scroller");
+    if (box1) box1.scrollTop = 0;
+
     countEl.textContent =
       rows.length + " of " + THINKERS.length + " entries shown · " +
       (sortMode === "az" ? "alphabetical by surname" : "earliest to latest by birth") +
@@ -176,6 +191,9 @@
     </tr>`).join("")
       : `<tr class="empty"><td colspan="7">No source matches that search.</td></tr>`;
 
+    const box2 = document.querySelector("#panel-methods .scroller");
+    if (box2) box2.scrollTop = 0;
+
     count2.textContent =
       rows.length + " of " + METHODS.length + " sources shown · " +
       (sort2 === "az" ? "alphabetical by first author" : "earliest to latest by key work");
@@ -205,36 +223,16 @@
   });
 
   document.querySelectorAll("[data-top]").forEach((b) => {
-    b.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+    b.addEventListener("click", () => scrollToTop());
   });
 
   /* ---------------- back to top ---------------- */
 
   const toTop = document.getElementById("toTop");
-  toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+  toTop.addEventListener("click", () => scrollToTop());
   window.addEventListener("scroll", () => {
     toTop.classList.toggle("show", window.scrollY > 500);
   }, { passive: true });
-
-  /* ---------------- sticky offset ----------------
-     The column headers stick directly below the masthead, so --bar-h has to
-     track the masthead's real height (it changes when the tabs wrap). */
-
-  const masthead = document.querySelector(".masthead");
-
-  function measureBar() {
-    const h = window.getComputedStyle(masthead).position === "sticky"
-      ? masthead.offsetHeight
-      : 0;
-    document.documentElement.style.setProperty("--bar-h", h + "px");
-  }
-
-  if (window.ResizeObserver) {
-    new ResizeObserver(measureBar).observe(masthead);
-  } else {
-    window.addEventListener("resize", measureBar);
-  }
-  measureBar();
 
   /* ---------------- start ---------------- */
 

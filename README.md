@@ -16,6 +16,12 @@ can also be filtered by theoretical camp.
 
 `#thinkers` and `#methods` are shareable links straight to a table.
 
+Each table is a scroll pane rather than a full-page list: it scrolls inside its own card, in
+both directions, with the column headers pinned to the top of that card, so the columns stay
+labelled however far down you read.
+
+Contact: **chivu@bu.edu**, linked at the foot of the page.
+
 ## Viewing it locally
 
 Open `index.html` in a browser, or serve the folder:
@@ -63,9 +69,6 @@ Type is Times New Roman throughout, set at 11pt on the root element — every ot
 stylesheet is a multiple of that, so changing `html { font-size }` in
 `assets/css/styles.css` rescales the whole page. Interface labels are separated from the
 prose by capitals and letter-spacing rather than by a second typeface.
-
-The nav bar's sticky height is measured at runtime, so the table's column headers park directly
-beneath it however the tabs wrap.
 
 Text never sits on coral in white (that pairing fails contrast at 2.5:1); coral and gold
 carry black text, at 8.5:1 and 11.7:1.
