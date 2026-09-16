@@ -13,22 +13,21 @@
 
 <a class="skip-link" href="#panel-thinkers">Skip to the table</a>
 
+<div class="topbar" aria-hidden="true"></div>
+
 <header class="masthead">
   <div class="masthead-inner">
-    <h1>Thinkers &amp; Methods</h1>
-    <p class="tagline">Two reference tables: writers on technology, media and literacy, and the methodological sources behind organizational field research.</p>
-    <div class="tabs" role="tablist" aria-label="Choose a table">
+    <span class="brand">Thinkers <span class="amp">&amp;</span> Methods</span>
+    <nav class="tabs" role="tablist" aria-label="Choose a table">
       <button class="tab" role="tab" id="tab-thinkers"
               aria-controls="panel-thinkers" aria-selected="true" data-tab="thinkers">
-        Thinkers on technology &amp; media
-        <span class="tab-n" id="tabn-thinkers"></span>
+        Table 1 · Thinkers
       </button>
       <button class="tab" role="tab" id="tab-methods"
               aria-controls="panel-methods" aria-selected="false" data-tab="methods" tabindex="-1">
-        Organizational research methods
-        <span class="tab-n" id="tabn-methods"></span>
+        Table 2 · Methods
       </button>
-    </div>
+    </nav>
   </div>
 </header>
 
@@ -39,7 +38,8 @@
     <div class="panel-intro">
       <h2>Thinkers on technology, media and literacy</h2>
       <p>Each entry gives dates, fields, the key work, what that work argues, the author's view of technology,
-         and where the position sits between determinism and social shaping.</p>
+         and where the position sits between determinism and social shaping. The second tab holds the
+         methodological sources behind organizational field research.</p>
     </div>
 
     <div class="controls">
@@ -75,6 +75,13 @@
         <tbody id="tbody"></tbody>
       </table>
     </div>
+
+    <nav class="panel-nav" aria-label="End of table 1">
+      <button type="button" class="pnav back" data-top>&uarr; Back to top</button>
+      <button type="button" class="pnav next" data-goto="methods">
+        Table 2 · Organizational research methods <span aria-hidden="true">&rarr;</span>
+      </button>
+    </nav>
   </section>
 
   <!-- ============ Table 2 ============ -->
@@ -110,6 +117,13 @@
         <tbody id="tbody2"></tbody>
       </table>
     </div>
+
+    <nav class="panel-nav" aria-label="End of table 2">
+      <button type="button" class="pnav back" data-top>&uarr; Back to top</button>
+      <button type="button" class="pnav next" data-goto="thinkers">
+        <span aria-hidden="true">&larr;</span> Table 1 · Thinkers on technology, media and literacy
+      </button>
+    </nav>
   </section>
 
 </main>

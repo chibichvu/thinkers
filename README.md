@@ -8,8 +8,13 @@ A static, dependency-free reference site with two tables:
 2. **Organizational research methods** — 29 sources, with what each argues and what it
    contributed to field research.
 
-The two tables live on separate tabs rather than one long scrolling page. Each tab has its own
-search box and sort controls, and the thinkers table can also be filtered by theoretical camp.
+The two tables live on separate tabs rather than one long scrolling page. A nav bar at the top
+switches between them — the active table is the one filled in gold — and each table ends with
+two buttons, one back to the top and one across to the other table, so neither end of a long
+table is a dead end. Each tab has its own search box and sort controls, and the thinkers table
+can also be filtered by theoretical camp.
+
+`#thinkers` and `#methods` are shareable links straight to a table.
 
 ## Viewing it locally
 
@@ -23,15 +28,42 @@ python3 -m http.server 8000
 ## Publishing on GitHub Pages
 
 ```sh
-git remote add origin https://github.com/<you>/<repo>.git
-git branch -M main
 git push -u origin main
 ```
 
 Then in the repository: **Settings → Pages → Build and deployment → Source: Deploy from a branch**,
-branch `main`, folder `/ (root)`. The site appears at `https://<you>.github.io/<repo>/`.
+branch `main`, folder `/ (root)`. The site appears at `https://<you>.github.io/thinkers/`.
+
+If the repository was renamed, GitHub redirects the old URL, so pushing keeps working —
+but the remote can be pointed at the new name:
+
+```sh
+git remote set-url origin https://github.com/<you>/thinkers.git
+```
 
 `.nojekyll` is included so GitHub Pages serves the files as-is instead of running Jekyll over them.
+
+## Design
+
+Four colours and one typeface:
+
+| token | value | used for |
+| --- | --- | --- |
+| `--coral` | `#ff805e` | accents: link underlines, rules, hover washes, the *social shaping* tag |
+| `--gold` | `#f2b90f` | the *soft / medium theory* tag, search highlights, uncertain dates |
+| `--black` | `#000000` | text, borders, selected controls, the *determinist* tag |
+| `--white` | `#ffffff` | the page, and the *other / mixed* tag |
+
+Type is Times New Roman throughout, set at 11pt on the root element — every other size in the
+stylesheet is a multiple of that, so changing `html { font-size }` in
+`assets/css/styles.css` rescales the whole page. Interface labels are separated from the
+prose by capitals and letter-spacing rather than by a second typeface.
+
+The nav bar's sticky height is measured at runtime, so the table's column headers park directly
+beneath it however the tabs wrap.
+
+Text never sits on coral in white (that pairing fails contrast at 2.5:1); coral and gold
+carry black text, at 8.5:1 and 11.7:1.
 
 ## Layout
 

@@ -1,188 +1,243 @@
 /* Thinkers & Methods — a two-tab reference table.
-   Palette and type follow the original single-page version. */
+   Palette: coral, gold, black, white. Type: Times New Roman at 11pt. */
 
 :root{
-  --paper:#FBFAF7;
-  --paper-alt:#F5F3EE;
-  --ink:#1C2530;
-  --ink-soft:#4A5764;
-  --rule:#D8D4CA;
-  --det:#3B3A86;
-  --det-bg:#E7E6F4;
-  --soft:#8A5A12;
-  --soft-bg:#F6EBD8;
-  --soc:#1F6152;
-  --soc-bg:#DEEDE7;
-  --oth:#6A5A5A;
-  --oth-bg:#ECE6E4;
-  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
-  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  --bar-h:104px;
+  /* the four colours */
+  --coral:#ff805e;
+  --gold:#f2b90f;
+  --black:#000000;
+  --white:#ffffff;
+
+  /* tints derived from those four, for rules, stripes and hovers */
+  --rule:rgba(0,0,0,.20);
+  --rule-soft:rgba(0,0,0,.12);
+  --ink-soft:rgba(0,0,0,.66);
+  --stripe:rgba(0,0,0,.035);
+  --coral-wash:rgba(255,128,94,.12);
+  --coral-line:rgba(255,128,94,.55);
+  --gold-wash:rgba(242,185,15,.22);
+
+  --type:"Times New Roman",Times,Georgia,serif;
+  --bar-h:63px;    /* nav bar height; re-measured at runtime by app.js */
 }
 
 *{box-sizing:border-box}
 
-html{scroll-behavior:smooth}
+html{
+  scroll-behavior:smooth;
+  font-size:11pt;          /* every rem below is a multiple of 11pt */
+}
 
 body{
   margin:0;
-  background:var(--paper);
-  color:var(--ink);
-  font-family:var(--serif);
+  background:var(--white);
+  color:var(--black);
+  font-family:var(--type);
+  font-size:1rem;
   line-height:1.5;
   -webkit-text-size-adjust:100%;
 }
 
 .skip-link{
-  position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--paper);
-  padding:10px 14px;font-family:var(--sans);font-size:.85rem;z-index:20;
+  position:absolute;left:-9999px;top:0;background:var(--black);color:var(--white);
+  padding:10px 14px;font-size:.85rem;z-index:20;
 }
 .skip-link:focus{left:0}
 
-/* ---------- masthead + tabs ---------- */
+/* ---------- masthead + tabs ----------
+   A single nav bar: wordmark left, the two table tabs right, the active one
+   filled in gold. A solid rule caps the page above it. */
+
+.topbar{height:7px;background:var(--black)}
 
 .masthead{
-  position:sticky;top:0;z-index:10;background:var(--paper);
+  position:sticky;top:0;z-index:10;background:var(--white);
   border-bottom:1px solid var(--rule);
 }
-.masthead-inner{padding:16px 20px 0;max-width:1400px;margin:0 auto}
-.masthead h1{
-  font-size:1.2rem;font-weight:normal;margin:0 0 3px;letter-spacing:.2px;
+.masthead-inner{
+  max-width:1400px;margin:0 auto;padding:0 24px;
+  min-height:62px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
 }
-.masthead p.tagline{
-  margin:0 0 12px;color:var(--ink-soft);font-size:.85rem;max-width:72ch;
+.brand{
+  font-size:1.12rem;font-weight:bold;
+  text-transform:uppercase;letter-spacing:.14em;
+  white-space:nowrap;
 }
+.brand .amp{color:var(--coral);font-style:italic;letter-spacing:0}
 
-.tabs{display:flex;gap:4px;flex-wrap:wrap}
+.tabs{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .tab{
-  font-family:var(--sans);font-size:.82rem;line-height:1.3;
-  padding:9px 14px;border:1px solid var(--rule);border-bottom:none;
-  background:var(--paper-alt);color:var(--ink-soft);
-  border-radius:3px 3px 0 0;cursor:pointer;position:relative;top:1px;
-  display:flex;align-items:center;gap:7px;
+  font-family:var(--type);font-size:1rem;line-height:1.2;
+  padding:9px 15px;border:2px solid transparent;border-radius:0;
+  background:none;color:var(--black);cursor:pointer;white-space:nowrap;
 }
-.tab:hover{color:var(--ink)}
+.tab:hover{border-bottom-color:var(--coral)}
 .tab[aria-selected="true"]{
-  background:var(--ink);color:var(--paper);border-color:var(--ink);font-weight:600;
+  background:var(--gold);color:var(--black);
+  border-color:var(--black);font-weight:bold;
 }
-.tab .tab-n{
-  font-size:.7rem;padding:1px 6px;border-radius:9px;
-  background:rgba(0,0,0,.08);color:inherit;
-}
-.tab[aria-selected="true"] .tab-n{background:rgba(255,255,255,.18)}
+.tab[aria-selected="true"]:hover{background:var(--gold);border-bottom-color:var(--black)}
 
 /* ---------- panels ---------- */
 
 .panel[hidden]{display:none}
-.panel-intro{padding:18px 20px 0;max-width:1400px;margin:0 auto}
-.panel-intro h2{font-size:1.05rem;font-weight:normal;margin:0 0 6px}
-.panel-intro p{margin:0;color:var(--ink-soft);font-size:.88rem;max-width:72ch}
+.panel-intro{padding:20px 20px 0;max-width:1400px;margin:0 auto}
+.panel-intro h2{
+  font-size:1.15rem;font-weight:bold;margin:0 0 6px;
+  border-left:4px solid var(--coral);padding-left:10px;
+}
+.panel-intro p{margin:0;color:var(--ink-soft);font-size:.95rem;max-width:74ch}
 
 .controls{
   padding:14px 20px 12px;max-width:1400px;margin:0 auto;
   display:flex;flex-wrap:wrap;gap:8px;align-items:center;
 }
 input[type=search]{
-  font:inherit;font-size:.92rem;padding:8px 11px;border:1px solid var(--rule);
-  border-radius:3px;background:#fff;color:var(--ink);
+  font-family:var(--type);font-size:1rem;padding:7px 10px;
+  border:1px solid var(--black);border-radius:0;
+  background:var(--white);color:var(--black);
   min-width:220px;flex:1 1 220px;max-width:330px;
 }
+input[type=search]::placeholder{color:var(--ink-soft);font-style:italic}
+
 input[type=search]:focus-visible,
 button:focus-visible,
-a:focus-visible{outline:2px solid var(--det);outline-offset:2px}
+a:focus-visible,
+.scroller:focus-visible{outline:2px solid var(--black);outline-offset:2px}
 
 button{
-  font-family:var(--sans);font-size:.78rem;padding:7px 11px;
-  border:1px solid var(--rule);background:#fff;color:var(--ink-soft);
-  border-radius:3px;cursor:pointer;
+  font-family:var(--type);font-size:.85rem;
+  text-transform:uppercase;letter-spacing:.07em;
+  padding:6px 11px;border:1px solid var(--rule);border-radius:0;
+  background:var(--white);color:var(--black);cursor:pointer;
 }
-button:hover{color:var(--ink);border-color:#BDB8AC}
+button:hover{border-color:var(--coral);background:var(--coral-wash)}
 .filters button[aria-pressed="true"],
-.sorts button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.sorts button[aria-pressed="true"]{
+  background:var(--black);color:var(--white);border-color:var(--black);
+}
+.filters button[aria-pressed="true"]:hover,
+.sorts button[aria-pressed="true"]:hover{background:var(--black);color:var(--white)}
 .filters,.sorts{display:flex;flex-wrap:wrap;gap:6px}
 .sep{width:1px;height:22px;background:var(--rule);margin:0 4px}
 .count{
-  font-size:.8rem;color:var(--ink-soft);padding:0 20px 10px;
-  max-width:1400px;margin:0 auto;font-family:var(--sans);
+  font-size:.85rem;color:var(--ink-soft);font-style:italic;
+  padding:0 20px 10px;max-width:1400px;margin:0 auto;
 }
 
 /* ---------- table ---------- */
 
 .scroller{
   overflow-x:auto;-webkit-overflow-scrolling:touch;
-  border-top:1px solid var(--rule);
+  border-top:1px solid var(--black);
 }
-table{border-collapse:collapse;min-width:1180px;width:100%;font-size:.86rem}
+table{border-collapse:collapse;min-width:1180px;width:100%;font-size:1rem}
 thead th{
-  position:sticky;top:var(--bar-h);z-index:2;background:var(--paper);
-  text-align:left;font-weight:bold;font-size:.78rem;color:var(--ink-soft);
-  font-family:var(--sans);
-  padding:10px 12px;border-bottom:2px solid var(--ink);white-space:nowrap;
-  box-shadow:0 1px 0 var(--paper);
+  position:sticky;top:var(--bar-h);z-index:2;background:var(--white);
+  text-align:left;font-weight:bold;font-size:.82rem;
+  text-transform:uppercase;letter-spacing:.07em;
+  padding:10px 12px;border-bottom:2px solid var(--black);white-space:nowrap;
+  box-shadow:0 1px 0 var(--white);
 }
-td{padding:12px;border-bottom:1px solid var(--rule);vertical-align:top}
-tbody tr:nth-child(even){background:var(--paper-alt)}
-tbody tr:hover{background:#EFEDE6}
+td{padding:12px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+tbody tr:nth-child(even){background:var(--stripe)}
+tbody tr:hover{background:var(--coral-wash)}
 tr.group td{
-  background:var(--ink);color:var(--paper);padding:7px 12px;
-  font-family:var(--sans);font-size:.76rem;letter-spacing:.3px;
+  background:var(--black);color:var(--white);padding:7px 12px;
+  font-size:.82rem;text-transform:uppercase;letter-spacing:.09em;
+  border-bottom:2px solid var(--coral);
 }
-tr.group:hover td{background:var(--ink)}
+tr.group:hover td{background:var(--black)}
 tr.empty td{
   padding:34px 20px;text-align:center;color:var(--ink-soft);font-style:italic;
 }
 
-td.name{font-size:.95rem;min-width:190px}
-td.years{white-space:nowrap;color:var(--ink-soft);font-size:.82rem;min-width:96px}
-td.fields{min-width:150px;color:var(--ink-soft);font-size:.82rem}
+td.name{font-size:1.05rem;min-width:190px}
+td.years{white-space:nowrap;color:var(--ink-soft);font-size:.9rem;min-width:96px}
+td.fields{min-width:150px;color:var(--ink-soft);font-size:.9rem}
 td.works{min-width:210px}
 td.about{min-width:300px}
 td.view{min-width:290px}
 td.camp{min-width:210px}
-td.camp p{margin:0;font-size:.82rem;color:var(--ink-soft)}
+td.camp p{margin:0;font-size:.9rem;color:var(--ink-soft)}
 
-.ipa{font-family:var(--sans);font-size:.72rem;color:var(--ink-soft);margin-top:4px;line-height:1.35}
+.ipa{font-size:.82rem;color:var(--ink-soft);margin-top:4px;line-height:1.35}
 
-a{color:var(--ink);text-decoration:underline;text-decoration-color:#B9B3A5;text-underline-offset:2px}
-a:hover{text-decoration-color:var(--ink)}
+a{
+  color:var(--black);text-decoration:underline;
+  text-decoration-color:var(--coral-line);text-decoration-thickness:1px;
+  text-underline-offset:2px;
+}
+a:hover{text-decoration-color:var(--coral);text-decoration-thickness:2px}
 
 .works-list{margin:0;padding:0;list-style:none}
 .works-list li{margin-bottom:5px;font-style:italic}
 .works-list li span{font-style:normal;color:var(--ink-soft)}
 
+/* Camp tags: the four colours doing the work of the old four-hue scheme. */
 .tag{
-  display:inline-block;font-family:var(--sans);font-size:.7rem;
-  padding:2px 7px;border-radius:2px;margin-bottom:6px;
+  display:inline-block;font-size:.82rem;
+  text-transform:uppercase;letter-spacing:.06em;
+  padding:2px 8px;margin-bottom:6px;border:1px solid var(--black);
 }
-.t-det{background:var(--det-bg);color:var(--det)}
-.t-soft{background:var(--soft-bg);color:var(--soft)}
-.t-soc{background:var(--soc-bg);color:var(--soc)}
-.t-oth{background:var(--oth-bg);color:var(--oth)}
-.uncertain{color:#8A5A12}
-mark{background:#F6E8A8;color:inherit;padding:0 1px}
+.t-det{background:var(--black);color:var(--white)}   /* determinist   */
+.t-soft{background:var(--gold);color:var(--black)}   /* soft / medium */
+.t-soc{background:var(--coral);color:var(--black)}   /* social shaping*/
+.t-oth{background:var(--white);color:var(--black)}   /* other / mixed */
+
+.uncertain{background:var(--gold-wash);font-style:italic;padding:0 3px}
+mark{background:var(--gold-wash);color:var(--black);padding:0 1px}
+
+/* ---------- bottom of panel navigation ---------- */
+
+.panel-nav{
+  max-width:1400px;margin:0 auto;padding:22px 24px 28px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  border-top:1px solid var(--rule);
+}
+.pnav{
+  font-family:var(--type);font-size:1rem;line-height:1.3;
+  padding:11px 18px;border:2px solid var(--black);border-radius:0;
+  background:var(--white);color:var(--black);cursor:pointer;
+}
+.pnav.back:hover{background:var(--black);color:var(--white);border-color:var(--black)}
+.pnav.next{
+  background:var(--gold);font-weight:bold;
+  box-shadow:4px 4px 0 var(--black);
+}
+.pnav.next:hover{
+  background:var(--coral);border-color:var(--black);
+  box-shadow:4px 4px 0 var(--black);
+  transform:translate(1px,1px);
+}
+.pnav.next:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--black)}
 
 /* ---------- back to top ---------- */
 
 #toTop{
   position:fixed;right:18px;bottom:18px;z-index:9;
-  background:var(--ink);color:var(--paper);border-color:var(--ink);
-  padding:9px 13px;border-radius:3px;box-shadow:0 2px 8px rgba(0,0,0,.18);
+  background:var(--black);color:var(--white);border:1px solid var(--black);
+  padding:9px 14px;box-shadow:3px 3px 0 var(--coral);
   opacity:0;pointer-events:none;transition:opacity .18s ease;
 }
 #toTop.show{opacity:1;pointer-events:auto}
-#toTop:hover{color:var(--paper)}
+#toTop:hover{background:var(--coral);color:var(--black);border-color:var(--black)}
 
 /* ---------- footer ---------- */
 
 footer{
-  border-top:3px solid var(--ink);margin-top:36px;
-  padding:20px;font-size:.8rem;color:var(--ink-soft);
+  border-top:3px solid var(--black);margin-top:36px;
+  padding:22px 20px;font-size:.92rem;color:var(--ink-soft);
 }
 footer .footer-inner{max-width:78ch;margin:0 auto}
-footer h2{font-size:.9rem;margin:16px 0 6px;color:var(--ink)}
+footer h2{
+  font-size:.9rem;margin:16px 0 8px;color:var(--black);
+  text-transform:uppercase;letter-spacing:.09em;
+}
 footer h2:first-child{margin-top:0}
 footer ul{padding-left:18px;margin:0}
-footer li{margin-bottom:4px}
+footer li{margin-bottom:5px}
 
 /* ---------- responsive ---------- */
 
@@ -190,22 +245,28 @@ footer li{margin-bottom:4px}
   :root{--bar-h:0px}
   .masthead{position:static}
   thead th{position:static}
-  .masthead-inner{padding:16px 14px 0}
-  .panel-intro{padding:16px 14px 0}
+  .masthead-inner{padding:10px 14px;min-height:0;gap:10px}
+  .brand{font-size:1rem;letter-spacing:.1em}
+  .tabs{width:100%}
+  .tab{flex:1 1 auto;text-align:center;font-size:.92rem;padding:8px 10px}
+  .panel-nav{padding:18px 14px 24px}
+  .pnav{width:100%;text-align:center}
+  .panel-intro{padding:18px 14px 0}
   .controls,.count{padding-left:14px;padding-right:14px}
-  .masthead h1{font-size:1.05rem}
   input[type=search]{max-width:none}
 }
 
 @media print{
-  .masthead,.controls,.count,#toTop,.panel-intro p{display:none}
+  .masthead,.topbar,.controls,.count,#toTop,.panel-nav,.panel-intro p,.skip-link{display:none}
   .panel[hidden]{display:block !important}
-  .scroller{overflow:visible}
+  .scroller{overflow:visible;border-top:none}
   table{min-width:0;font-size:8pt}
-  body{background:#fff}
+  body{background:var(--white)}
+  .tag{border:1px solid var(--black)}
 }
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   #toTop{transition:none}
+  .pnav.next:hover,.pnav.next:active{transform:none}
 }

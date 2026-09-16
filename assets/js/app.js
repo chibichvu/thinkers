@@ -194,6 +194,20 @@
     });
   });
 
+  /* ---------------- bottom of panel navigation ---------------- */
+
+  document.querySelectorAll("[data-goto]").forEach((b) => {
+    b.addEventListener("click", () => {
+      showTab(b.dataset.goto, true);
+      const tab = tabs.find((t) => t.dataset.tab === b.dataset.goto);
+      if (tab) tab.focus();
+    });
+  });
+
+  document.querySelectorAll("[data-top]").forEach((b) => {
+    b.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+  });
+
   /* ---------------- back to top ---------------- */
 
   const toTop = document.getElementById("toTop");
@@ -202,10 +216,28 @@
     toTop.classList.toggle("show", window.scrollY > 500);
   }, { passive: true });
 
+  /* ---------------- sticky offset ----------------
+     The column headers stick directly below the masthead, so --bar-h has to
+     track the masthead's real height (it changes when the tabs wrap). */
+
+  const masthead = document.querySelector(".masthead");
+
+  function measureBar() {
+    const h = window.getComputedStyle(masthead).position === "sticky"
+      ? masthead.offsetHeight
+      : 0;
+    document.documentElement.style.setProperty("--bar-h", h + "px");
+  }
+
+  if (window.ResizeObserver) {
+    new ResizeObserver(measureBar).observe(masthead);
+  } else {
+    window.addEventListener("resize", measureBar);
+  }
+  measureBar();
+
   /* ---------------- start ---------------- */
 
-  document.getElementById("tabn-thinkers").textContent = THINKERS.length;
-  document.getElementById("tabn-methods").textContent = METHODS.length;
   render();
   render2();
   showTab(location.hash.slice(1) || "thinkers", false);
