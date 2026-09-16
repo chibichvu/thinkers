@@ -52,7 +52,12 @@ Four colours and one typeface:
 | `--coral` | `#ff805e` | accents: link underlines, rules, hover washes, the *social shaping* tag |
 | `--gold` | `#f2b90f` | the *soft / medium theory* tag, search highlights, uncertain dates |
 | `--black` | `#000000` | text, borders, selected controls, the *determinist* tag |
-| `--white` | `#ffffff` | the page, and the *other / mixed* tag |
+| `--white` | `#ffffff` | the nav bar, the table card, and the *other / mixed* tag |
+
+The page itself is gold at 14% over white (`--bg`, a warm cream); the table sits on it as a
+white card with a black rule and a coral drop shadow, and the footer inverts to black with
+gold headings. Every block — nav bar, controls, table, bottom buttons — shares one column
+edge set by `--page-w`.
 
 Type is Times New Roman throughout, set at 11pt on the root element — every other size in the
 stylesheet is a multiple of that, so changing `html { font-size }` in
@@ -74,7 +79,6 @@ assets/js/links.js            Wikipedia / Google Books link helpers
 assets/js/data-thinkers.js    table 1 data
 assets/js/data-methods.js     table 2 data
 assets/js/app.js              tabs, search, filtering, sorting, rendering
-legacy/                       the original single-file version, kept for reference
 ```
 
 ## Editing the content

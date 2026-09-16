@@ -8,15 +8,20 @@
   --black:#000000;
   --white:#ffffff;
 
+  /* surfaces mixed from those four */
+  --bg:#fdf5dd;            /* gold at 14% over white — the page */
+  --surface:#ffffff;       /* white — the nav bar and the table card */
+
   /* tints derived from those four, for rules, stripes and hovers */
   --rule:rgba(0,0,0,.20);
   --rule-soft:rgba(0,0,0,.12);
   --ink-soft:rgba(0,0,0,.66);
-  --stripe:rgba(0,0,0,.035);
+  --stripe:rgba(242,185,15,.10);
   --coral-wash:rgba(255,128,94,.12);
   --coral-line:rgba(255,128,94,.55);
   --gold-wash:rgba(242,185,15,.22);
 
+  --page-w:min(1400px,calc(100% - 48px));   /* one column edge for every block */
   --type:"Times New Roman",Times,Georgia,serif;
   --bar-h:63px;    /* nav bar height; re-measured at runtime by app.js */
 }
@@ -30,7 +35,7 @@ html{
 
 body{
   margin:0;
-  background:var(--white);
+  background:var(--bg);
   color:var(--black);
   font-family:var(--type);
   font-size:1rem;
@@ -51,11 +56,11 @@ body{
 .topbar{height:7px;background:var(--black)}
 
 .masthead{
-  position:sticky;top:0;z-index:10;background:var(--white);
-  border-bottom:1px solid var(--rule);
+  position:sticky;top:0;z-index:10;background:var(--surface);
+  border-bottom:2px solid var(--black);
 }
 .masthead-inner{
-  max-width:1400px;margin:0 auto;padding:0 24px;
+  width:var(--page-w);margin:0 auto;padding:0;
   min-height:62px;
   display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
 }
@@ -82,7 +87,7 @@ body{
 /* ---------- panels ---------- */
 
 .panel[hidden]{display:none}
-.panel-intro{padding:20px 20px 0;max-width:1400px;margin:0 auto}
+.panel-intro{width:var(--page-w);margin:0 auto;padding:22px 0 0}
 .panel-intro h2{
   font-size:1.15rem;font-weight:bold;margin:0 0 6px;
   border-left:4px solid var(--coral);padding-left:10px;
@@ -90,7 +95,7 @@ body{
 .panel-intro p{margin:0;color:var(--ink-soft);font-size:.95rem;max-width:74ch}
 
 .controls{
-  padding:14px 20px 12px;max-width:1400px;margin:0 auto;
+  width:var(--page-w);margin:0 auto;padding:14px 0 12px;
   display:flex;flex-wrap:wrap;gap:8px;align-items:center;
 }
 input[type=search]{
@@ -123,22 +128,25 @@ button:hover{border-color:var(--coral);background:var(--coral-wash)}
 .sep{width:1px;height:22px;background:var(--rule);margin:0 4px}
 .count{
   font-size:.85rem;color:var(--ink-soft);font-style:italic;
-  padding:0 20px 10px;max-width:1400px;margin:0 auto;
+  width:var(--page-w);margin:0 auto;padding:0 0 10px;
 }
 
 /* ---------- table ---------- */
 
 .scroller{
   overflow-x:auto;-webkit-overflow-scrolling:touch;
-  border-top:1px solid var(--black);
+  width:var(--page-w);margin:0 auto;
+  background:var(--surface);
+  border:2px solid var(--black);
+  box-shadow:6px 6px 0 var(--coral);
 }
 table{border-collapse:collapse;min-width:1180px;width:100%;font-size:1rem}
 thead th{
-  position:sticky;top:var(--bar-h);z-index:2;background:var(--white);
+  position:sticky;top:var(--bar-h);z-index:2;background:var(--surface);
   text-align:left;font-weight:bold;font-size:.82rem;
   text-transform:uppercase;letter-spacing:.07em;
   padding:10px 12px;border-bottom:2px solid var(--black);white-space:nowrap;
-  box-shadow:0 1px 0 var(--white);
+  box-shadow:0 1px 0 var(--surface);
 }
 td{padding:12px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
 tbody tr:nth-child(even){background:var(--stripe)}
@@ -192,7 +200,7 @@ mark{background:var(--gold-wash);color:var(--black);padding:0 1px}
 /* ---------- bottom of panel navigation ---------- */
 
 .panel-nav{
-  max-width:1400px;margin:0 auto;padding:22px 24px 28px;
+  width:var(--page-w);margin:0 auto;padding:22px 0 28px;
   display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
   border-top:1px solid var(--rule);
 }
@@ -227,14 +235,17 @@ mark{background:var(--gold-wash);color:var(--black);padding:0 1px}
 /* ---------- footer ---------- */
 
 footer{
-  border-top:3px solid var(--black);margin-top:36px;
-  padding:22px 20px;font-size:.92rem;color:var(--ink-soft);
+  margin-top:40px;border-top:7px solid var(--coral);
+  background:var(--black);color:rgba(255,255,255,.82);
+  padding:26px 20px 34px;font-size:.92rem;
 }
 footer .footer-inner{max-width:78ch;margin:0 auto}
 footer h2{
-  font-size:.9rem;margin:16px 0 8px;color:var(--black);
+  font-size:.9rem;margin:16px 0 8px;color:var(--gold);
   text-transform:uppercase;letter-spacing:.09em;
 }
+footer a{color:var(--white);text-decoration-color:var(--coral)}
+footer .uncertain{background:rgba(242,185,15,.28);color:var(--white)}
 footer h2:first-child{margin-top:0}
 footer ul{padding-left:18px;margin:0}
 footer li{margin-bottom:5px}
@@ -242,26 +253,27 @@ footer li{margin-bottom:5px}
 /* ---------- responsive ---------- */
 
 @media (max-width:760px){
-  :root{--bar-h:0px}
+  :root{--bar-h:0px;--page-w:calc(100% - 28px)}
   .masthead{position:static}
   thead th{position:static}
-  .masthead-inner{padding:10px 14px;min-height:0;gap:10px}
+  .masthead-inner{padding:10px 0;min-height:0;gap:10px}
   .brand{font-size:1rem;letter-spacing:.1em}
   .tabs{width:100%}
   .tab{flex:1 1 auto;text-align:center;font-size:.92rem;padding:8px 10px}
-  .panel-nav{padding:18px 14px 24px}
+  .panel-nav{padding:18px 0 24px}
   .pnav{width:100%;text-align:center}
-  .panel-intro{padding:18px 14px 0}
-  .controls,.count{padding-left:14px;padding-right:14px}
+  .panel-intro{padding:18px 0 0}
   input[type=search]{max-width:none}
 }
 
 @media print{
   .masthead,.topbar,.controls,.count,#toTop,.panel-nav,.panel-intro p,.skip-link{display:none}
   .panel[hidden]{display:block !important}
-  .scroller{overflow:visible;border-top:none}
+  .scroller{overflow:visible;border:none;box-shadow:none;width:auto}
   table{min-width:0;font-size:8pt}
   body{background:var(--white)}
+  footer{background:var(--white);color:var(--black);border-top:2px solid var(--black)}
+  footer h2{color:var(--black)}
   .tag{border:1px solid var(--black)}
 }
 
