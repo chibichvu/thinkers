@@ -114,6 +114,24 @@ button, only a tag style.
 A methods entry (`assets/js/data-methods.js`) uses the same keys, except `ky` for the key-work
 year used in sorting and `r` for the contribution to organizational research; it has no `cn`.
 
+## Checking the data
+
+Dates and links are verifiable against Wikipedia rather than taken on trust. Every `W(...)`
+link resolves to a real, non-disambiguation article, and every birth and death year that a
+Wikipedia-linked entry shows was compared against Wikidata (`P569`/`P570`) — worth re-running
+after any edit, and periodically, since death dates change:
+
+```sh
+# titles that no longer resolve, or that now land on a disambiguation page
+# https://en.wikipedia.org/w/api.php?action=query&prop=pageprops&redirects=1&titles=A|B|C
+# birth/death years for the same entries
+# https://www.wikidata.org/w/api.php?action=wbgetentities&props=claims&ids=Q1|Q2
+```
+
+Entries whose dates are not recorded show *dates not established* rather than a guess, and
+`sy` (the chronological sort key) is `null` for them, with `ay` giving the year of the
+principal work so they still sort somewhere sensible.
+
 ## Notes on the content
 
 - Names link to Wikipedia where an article exists and otherwise to a search; titles link to Google Books.

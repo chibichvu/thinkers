@@ -411,7 +411,7 @@ const METHODS = [
  r:"A general reference covering the parts of a project that specialised texts skip, including supervision, writing and defending the work.",
  c:"soc",cl:"Comprehensive handbook"},
 
-{n:"James P. Spradley",ky:1979,p:"/ˈsprædli/",u:W("James_P._Spradley"),y:"1933–1982",f:"Anthropology at Macalester College; ethnographic interviewing and participant observation",
+{n:"James P. Spradley",ky:1979,p:"/ˈsprædli/",u:W("James_Spradley"),y:"1933–1982",f:"Anthropology at Macalester College; ethnographic interviewing and participant observation",
  w:[["The Ethnographic Interview","1979",B("The Ethnographic Interview Spradley")],["Participant Observation","1980",B("Participant Observation Spradley")]],
  a:"The developmental research sequence gives ethnography an order of operations, beginning with grand tour and mini tour descriptive questions that elicit the informant's own categories, then moving through structural and contrast questions to a taxonomic analysis of local meaning.",
  r:"The origin of the descriptive question technique still taught for opening interviews, and of the discipline of learning the informant's vocabulary before imposing the researcher's.",
@@ -444,7 +444,7 @@ const METHODS = [
  r:"Made the authorial voice of fieldwork a methodological question rather than a matter of taste, and remains the standard framing for how much of the researcher to leave in the text.",
  c:"m5",cl:"Genres of ethnographic writing"},
 
-{n:"Karl E. Weick",ky:1989,p:"/kɑːl waɪk/",u:W("Karl_E._Weick"),y:"b. 1936",f:"Organizational psychology at Michigan Ross; sensemaking, loose coupling and organizing as process",
+{n:"Karl E. Weick",ky:1989,p:"/kɑːl waɪk/",u:W("Karl_E._Weick"),y:"1936–2026",f:"Organizational psychology at Michigan Ross; sensemaking, loose coupling and organizing as process",
  w:[["Theory Construction as Disciplined Imagination","1989",G("Weick Theory Construction as Disciplined Imagination Academy of Management Review 1989")],["Sensemaking in Organizations","1995",B("Sensemaking in Organizations Weick")]],
  a:"Theorising is modelled as artificial selection: the researcher generates many conjectures and applies consistent selection criteria to them, so the quality of a theory depends on the diversity of what was imagined and the discipline of what was rejected.",
  r:"Supplies the account of theory building that qualitative researchers cite when defending inductive work as reasoning rather than as fishing.",

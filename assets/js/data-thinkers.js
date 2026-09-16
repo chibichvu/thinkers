@@ -42,7 +42,7 @@ const THINKERS = [
  v:"Literacy spreads because institutions need it and people are gradually persuaded to rely on it, not because writing exerts an automatic force.",
  c:"soc",cl:"Social shaping of literacy",cn:"A leading empirical check on Havelock, Goody and Ong; the change is institutional and uneven rather than cognitive and sudden."},
 
-{n:"Kate Crawford",sy:1976,ay:2021,p:"/keɪt ˈkrɔːfəd/",u:W("Kate_Crawford"),y:"b. 1976",f:"AI research, media studies, science and technology studies",
+{n:"Kate Crawford",sy:1974,ay:2021,p:"/keɪt ˈkrɔːfəd/",u:W("Kate_Crawford"),y:"b. 1974",f:"AI research, media studies, science and technology studies",
  w:[["Atlas of AI","2021",B("Atlas of AI Kate Crawford")],["Anatomy of an AI System","2018",G("Anatomy of an AI System Crawford Joler")]],
  a:"Artificial intelligence is traced back through lithium mines, water and energy consumption, low-paid data labelling and scraped training images, so that a voice assistant is revealed to rest on a planetary supply chain; the dataset essays show classification schemes carrying political judgments about race, gender and worth.",
  v:"AI is an extractive industry and a registry of power rather than a disembodied intelligence, and its costs are material before they are ethical.",
@@ -138,13 +138,13 @@ const THINKERS = [
  v:"Claims made for literacy and by extension for new media are ideological promises that should be tested against evidence.",
  c:"soc",cl:"Critical literacy studies",cn:"Coined the literacy myth, the term now borrowed for every technology promised to transform education."},
 
-{n:"Patricia Greenfield",sy:1940,p:"/pəˈtrɪʃə ˈɡriːnfiːld/",u:W("Patricia_Greenfield"),y:"b. 1940",f:"Developmental and cultural psychology",
+{n:"Patricia Greenfield",sy:1940,p:"/pəˈtrɪʃə ˈɡriːnfiːld/",u:W("Patricia_Marks_Greenfield"),y:"b. 1940",f:"Developmental and cultural psychology",
  w:[["Mind and Media","1984",B("Mind and Media Greenfield")]],
  a:"Television, video games and computers are each shown to cultivate particular cognitive skills, with visual and spatial abilities strengthened while others are not exercised.",
  v:"Media are neither uniformly harmful nor neutral; each medium trades one set of mental skills against another.",
  c:"soft",cl:"Media as cognitive amplifiers",cn:"An empirical middle path between moral panic and dismissal, and the psychological counterpart to medium theory."},
 
-{n:"Jürgen Habermas",sy:1929,p:"/ˈjʏʁɡn̩ ˈhaːbɐmaːs/ · anglicised /ˈjɜːɡən ˈhɑːbəmɑːs/",u:W("J%C3%BCrgen_Habermas"),y:"b. 1929",f:"Philosophy, sociology, critical theory",
+{n:"Jürgen Habermas",sy:1929,p:"/ˈjʏʁɡn̩ ˈhaːbɐmaːs/ · anglicised /ˈjɜːɡən ˈhɑːbəmɑːs/",u:W("J%C3%BCrgen_Habermas"),y:"1929–2026",f:"Philosophy, sociology, critical theory",
  w:[["The Structural Transformation of the Public Sphere","1962 / Eng. 1989",B("Structural Transformation of the Public Sphere Habermas")],["The Public Sphere: An Encyclopedia Article (first)","1964, trans. 1974",G("Habermas The Public Sphere An Encyclopedia Article 1964 New German Critique")],["Reflections and Hypotheses on a Further Structural Transformation of the Political Public Sphere (latest)","2022",G("Habermas Reflections and Hypotheses on a Further Structural Transformation of the Political Public Sphere 2022")]],
  a:"The 1962 habilitation traces a bourgeois public sphere forming in coffee houses, salons and the periodical press, where private people reasoned together about common affairs, and then hollowing out as advertising, public relations and mass broadcasting turned discussion into staged publicity, a process he calls refeudalisation. The 1964 encyclopedia article condenses that account into the short definition still quoted in syllabi, and the 2022 essay returns to the question sixty years on, arguing that platform media dissolve the editorial filters that once made a shared, inclusive arena possible.",
  v:"Media are the infrastructure of democratic reason: print sustained a deliberating public, broadcasting made it an audience, and digital platforms fragment it into semi-public enclaves where everyone publishes and no common agenda forms.",
@@ -186,7 +186,7 @@ const THINKERS = [
  v:"Technologies matter through the protocols and communities that grow around them, so the interesting change is social.",
  c:"soc",cl:"Participatory culture",cn:"Explicitly opposes the black-box view of media technology, building on de Certeau and cultural studies."},
 
-{n:"Paul Jennings",sy:1918,p:"/pɔːl ˈdʒɛnɪŋz/",u:W("Paul_Jennings_(humorist)"),y:"1918–1989",f:"Humour, journalism, essays",
+{n:"Paul Jennings",sy:1918,p:"/pɔːl ˈdʒɛnɪŋz/",u:W("Paul_Jennings_(British_author)"),y:"1918–1989",f:"Humour, journalism, essays",
  w:[["Report on Resistentialism","1948",G("Paul Jennings Report on Resistentialism 1948")]],
  a:"A parody of existentialism proposing that objects are actively hostile to people, summarised as les choses sont contre nous, things are against us.",
  v:"Comic, but it names something real about the experience of living among machines that thwart their users.",
@@ -234,7 +234,7 @@ const THINKERS = [
  v:"Mass media homogenise taste and audiences, absorbing avant-garde and folk culture alike into a marketable average.",
  c:"oth",cl:"Mass culture critique",cn:"American cousin of the Frankfurt School, and one of the positions cultural studies later set out to dismantle."},
 
-{n:"Donald MacKenzie",sy:1950,p:"/ˈdɒnəld məˈkɛnzi/",u:W("Donald_A._MacKenzie"),y:"b. 1950",f:"Sociology of science and technology",
+{n:"Donald MacKenzie",sy:1950,p:"/ˈdɒnəld məˈkɛnzi/",u:W("Donald_MacKenzie_(sociologist)"),y:"b. 1950",f:"Sociology of science and technology",
  w:[["The Social Shaping of Technology","1985",B("The Social Shaping of Technology MacKenzie Wajcman")],["Inventing Accuracy","1990",B("Inventing Accuracy MacKenzie")]],
  a:"The edited collection with Judy Wajcman assembles the case that technologies are patterned by the social relations of their making, and the missile study shows accuracy itself being institutionally constructed.",
  v:"Technology has no independent trajectory; what looks like technical necessity usually turns out to be settled interests.",
@@ -336,7 +336,7 @@ const THINKERS = [
  v:"Technology drives society only because societies have abandoned the normative question; planning should restore it.",
  c:"det",cl:"Technological imperative",cn:"A key source for the imperative version of determinism, and for the Club of Rome's framing of global problems as a system."},
 
-{n:"Arnold Pacey",sy:1937,p:"/ˈɑːnəld ˈpeɪsi/",u:W("Arnold_Pacey"),y:"b. 1937",f:"History of technology, science and technology studies",
+{n:"Arnold Pacey",sy:1937,p:"/ˈɑːnəld ˈpeɪsi/",u:G("Arnold Pacey The Culture of Technology historian of technology"),y:"b. 1937",f:"History of technology, science and technology studies",
  w:[["The Culture of Technology","1983",B("The Culture of Technology Pacey")],["The Maze of Ingenuity","1974",B("The Maze of Ingenuity Pacey")]],
  a:"Technology-practice is defined as a triangle of technical, organisational and cultural aspects, and the narrow technical reading is shown to hide the values built into every project.",
  v:"There is no such thing as a purely technical decision, and comparing how the same device works in different cultures proves it.",
@@ -475,7 +475,7 @@ const THINKERS = [
  c:"det",cl:"Classic and contested determinism",cn:"The stirrup thesis is the textbook example of technological determinism in history and has been heavily criticised on evidential grounds."},
 
 {n:"Benjamin Lee Whorf",sy:1897,p:"/ˈbɛndʒəmɪn liː wɔːf/",u:W("Benjamin_Lee_Whorf"),y:"1897–1941",f:"Linguistics, anthropology",
- w:[["Language, Thought, and Reality","1956",B("Language Thought and Reality Whorf")]],
+ w:[["Language, Thought, and Reality","1956, posthumous",B("Language Thought and Reality Whorf")]],
  a:"The collected papers argue that the grammatical categories of a language, particularly its handling of time and substance, dispose its speakers toward particular ways of segmenting experience.",
  v:"The medium of language is not a transparent vehicle for thought but a partial determinant of it.",
  c:"det",cl:"Linguistic determinism and relativity",cn:"The structural template for media determinism: strong versions are largely rejected, weaker relativity versions retain empirical support."},
