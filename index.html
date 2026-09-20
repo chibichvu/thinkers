@@ -217,7 +217,9 @@
       <h2>Network of thinkers</h2>
       <p>Who connects to whom, read out of table 1 itself. Nothing here is drawn by hand: a coral line means
          one thinker's entry names another in its prose, and clicking a node quotes the sentence that does it.
-         Grey lines join thinkers filed under the same theoretical placement.</p>
+         Black lines join thinkers under the same theoretical placement, grey lines those in the same discipline.
+         Drag the background to move around, use the buttons or <kbd>&#8984;</kbd>/<kbd>ctrl</kbd> and the wheel
+         to zoom, and <em>Fit</em> to bring everything back into view.</p>
     </div>
 
     <div class="controls">
@@ -226,7 +228,10 @@
 
     <div class="net-wrap">
       <div class="net-stage">
-        <svg id="net" viewBox="0 0 900 640" role="img" aria-label="Network diagram of thinkers in table 1"></svg>
+        <svg id="net" viewBox="0 0 900 640" tabindex="0"
+             role="application" aria-label="Network of thinkers. Drag to pan, arrow keys to move, plus and minus to zoom, 0 to fit."></svg>
+        <div id="net-zoom" class="net-zoom"></div>
+        <p class="net-hint">Drag to pan · <kbd>&#8984;</kbd>/<kbd>ctrl</kbd> + scroll to zoom</p>
       </div>
       <aside class="net-side">
         <div id="net-legend" class="net-legend"></div>

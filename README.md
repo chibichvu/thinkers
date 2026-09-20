@@ -131,6 +131,13 @@ than six are skipped so that a broad label like "philosophy" does not produce a 
 `buildGraph` is exposed as `window.__netGraph` so the derivation can be checked without a
 browser.
 
+Navigating it: drag the background to pan, arrow keys to move (shift for larger steps), the
+`+` / `−` / `Fit` buttons or `+` `-` `0` to zoom, and ⌘/ctrl with the wheel. A plain wheel
+scrolls the page as it does everywhere else, rather than being captured by the map. The view
+re-frames itself whenever the layout or the filters change, until you pan or zoom yourself —
+after that it leaves the view alone. The canvas sets its `viewBox` to its own pixel size, so
+one graph unit is one screen pixel at zoom 1 and the layout uses the whole area.
+
 ## Editing the content
 
 Both datasets are plain JavaScript arrays of objects — no build step, no dependencies.

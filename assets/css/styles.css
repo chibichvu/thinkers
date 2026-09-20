@@ -311,10 +311,38 @@ footer li{margin-bottom:5px}
   display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:18px;align-items:start;
 }
 .net-stage{
+  position:relative;
   background:var(--surface);border:2px solid var(--black);
   box-shadow:6px 6px 0 var(--coral);overflow:hidden;
+  /* a real height, so a wide window does not stretch the canvas into a
+     tall empty box the reader has to scroll past */
+  height:clamp(420px,72vh,760px);
 }
-#net{display:block;width:100%;height:auto;aspect-ratio:900/640;touch-action:none;cursor:grab}
+#net{display:block;width:100%;height:100%;touch-action:none;cursor:grab}
+#net:focus-visible{outline:2px solid var(--black);outline-offset:-4px}
+#net.grabbing{cursor:grabbing}
+
+.net-zoom{
+  position:absolute;top:10px;right:10px;display:flex;flex-direction:column;gap:4px;
+}
+.net-zoom button{
+  width:34px;height:32px;padding:0;font-size:1rem;line-height:1;
+  border:1px solid var(--black);background:var(--surface);
+  letter-spacing:0;text-transform:none;
+}
+.net-zoom button:hover{background:var(--gold)}
+.net-zoom button[data-z="fit"]{font-size:.78rem}
+
+.net-hint{
+  position:absolute;left:10px;bottom:8px;margin:0;
+  font-size:.78rem;color:var(--ink-soft);
+  background:var(--surface);padding:2px 7px;border:1px solid var(--rule-soft);
+  pointer-events:none;
+}
+.net-hint kbd{
+  font-family:var(--type);font-size:.78rem;border:1px solid var(--rule);
+  border-radius:2px;padding:0 3px;background:var(--stripe);
+}
 .net-node{cursor:pointer}
 .net-label{
   font-family:var(--type);font-size:11px;fill:var(--black);
@@ -361,10 +389,13 @@ footer li{margin-bottom:5px}
 .net-detail li{margin-bottom:10px;font-size:.9rem;border-left:3px solid var(--coral);padding-left:9px}
 .net-detail li strong{display:block}
 .net-detail li span{color:var(--ink-soft)}
+.net-detail,.net-detail li{overflow-wrap:anywhere}
 
-@media (max-width:900px){
+@media (max-width:980px){
   .net-wrap{grid-template-columns:1fr}
   .net-detail{max-height:none}
+  .net-stage{height:clamp(360px,60vh,520px)}
+  .net-hint{display:none}
 }
 
 /* ---------- passphrase gate ---------- */

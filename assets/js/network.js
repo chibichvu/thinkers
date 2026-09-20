@@ -125,7 +125,21 @@
 
   /* ---------- layout ---------- */
 
+  const stage = document.querySelector(".net-stage");
   let W = 900, H = 640;
+
+  function measure() {
+    const r = stage.getBoundingClientRect();
+    if (r.width < 40 || r.height < 40) return false;      // hidden tab: keep the old size
+    const w = Math.round(r.width), h = Math.round(r.height);
+    if (w === W && h === H) return false;
+    const sx = w / W, sy = h / H;
+    W = w; H = h;
+    svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+    nodes.forEach((n) => { n.x *= sx; n.y *= sy; });       // keep the layout proportional
+    return true;
+  }
+
   nodes.forEach((n, i) => {
     const a = (i / nodes.length) * Math.PI * 2;
     n.x = W / 2 + Math.cos(a) * 240 + (i % 7) * 6;
@@ -143,8 +157,8 @@
         const b = live[j];
         let dx = b.x - a.x, dy = b.y - a.y;
         let d2 = dx * dx + dy * dy || 0.01;
-        if (d2 > 90000) continue;
-        const f = 1600 / d2;
+        if (d2 > 160000) continue;
+        const f = 3400 / d2;
         const d = Math.sqrt(d2);
         const ux = dx / d, uy = dy / d;
         if (!a.fixed) { a.vx -= ux * f; a.vy -= uy * f; }
@@ -163,8 +177,8 @@
     });
     live.forEach((n) => {
       if (n.fixed) { n.vx = n.vy = 0; return; }
-      n.vx += (W / 2 - n.x) * 0.0016;
-      n.vy += (H / 2 - n.y) * 0.0016;
+      n.vx += (W / 2 - n.x) * 0.0009;
+      n.vy += (H / 2 - n.y) * 0.0009;
       n.vx *= 0.82; n.vy *= 0.82;
       n.x += Math.max(-12, Math.min(12, n.vx));
       n.y += Math.max(-12, Math.min(12, n.vy));
@@ -210,6 +224,7 @@
     // drag
     g.addEventListener("pointerdown", (ev) => {
       ev.preventDefault();
+      ev.stopPropagation();
       n.fixed = true;
       g.setPointerCapture(ev.pointerId);
       const move = (m) => {
@@ -231,8 +246,35 @@
   let view = { x: 0, y: 0, k: 1 };
   function toLocal(cx, cy) {
     const r = svg.getBoundingClientRect();
-    const sx = W / r.width, sy = H / r.height;
-    return { x: ((cx - r.left) * sx - view.x) / view.k, y: ((cy - r.top) * sy - view.y) / view.k };
+    return { x: (cx - r.left - view.x) / view.k, y: (cy - r.top - view.y) / view.k };
+  }
+
+  /* Frame everything currently visible. This is what makes the map usable
+     without touching a zoom control at all. */
+  function fitView() {
+    const live = nodes.filter(visible);
+    if (!live.length) return;
+    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+    live.forEach((n) => {
+      const r = radius(n) + 30;
+      x0 = Math.min(x0, n.x - r); x1 = Math.max(x1, n.x + r);
+      y0 = Math.min(y0, n.y - r); y1 = Math.max(y1, n.y + r);
+    });
+    const w = Math.max(1, x1 - x0), h = Math.max(1, y1 - y0);
+    view.k = Math.max(0.35, Math.min(2, Math.min(W / w, H / h)));
+    view.x = (W - w * view.k) / 2 - x0 * view.k;
+    view.y = (H - h * view.k) / 2 - y0 * view.k;
+  }
+
+  function zoomBy(f, cx, cy) {
+    const r = svg.getBoundingClientRect();
+    const px = cx === undefined ? W / 2 : cx - r.left;
+    const py = cy === undefined ? H / 2 : cy - r.top;
+    const gx = (px - view.x) / view.k, gy = (py - view.y) / view.k;
+    view.k = Math.max(0.3, Math.min(4, view.k * f));
+    view.x = px - gx * view.k;
+    view.y = py - gy * view.k;
+    paint();
   }
 
   function neighbours(n) {
@@ -271,7 +313,9 @@
       t.setAttribute("x", n.x); t.setAttribute("y", n.y + r + 11);
       const dim = focus && !near.has(n.id);
       g.setAttribute("opacity", dim ? 0.12 : 1);
-      t.setAttribute("display", (focus && near.has(n.id)) || n.deg >= 4 || view.k > 1.4 ? "" : "none");
+      const show = (focus && near.has(n.id)) || n === selected ||
+                   n.deg >= (view.k > 1.6 ? 1 : view.k > 1.05 ? 4 : 7);
+      t.setAttribute("display", show ? "" : "none");
     });
   }
 
@@ -301,7 +345,10 @@
        ${!mine.length ? "<p class=\"net-meta\">No links under the current filters.</p>" : ""}`;
   }
 
-  svg.addEventListener("click", () => { selected = null; panel.innerHTML = placeholder; paint(); });
+  svg.addEventListener("click", () => {
+    if (svg.dataset.panned) { delete svg.dataset.panned; return; }
+    selected = null; panel.innerHTML = placeholder; paint();
+  });
 
   const placeholder =
     `<h3>The network</h3>
@@ -338,7 +385,7 @@
       if (active.has(c)) active.delete(c); else active.add(c);
       b.setAttribute("aria-pressed", String(active.has(c)));
       if (selected && !visible(selected)) { selected = null; panel.innerHTML = placeholder; }
-      kick();
+      kick(true);
     });
   });
   legend.querySelectorAll("[data-kind]").forEach((b) => {
@@ -346,16 +393,15 @@
       const k = b.dataset.kind;
       kinds[k] = !kinds[k];
       b.setAttribute("aria-pressed", String(kinds[k]));
-      kick();
+      kick(true);
     });
   });
   document.getElementById("net-reset").addEventListener("click", () => {
-    view = { x: 0, y: 0, k: 1 };
     selected = null; panel.innerHTML = placeholder;
     Object.keys(CAMPS).forEach((c) => active.add(c));
     kinds.named = kinds.placement = true;
     legend.querySelectorAll(".net-filter").forEach((b) => b.setAttribute("aria-pressed", "true"));
-    kick();
+    kick(true);
   });
 
   // search box
@@ -364,35 +410,112 @@
     const v = q.value.trim().toLowerCase();
     if (!v) { selected = null; panel.innerHTML = placeholder; paint(); return; }
     const hit = nodes.find((n) => visible(n) && n.id.toLowerCase().includes(v));
-    if (hit) { selected = hit; details(hit); }
+    if (hit) {
+      selected = hit; details(hit);
+      autofit = false;                                  // centre on the match
+      view.x = W / 2 - hit.x * view.k;
+      view.y = H / 2 - hit.y * view.k;
+    }
     paint();
   });
 
-  // zoom
+  /* Plain wheel scrolls the page, as it does everywhere else on the site.
+     Zoom needs ctrl or cmd, which is also what a trackpad pinch sends. */
   svg.addEventListener("wheel", (ev) => {
+    if (!ev.ctrlKey && !ev.metaKey) return;
     ev.preventDefault();
-    const f = ev.deltaY < 0 ? 1.12 : 1 / 1.12;
-    const p = toLocal(ev.clientX, ev.clientY);          // graph point under the cursor
-    view.k = Math.max(0.4, Math.min(4, view.k * f));
-    const r = svg.getBoundingClientRect();               // keep that point under the cursor
-    view.x = (ev.clientX - r.left) * (W / r.width) - p.x * view.k;
-    view.y = (ev.clientY - r.top) * (H / r.height) - p.y * view.k;
-    paint();
+    zoomBy(ev.deltaY < 0 ? 1.1 : 1 / 1.1, ev.clientX, ev.clientY);
   }, { passive: false });
+
+  /* Drag the background to pan. */
+  let pan = null;
+  svg.addEventListener("pointerdown", (ev) => {
+    if (ev.target.closest(".net-node")) return;          // node drag handles itself
+    pan = { x: ev.clientX, y: ev.clientY, vx: view.x, vy: view.y, moved: false };
+    svg.setPointerCapture(ev.pointerId);
+    svg.classList.add("grabbing");
+  });
+  svg.addEventListener("pointermove", (ev) => {
+    if (!pan) return;
+    const dx = ev.clientX - pan.x, dy = ev.clientY - pan.y;
+    if (Math.abs(dx) + Math.abs(dy) > 3) pan.moved = true;
+    view.x = pan.vx + dx; view.y = pan.vy + dy;
+    paint();
+  });
+  function endPan(ev) {
+    if (!pan) return;
+    const moved = pan.moved;
+    pan = null;
+    svg.classList.remove("grabbing");
+    try { svg.releasePointerCapture(ev.pointerId); } catch (e) { /* already released */ }
+    if (moved) svg.dataset.panned = "1";                 // suppress the click that follows
+    else delete svg.dataset.panned;
+  }
+  svg.addEventListener("pointerup", endPan);
+  svg.addEventListener("pointercancel", endPan);
+
+  /* ---------- on-canvas controls ---------- */
+
+  const zoomBar = document.getElementById("net-zoom");
+  if (zoomBar) {
+    zoomBar.innerHTML =
+      '<button type="button" data-z="in"  title="Zoom in"  aria-label="Zoom in">+</button>' +
+      '<button type="button" data-z="out" title="Zoom out" aria-label="Zoom out">\u2212</button>' +
+      '<button type="button" data-z="fit" title="Fit to the window" aria-label="Fit to the window">Fit</button>';
+    zoomBar.addEventListener("click", (ev) => {
+      const b = ev.target.closest("button");
+      if (!b) return;
+      if (b.dataset.z === "in") zoomBy(1.25);
+      else if (b.dataset.z === "out") zoomBy(1 / 1.25);
+      else { fitView(); paint(); }
+    });
+  }
+
+  // arrow keys pan, +/- zoom, 0 fits — the map is focusable
+  svg.addEventListener("keydown", (ev) => {
+    const step = ev.shiftKey ? 120 : 45;
+    const moves = { ArrowLeft: [step, 0], ArrowRight: [-step, 0], ArrowUp: [0, step], ArrowDown: [0, -step] };
+    if (moves[ev.key]) { view.x += moves[ev.key][0]; view.y += moves[ev.key][1]; paint(); }
+    else if (ev.key === "+" || ev.key === "=") zoomBy(1.25);
+    else if (ev.key === "-") zoomBy(1 / 1.25);
+    else if (ev.key === "0") { fitView(); paint(); }
+    else return;
+    ev.preventDefault();
+  });
 
   /* ---------- run ---------- */
 
-  let frames = 0, raf = null;
+  let frames = 0, raf = null, autofit = true;
   function loop() {
-    tick(); paint();
-    if (++frames < 600) raf = requestAnimationFrame(loop); else raf = null;
+    tick();
+    frames++;
+    if (autofit && frames % 30 === 0) fitView();   // keep it framed while it settles
+    paint();
+    if (frames < 420) raf = requestAnimationFrame(loop);
+    else { raf = null; if (autofit) { fitView(); paint(); autofit = false; } }
   }
-  function kick() {
+  function kick(refit) {
+    if (refit) autofit = true;
     frames = 0;
     if (!raf) raf = requestAnimationFrame(loop);
   }
 
-  // only start once the tab is actually shown, so the layout settles on screen
-  window.addEventListener("tabshown", (e) => { if (e.detail === "network") kick(); });
-  kick();
+  // a pan or a manual zoom means the reader has taken over; stop re-framing
+  ["pointerdown", "wheel"].forEach((t) =>
+    svg.addEventListener(t, () => { autofit = false; }, { passive: true }));
+
+  if (window.ResizeObserver) {
+    new ResizeObserver(() => { if (measure()) kick(true); }).observe(stage);
+  } else {
+    window.addEventListener("resize", () => { if (measure()) kick(true); });
+  }
+
+  // the panel is hidden until its tab is shown, so measure when it appears
+  window.addEventListener("tabshown", (e) => {
+    if (e.detail !== "network") return;
+    requestAnimationFrame(() => { measure(); kick(true); });
+  });
+
+  measure();
+  kick(true);
 })();
