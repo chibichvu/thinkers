@@ -27,6 +27,27 @@ labelled however far down you read.
 
 Contact: **chivu@bu.edu**, linked at the foot of the page.
 
+## The passphrase gate
+
+The page asks for a passphrase before showing anything (`assets/js/gate.js`). Only a salted
+SHA-256 digest is stored, so the passphrase is not recoverable from the source; entry is
+checked with Web Crypto, falling back to a local SHA-256 so the page still works opened from
+`file://`. "Remember me" writes the digest to `localStorage`, otherwise it lasts the session.
+
+**This is a doorway, not a lock.** Every file in this repository is public at a fixed URL, so
+anyone who requests `assets/js/data-thinkers.js` directly receives it without seeing the
+prompt, and the repository itself is readable on GitHub. It keeps casual visitors out of the
+page. It does not make the content private. If the content must actually be private, the
+options are a private repository with a host that authenticates (Netlify, Cloudflare Access,
+a university web space behind SSO), or encrypting the data files so that the passphrase
+decrypts them in the browser — which means the ciphertext, not the tables, is what is served.
+
+To change the passphrase, replace the digest in `gate.js` with the output of:
+
+```sh
+printf '%s' 'tm-gate-v1:YOUR NEW PASSPHRASE' | shasum -a 256
+```
+
 ## Viewing it locally
 
 Open `index.html` in a browser, or serve the folder:

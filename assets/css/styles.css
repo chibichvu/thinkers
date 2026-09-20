@@ -366,3 +366,63 @@ footer li{margin-bottom:5px}
   .net-wrap{grid-template-columns:1fr}
   .net-detail{max-height:none}
 }
+
+/* ---------- passphrase gate ---------- */
+
+#gate{
+  position:fixed;inset:0;z-index:100;
+  background:var(--bg);
+  display:flex;align-items:center;justify-content:center;padding:24px;
+}
+.gate-card{
+  width:min(420px,100%);
+  background:var(--surface);border:2px solid var(--black);
+  box-shadow:8px 8px 0 var(--coral);
+  padding:30px 28px 26px;
+}
+.gate-brand{
+  margin:0 0 6px;font-size:1.25rem;font-weight:bold;
+  text-transform:uppercase;letter-spacing:.13em;
+}
+.gate-brand .amp{color:var(--coral);font-style:italic;letter-spacing:0}
+.gate-note{margin:0 0 20px;color:var(--ink-soft);font-style:italic;font-size:.95rem}
+.gate-label{
+  display:block;font-size:.8rem;text-transform:uppercase;letter-spacing:.09em;
+  margin-bottom:6px;
+}
+#gate-pass{
+  font-family:var(--type);font-size:1.05rem;width:100%;
+  padding:9px 11px;border:1px solid var(--black);border-radius:0;
+  background:var(--surface);color:var(--black);
+}
+#gate-pass:focus-visible{outline:2px solid var(--black);outline-offset:2px}
+.gate-error{
+  margin:9px 0 0;min-height:1.2em;font-size:.9rem;font-style:italic;
+  background:var(--gold-wash);padding:0 4px;display:inline-block;
+}
+.gate-error:empty{background:none}
+.gate-keep{
+  display:flex;align-items:center;gap:8px;
+  margin:16px 0 18px;font-size:.92rem;color:var(--ink-soft);cursor:pointer;
+}
+.gate-go{
+  width:100%;background:var(--gold);border:2px solid var(--black);
+  font-weight:bold;font-size:1rem;padding:11px;
+  box-shadow:4px 4px 0 var(--black);
+}
+.gate-go:hover{background:var(--coral);border-color:var(--black)}
+.gate-go:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--black)}
+
+#gate.shake .gate-card{animation:gate-shake .3s}
+@keyframes gate-shake{
+  0%,100%{transform:translateX(0)}
+  20%{transform:translateX(-7px)}
+  40%{transform:translateX(6px)}
+  60%{transform:translateX(-4px)}
+  80%{transform:translateX(3px)}
+}
+@media (prefers-reduced-motion:reduce){
+  #gate.shake .gate-card{animation:none}
+  .gate-go:active{transform:none}
+}
+@media print{ #gate{display:none} }
