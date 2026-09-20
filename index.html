@@ -27,7 +27,17 @@
               aria-controls="panel-methods" aria-selected="false" data-tab="methods" tabindex="-1">
         Table 2 · Methods
       </button>
+      <button class="tab" role="tab" id="tab-concepts"
+              aria-controls="panel-concepts" aria-selected="false" data-tab="concepts" tabindex="-1">
+        Table 3 · Concepts
+      </button>
+      <button class="tab" role="tab" id="tab-network"
+              aria-controls="panel-network" aria-selected="false" data-tab="network" tabindex="-1">
+        Network
+      </button>
     </nav>
+    <a class="tab tab-out" href="https://www.communicationtheory.org/list-of-theories/"
+       target="_blank" rel="noopener">List of theories<span aria-hidden="true"> &#8599;</span></a>
   </div>
 </header>
 
@@ -120,8 +130,96 @@
 
     <nav class="panel-nav" aria-label="End of table 2">
       <button type="button" class="pnav back" data-top>&uarr; Back to top</button>
+      <button type="button" class="pnav next" data-goto="concepts">
+        Table 3 · Concepts, theories and models <span aria-hidden="true">&rarr;</span>
+      </button>
+    </nav>
+  </section>
+
+  <!-- ============ Table 3 ============ -->
+  <section class="panel" id="panel-concepts" role="tabpanel" aria-labelledby="tab-concepts" tabindex="0" hidden>
+    <div class="panel-intro">
+      <h2>Concepts, theories and models</h2>
+      <p>What each claim says, who made it and when, where it came from, what to read, a plain example,
+         what it has to do with technology and emerging media, and the standing objections to it.
+         Names and titles link out; the
+         <a href="https://www.communicationtheory.org/list-of-theories/" target="_blank" rel="noopener">communicationtheory.org
+         list of theories</a> is a useful index alongside this one.</p>
+    </div>
+
+    <div class="controls">
+      <input type="search" id="q3" placeholder="Search concept, originator, or idea" aria-label="Search the concepts table" autocomplete="off">
+      <div class="filters" role="group" aria-label="Filter by area">
+        <button data-area="all" aria-pressed="true">All</button>
+        <button data-area="effects" aria-pressed="false">Effects &amp; audiences</button>
+        <button data-area="critical" aria-pressed="false">Critical &amp; normative</button>
+        <button data-area="models" aria-pressed="false">Models</button>
+        <button data-area="psych" aria-pressed="false">Psychology &amp; HCI</button>
+        <button data-area="found" aria-pressed="false">Foundations</button>
+      </div>
+      <span class="sep" aria-hidden="true"></span>
+      <div class="sorts" role="group" aria-label="Sort order">
+        <button data-sort3="az" aria-pressed="true">A–Z</button>
+        <button data-sort3="year" aria-pressed="false">By year</button>
+      </div>
+    </div>
+    <div class="count" id="count3" role="status"></div>
+
+    <div class="scroller" tabindex="0" role="region" aria-label="Concepts table, scrolls horizontally">
+      <table id="tbl3">
+        <thead>
+          <tr>
+            <th scope="col">Concept</th>
+            <th scope="col">Originator</th>
+            <th scope="col">Year</th>
+            <th scope="col">Area of study</th>
+            <th scope="col">What it means</th>
+            <th scope="col">How it was coined, and the background</th>
+            <th scope="col">Key readings</th>
+            <th scope="col">A plain example</th>
+            <th scope="col">Technology and emerging media</th>
+            <th scope="col">Critique</th>
+          </tr>
+        </thead>
+        <tbody id="tbody3"></tbody>
+      </table>
+    </div>
+
+    <nav class="panel-nav" aria-label="End of table 3">
+      <button type="button" class="pnav back" data-top>&uarr; Back to top</button>
+      <button type="button" class="pnav next" data-goto="network">
+        Network of thinkers <span aria-hidden="true">&rarr;</span>
+      </button>
+    </nav>
+  </section>
+
+  <!-- ============ Network ============ -->
+  <section class="panel" id="panel-network" role="tabpanel" aria-labelledby="tab-network" tabindex="0" hidden>
+    <div class="panel-intro">
+      <h2>Network of thinkers</h2>
+      <p>Who connects to whom, read out of table 1 itself. Nothing here is drawn by hand: a coral line means
+         one thinker's entry names another in its prose, and clicking a node quotes the sentence that does it.
+         Grey lines join thinkers filed under the same theoretical placement.</p>
+    </div>
+
+    <div class="controls">
+      <input type="search" id="net-q" placeholder="Find a thinker in the network" aria-label="Find a thinker" autocomplete="off">
+    </div>
+
+    <div class="net-wrap">
+      <div class="net-stage">
+        <svg id="net" viewBox="0 0 900 640" role="img" aria-label="Network diagram of thinkers in table 1"></svg>
+      </div>
+      <aside class="net-side">
+        <div id="net-legend" class="net-legend"></div>
+        <div id="net-detail" class="net-detail"></div>
+      </aside>
+    </div>
+
+    <nav class="panel-nav" aria-label="End of the network">
+      <button type="button" class="pnav back" data-top>&uarr; Back to top</button>
       <button type="button" class="pnav next" data-goto="thinkers">
-        <span aria-hidden="true">&larr;</span> Table 1 · Thinkers on technology, media and literacy
+        <span aria-hidden="true">&larr;</span> Table 1 · Thinkers
       </button>
     </nav>
   </section>
@@ -155,6 +253,8 @@
 <script src="assets/js/links.js"></script>
 <script src="assets/js/data-thinkers.js"></script>
 <script src="assets/js/data-methods.js"></script>
+<script src="assets/js/data-concepts.js"></script>
 <script src="assets/js/app.js"></script>
+<script src="assets/js/network.js"></script>
 </body>
 </html>

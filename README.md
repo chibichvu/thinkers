@@ -2,14 +2,18 @@
 
 A static, dependency-free reference site with two tables:
 
-1. **Thinkers on technology, media and literacy** — 83 authors, with dates, fields, key works,
+1. **Thinkers on technology, media and literacy** — 91 authors, with dates, fields, key works,
    what each work argues, the author's view of technology, and a theoretical placement
    (determinist · soft/medium theory · social shaping · other/mixed).
 2. **Organizational research methods** — 67 sources, with what each argues and what it
    contributed to field research. It covers the reading list of a doctoral field-methods
    seminar: method texts, editorial statements, and the published papers assigned as exemplars.
+3. **Concepts, theories and models** — 20 entries: what each claims, who made it and when,
+   how it was coined, what to read, a plain example, what it has to do with technology and
+   emerging media, and the standing objections.
+4. **Network of thinkers** — a force-directed map of table 1, described below.
 
-The two tables live on separate tabs rather than one long scrolling page. A nav bar at the top
+The tables live on separate tabs rather than one long scrolling page. A nav bar at the top
 switches between them — the active table is the one filled in gold — and each table ends with
 two buttons, one back to the top and one across to the other table, so neither end of a long
 table is a dead end. Each tab has its own search box and sort controls, and the thinkers table
@@ -82,8 +86,29 @@ assets/css/styles.css         all styling
 assets/js/links.js            Wikipedia / Google Books link helpers
 assets/js/data-thinkers.js    table 1 data
 assets/js/data-methods.js     table 2 data
+assets/js/data-concepts.js    table 3 data
 assets/js/app.js              tabs, search, filtering, sorting, rendering
+assets/js/network.js          the network tab: graph derivation and force layout
 ```
+
+## The network tab
+
+No edge list is stored anywhere. The graph is derived from table 1 at load time, three ways:
+
+| Link | Drawn when | Shown as |
+| --- | --- | --- |
+| Named in the prose | one entry's `a`, `v` or `cn` text contains another thinker's surname | coral |
+| Shared placement | two entries carry the same `cl` label (groups of 2–6) | black |
+| Shared discipline | two entries share a keyword in `f` (groups of 2–6) | grey |
+
+Because the first kind is read out of the text, clicking a node can quote the sentence that
+asserts each connection — every link is answerable to the table. Adding a thinker who mentions
+others therefore rewires the map without anyone editing a graph. Surnames too common to match
+safely (White, Large, Hall, Li and others) are in a stop list in `network.js`; groups larger
+than six are skipped so that a broad label like "philosophy" does not produce a hairball.
+
+`buildGraph` is exposed as `window.__netGraph` so the derivation can be checked without a
+browser.
 
 ## Editing the content
 

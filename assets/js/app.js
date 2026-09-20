@@ -4,10 +4,12 @@
 
   /* ---------------- tabs ---------------- */
 
-  const tabs = Array.from(document.querySelectorAll(".tab"));
+  const tabs = Array.from(document.querySelectorAll(".tab[role=\"tab\"]"));
   const panels = {
     thinkers: document.getElementById("panel-thinkers"),
-    methods: document.getElementById("panel-methods")
+    methods: document.getElementById("panel-methods"),
+    concepts: document.getElementById("panel-concepts"),
+    network: document.getElementById("panel-network")
   };
 
   /* The table card scrolls on its own axis now, so "top" means both the page
@@ -36,6 +38,7 @@
     const box = panels[name].querySelector(".scroller");
     if (box) box.scrollTop = 0;
     window.scrollTo({ top: 0, behavior: "auto" });
+    window.dispatchEvent(new CustomEvent("tabshown", { detail: name }));
   }
 
   tabs.forEach((t) => {
@@ -216,6 +219,86 @@
     });
   });
 
+
+  /* ---------------- table 3: concepts ---------------- */
+
+  const tbody3 = document.getElementById("tbody3");
+  const count3 = document.getElementById("count3");
+  let sort3 = "az", q3 = "", area = "all";
+
+  // Areas group the "kind of claim" labels into the filter buttons.
+  const AREAS = {
+    effects:  ["Effects theory", "Effects mechanism", "Audience theory", "Persuasion theory", "Perceptual effect"],
+    critical: ["Critical framework", "Normative framework", "Field of study", "Historiographical claim"],
+    models:   ["Model", "Theoretical tradition"],
+    psych:    ["Media psychology theory", "Empirical paradigm", "Interpersonal theory", "Analytic concept"],
+    found:    ["Philosophical position", "Methodological caution"]
+  };
+  const areaNames = {
+    effects: "Effects & audiences", critical: "Critical & normative",
+    models: "Models", psych: "Psychology & HCI", found: "Foundations"
+  };
+
+  function render3() {
+    let rows = CONCEPTS.filter((d) => {
+      if (area !== "all" && AREAS[area].indexOf(d.g) < 0) return false;
+      if (!q3) return true;
+      const hay = (d.n + " " + d.by + " " + d.f + " " + d.m + " " + d.o + " " + d.e + " " +
+        d.t + " " + d.k + " " + d.g + " " + d.r.map((x) => x[0]).join(" ")).toLowerCase();
+      return hay.includes(q3);
+    });
+    if (sort3 === "year") {
+      rows = rows.slice().sort((a, b) => (a.yr || 9999) - (b.yr || 9999));
+    }
+
+    tbody3.innerHTML = rows.length
+      ? rows.map((d) => `
+    <tr>
+      <td class="name"><a href="${d.u}" target="_blank" rel="noopener">${d.n}</a>
+          <div class="ipa"><span class="tag t-con">${d.g}</span></div></td>
+      <td class="fields">${d.by}</td>
+      <td class="years">${d.ys}</td>
+      <td class="fields">${d.f}</td>
+      <td class="about">${d.m}</td>
+      <td class="view">${d.o}</td>
+      <td class="works"><ul class="works-list">${d.r.map((x) =>
+        `<li><a href="${x[2]}" target="_blank" rel="noopener">${x[0]}</a> <span>(${x[1]})</span></li>`).join("")}</ul></td>
+      <td class="about">${d.e}</td>
+      <td class="view">${d.t || '<span class="na">No direct bearing on technology or emerging media.</span>'}</td>
+      <td class="about">${d.k}</td>
+    </tr>`).join("")
+      : `<tr class="empty"><td colspan="10">No concept matches that search.</td></tr>`;
+
+    const box3 = document.querySelector("#panel-concepts .scroller");
+    if (box3) box3.scrollTop = 0;
+
+    count3.textContent =
+      rows.length + " of " + CONCEPTS.length + " concepts shown · " +
+      (sort3 === "az" ? "alphabetical" : "earliest to latest") +
+      (area === "all" ? "" : " · " + areaNames[area]);
+  }
+
+  document.getElementById("q3").addEventListener("input", (e) => {
+    q3 = e.target.value.trim().toLowerCase();
+    render3();
+  });
+  document.querySelectorAll("button[data-sort3]").forEach((b) => {
+    b.addEventListener("click", () => {
+      sort3 = b.dataset.sort3;
+      document.querySelectorAll("button[data-sort3]").forEach((x) =>
+        x.setAttribute("aria-pressed", String(x === b)));
+      render3();
+    });
+  });
+  document.querySelectorAll("button[data-area]").forEach((b) => {
+    b.addEventListener("click", () => {
+      area = b.dataset.area;
+      document.querySelectorAll("button[data-area]").forEach((x) =>
+        x.setAttribute("aria-pressed", String(x === b)));
+      render3();
+    });
+  });
+
   /* ---------------- bottom of panel navigation ---------------- */
 
   document.querySelectorAll("[data-goto]").forEach((b) => {
@@ -242,5 +325,6 @@
 
   render();
   render2();
+  render3();
   showTab(location.hash.slice(1) || "thinkers", false);
 })();
