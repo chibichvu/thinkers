@@ -60,6 +60,12 @@ const THINKERS = [
  v:"Consumers are quietly productive, so the power of a technology or a text is never settled by its designers alone.",
  c:"soc",cl:"Consumption as production",cn:"The theoretical root of active-audience and participatory-culture arguments against media effects determinism."},
 
+{n:"Hubert Dreyfus",sy:1929,p:"/ˈhjuːbət ˈdraɪfəs/",u:W("Hubert_Dreyfus"),y:"1929–2017",f:"Philosophy, phenomenology, philosophy of mind",
+ w:[["What Computers Can't Do","1972, rev. 1992",B("What Computers Can't Do Dreyfus")],["Mind over Machine","1986",B("Mind over Machine Dreyfus")],["On the Internet","2001",B("On the Internet Dreyfus")]],
+ a:"Symbolic artificial intelligence is argued to rest on a mistaken inheritance from Descartes and Husserl, that intelligence consists in manipulating explicit representations, when expertise as Heidegger and Merleau-Ponty describe it is embodied, situated and largely unformulated; the later book extends the argument to the internet, where disembodied telepresence and distance learning are held to lose the risk, mood and bodily involvement that real mastery requires.",
+ v:"Not opposed to machines but to a picture of mind that machines are built on: what cannot be made explicit cannot be programmed, and a medium that removes the body removes the conditions of skill.",
+ c:"oth",cl:"Phenomenological critique of AI",cn:"The sustained philosophical opposition to Minsky and the symbolic programme at MIT, and the source most often paired with Weizenbaum when a syllabus needs the case against computational models of mind."},
+
 {n:"Elizabeth Eisenstein",sy:1923,p:"/ɪˈlɪzəbəθ ˈaɪzənstaɪn/",u:W("Elizabeth_Eisenstein"),y:"1923–2016",f:"History, book history, communication history",
  w:[["The Printing Press as an Agent of Change","1979",B("The Printing Press as an Agent of Change Eisenstein")]],
  a:"Printing is credited with fixity, standardisation and wide dissemination, and through them with the Reformation, the Renaissance and the scientific revolution taking the shape they did.",
@@ -174,6 +180,12 @@ const THINKERS = [
  v:"Human institutions are engineered artefacts, and the machine is the governing metaphor for both body and polity.",
  c:"oth",cl:"Mechanistic philosophy",cn:"Supplies the mechanical model of society that Mumford's megamachine and later systems critiques push back against."},
 
+{n:"Grace Hopper",sy:1906,p:"/ɡreɪs ˈhɒpə/",u:W("Grace_Hopper"),y:"1906–1992",f:"Mathematics, computer science, United States Navy",
+ w:[["The Education of a Computer","1952",G("Grace Hopper The Education of a Computer 1952 ACM")],["Compilers and COBOL","1952–1959",G("Grace Hopper A-0 compiler FLOW-MATIC COBOL history")]],
+ a:"Programming is argued to be a task that should be handed back to the machine: the compiler translates instructions written in something close to English into machine code, and the business language that followed was designed so that people who were not mathematicians could direct a computer.",
+ v:"Computing power is worth little until it is reachable by people who are not specialists, which makes the language a machine is addressed in a political question as much as a technical one.",
+ c:"soc",cl:"Access and the interface",cn:"Belongs with the design and accessibility strand rather than with medium theory: the argument is that the barrier to a technology is usually its interface, not its capability."},
+
 {n:"Harold Innis",sy:1894,p:"/ˈhærəld ˈɪnɪs/",u:W("Harold_Innis"),y:"1894–1952",f:"Political economy, communication history",
  w:[["Empire and Communications","1950",B("Empire and Communications Innis")],["The Bias of Communication","1951",B("The Bias of Communication Innis")]],
  a:"Media are sorted by bias: heavy, durable, time-biased media favour tradition and religious authority, while light, portable, space-biased media favour administration and territorial empire.",
@@ -221,6 +233,12 @@ const THINKERS = [
  a:"Electrification and scientific management are adopted as the material basis of socialism, with the formula that communism equals Soviet power plus electrification of the whole country.",
  v:"Technology is class-neutral machinery that changes meaning with ownership, so capitalist techniques including Taylorism can be taken over wholesale.",
  c:"det",cl:"Productive-forces determinism",cn:"The state-socialist reading of Marx that later Marxists, Braverman and Melman among them, reject as ignoring how technique embeds control."},
+
+{n:"Fei-Fei Li",sy:1976,p:"/feɪ feɪ liː/ · Mandarin 李飞飞, Lǐ Fēifēi",u:W("Fei-Fei_Li"),y:"b. 1976",f:"Computer science, computer vision, human-centred AI",
+ w:[["ImageNet","2009",G("Deng Dong Socher Li Li Fei-Fei ImageNet a large-scale hierarchical image database 2009")],["The Worlds I See","2023",B("The Worlds I See Fei-Fei Li")]],
+ a:"The claim behind ImageNet is that the bottleneck in machine vision was data rather than algorithms, and that a very large labelled collection of images would let existing methods succeed where they had stalled, which is what happened in 2012; the memoir argues that the field now needs to be organised around human benefit rather than benchmark performance.",
+ v:"Artificial intelligence is a human artefact whose direction is set by the people who choose its data and its goals, so the discipline's task is to build it deliberately rather than to predict it.",
+ c:"soc",cl:"Human-centred AI",cn:"Sits opposite Crawford in this table: the same dataset that ImageNet made central is what Crawford and Paglen took apart in Excavating AI as a classification scheme carrying social judgments."},
 
 {n:"Walter Lippmann",sy:1889,p:"/ˈwɔːltər ˈlɪpmən/",u:W("Walter_Lippmann"),y:"1889–1974",f:"Journalism, political theory, public opinion research",
  w:[["Public Opinion","1922",B("Public Opinion Lippmann")],["The Phantom Public","1925",B("The Phantom Public Lippmann")]],
@@ -287,6 +305,18 @@ const THINKERS = [
  a:"Permanent military production is argued to have created a state management system that drains civilian industry of capital and skill while rewarding cost growth rather than efficiency.",
  v:"The direction of technical development follows institutional power, and workplace technology is chosen for managerial control as much as for productivity.",
  c:"soc",cl:"Political economy of technical choice",cn:"An early insider argument that technology is shaped by who pays, aligned with later labour-process critiques."},
+
+{n:"Donald Michie",sy:1923,p:"/ˈdɒnəld ˈmɪki/",u:W("Donald_Michie"),y:"1923–2007",f:"Artificial intelligence, machine learning, genetics; codebreaking at Bletchley Park",
+ w:[["Trial and error (MENACE)","1961–1963",G("Donald Michie MENACE matchbox educable noughts and crosses engine 1961")],["On Machine Intelligence","1974",B("On Machine Intelligence Donald Michie")],["Machine learning as knowledge refining","1986–1988",G("Donald Michie machine learning knowledge refining ultra-strong criterion")]],
+ a:"A learning machine built from matchboxes and beads demonstrates that a system with no model of the game can improve by adjusting the odds it keeps, and the later argument is that machine learning should be judged as knowledge refining: a system passes the strong test when it produces a rule the machine can state, and the ultra-strong test only when a person taught that rule performs better than before.",
+ v:"A machine that learns should hand back knowledge in a form a person can read and use, so a system whose competence cannot be articulated has refined nothing.",
+ c:"oth",cl:"Machine learning as knowledge refining",cn:"The earliest clear statement of what is now argued about under interpretability and explainable AI, and the criterion by which a system that outperforms people while explaining nothing would still count as a failure."},
+
+{n:"Marvin Minsky",sy:1927,p:"/ˈmɑːvɪn ˈmɪnski/",u:W("Marvin_Minsky"),y:"1927–2016",f:"Artificial intelligence, cognitive science, mathematics",
+ w:[["Steps Toward Artificial Intelligence","1961",G("Minsky Steps Toward Artificial Intelligence 1961")],["A Framework for Representing Knowledge","1974",G("Minsky A Framework for Representing Knowledge frames 1974")],["The Society of Mind","1986",B("The Society of Mind Minsky")]],
+ a:"Intelligence is argued to require no single intelligent principle: the mind is a society of small agents, none of them clever, whose organisation produces thought, and understanding a situation means selecting a frame, a stored default structure that says what to expect and what to check.",
+ v:"There is no barrier in principle between minds and machines, and the apparent difficulty of building one is a matter of engineering the right organisation rather than of any special human property.",
+ c:"oth",cl:"Symbolic AI",cn:"Co-founder of the MIT AI laboratory and the position Dreyfus wrote against; frames were taken up in media research through Goffman's separate use of the word, which is a coincidence of vocabulary rather than a shared theory."},
 
 {n:"Abbe Mowshowitz",sy:null,ay:1976,p:"/ˈæbi ˈmaʊʃəwɪts/ (approximate)",u:G("Abbe Mowshowitz computer science City College New York"),y:"<span class='uncertain'>dates not established</span>",f:"Computer science, social informatics",
  w:[["The Conquest of Will: Information Processing in Human Affairs","1976",B("The Conquest of Will Mowshowitz")],["Virtual Organization","2002",B("Virtual Organization Mowshowitz")]],
@@ -390,6 +420,12 @@ const THINKERS = [
  v:"Artefacts are the outcome of negotiable design and commercial decisions, so different futures were always available.",
  c:"soc",cl:"Design as social choice",cn:"Belongs with Cross and Elliott in the Open University technology-and-society teaching tradition."},
 
+{n:"Stuart Russell",sy:1962,p:"/ˈstjuːət ˈrʌsəl/",u:W("Stuart_J._Russell"),y:"b. 1962",f:"Computer science, artificial intelligence, decision theory",
+ w:[["Artificial Intelligence: A Modern Approach","1995, 4th ed. 2020",B("Artificial Intelligence A Modern Approach Russell Norvig")],["Human Compatible","2019",B("Human Compatible Stuart Russell")]],
+ a:"The standard way of building intelligent systems, fixing an objective and optimising it, is argued to be the source of the danger rather than a safeguard, because any sufficiently capable optimiser of a misstated goal will pursue it past the point anyone intended; the proposed replacement has machines treat human preferences as uncertain and defer to people accordingly.",
+ v:"The risk is not malevolence but competence applied to the wrong objective, which makes it a specification problem for designers rather than a question about machine consciousness.",
+ c:"oth",cl:"Control and alignment",cn:"Written from inside mainstream AI, and his textbook with Peter Norvig is the standard one; the position is distinct from both Kissinger's geopolitical framing and McGinn's scepticism about machine consciousness."},
+
 {n:"Philip Sarre",sy:null,ay:1985,p:"/ˈfɪlɪp sɑː/ (approximate)",u:G("Philip Sarre Open University geography society"),y:"<span class='uncertain'>dates not established</span>",f:"Geography, social science, environment",
  w:[["Open University readers on society, technology and environment","1980s–90s",G("Philip Sarre Open University reader society environment")]],
  a:"His editorial work gathers social-science writing on environment, development and technological change for teaching purposes rather than advancing a single thesis.",
@@ -420,6 +456,12 @@ const THINKERS = [
  v:"There is no literacy as such, only literacies, and claims about what writing does to minds are usually claims about whose writing counts.",
  c:"soc",cl:"Ideological model of literacy",cn:"The founding statement of New Literacy Studies and the sharpest anti-determinist position in the Goody–Ong–Olson debate."},
 
+{n:"Carl Stumpf",sy:1848,p:"/kaʁl ʃtʊmpf/",u:W("Carl_Stumpf"),y:"1848–1936",f:"Philosophy, experimental psychology, comparative musicology",
+ w:[["Tonpsychologie","1883–1890",B("Tonpsychologie Carl Stumpf")],["Clever Hans: report of the Hans Commission","1904–1907",G("Stumpf Pfungst Clever Hans commission 1904 Berlin")]],
+ a:"The psychology of tone is built up from what listeners actually report hearing rather than from the physics of the stimulus, and the investigation of the counting horse, carried out with his student Oskar Pfungst, showed the animal was reading involuntary movements in its questioners, so the experiment was measuring the experimenter.",
+ v:"He used recording technology as an instrument rather than theorising it: the Berlin Phonogramm-Archiv he founded in 1900 was built to capture music that could not otherwise be compared, an early case of a medium being adopted to make a science possible.",
+ c:"",cl:"",cn:"Founder of the Berlin school of experimental psychology and teacher of Husserl, Köhler and Koffka. He is here for two reasons: the Clever Hans episode, which named a bias that recurs whenever a system appears to understand and is in fact reading its handler, and the phonograph archive. No general position on technology or media is attributed to him."},
+
 {n:"Henry David Thoreau",sy:1817,p:"/ˈhɛnri ˈdeɪvɪd θəˈroʊ/ · also /ˈθɔːroʊ/",u:W("Henry_David_Thoreau"),y:"1817–1862",f:"Literature, philosophy, naturalism",
  w:[["Walden","1854",B("Walden Thoreau")]],
  a:"Simplified living is set against the acceleration of the railway and the telegraph, with the observation that men have become the tools of their tools and that improved means often serve unimproved ends.",
@@ -437,6 +479,12 @@ const THINKERS = [
  a:"Accelerating change is diagnosed as a psychological illness of too much transience, and history is divided into agricultural, industrial and informational waves, each with its own institutions and family forms.",
  v:"Technology is the engine of epochal change, and societies can only adapt to the wave they are in.",
  c:"det",cl:"Popular determinism",cn:"The best-selling version of the position, and the usual first target when Webster, Robins or Williams attack epochal thinking."},
+
+{n:"Alan Turing",sy:1912,p:"/ˈælən ˈtjʊərɪŋ/",u:W("Alan_Turing"),y:"1912–1954",f:"Mathematics, logic, cryptanalysis, early computing",
+ w:[["On Computable Numbers","1936",G("Turing On Computable Numbers with an Application to the Entscheidungsproblem 1936")],["Computing Machinery and Intelligence","1950",G("Turing Computing Machinery and Intelligence Mind 1950 imitation game")]],
+ a:"A single abstract machine is shown able to compute anything any such machine can compute, which supplies the idea of the general-purpose computer; the 1950 paper then sets aside the question of whether machines can think as too ill-defined to answer and substitutes a test, whether an interrogator reading typed replies can tell machine from person.",
+ v:"He replaces the question of what a machine is with the question of what it can be taken for, which locates machine intelligence in observed conduct rather than in any inner property, and declines to speculate about what the machine experiences.",
+ c:"oth",cl:"Machine intelligence",cn:"The origin of the question the later AI entries answer differently: Minsky affirmatively, Dreyfus and Weizenbaum against, McGinn by arguing we could not settle it. The imitation game is frequently reported as a prediction that machines would think, which is not what the paper claims."},
 
 {n:"John von Neumann",sy:1903,p:"/dʒɒn vɒn ˈnɔɪmən/",u:W("John_von_Neumann"),y:"1903–1957",f:"Mathematics, computer science, game theory",
  w:[["Can We Survive Technology?","1955",G("von Neumann Can We Survive Technology 1955 Fortune")],["Theory of Games and Economic Behavior","1944",B("Theory of Games and Economic Behavior von Neumann")]],
